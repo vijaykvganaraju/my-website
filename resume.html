@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="/assets/styles/resume.css">
+    <link rel="stylesheet" href="/assets/styles/common.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+</head>
+
+<body>
+    <nav class="navbar">
+        <a href="/" class="logo nav-item">
+            <img class="logo-img" src="/assets/img/logo/black50px.png" alt="logo">
+        </a>
+
+        <ul id="menu" class="menu nav-item">
+            <li class="menu-item">
+                <a href="#" class="menu-option">About</a>
+            </li>
+            <li class="menu-item">
+                <a href="#" class="menu-option">Portifolio</a>
+            </li>
+            <li class="menu-item current-page">
+                <a href="#" class="menu-option">Resume</a>
+            </li>
+            <li class="menu-item">
+                <a href="#" class="menu-option">Blog</a>
+            </li>
+            <li class="menu-item">
+                <a href="#" class="menu-option">Contact</a>
+            </li>
+        </ul>
+
+        <div class="mobile-menu-button nav-item">
+            <span id="navButtonIcon" onclick="viewMenu()" class="material-icons nav-button">
+                menu
+            </span>
+        </div>
+
+        <div class="break-row"></div>
+    </nav>
+
+    <div class="top-bar">
+        
+    </div>
+    
+    <div class="controls-info">
+        <div class="controls">
+            <button id="prev-page" class="control-button" onclick="prevPage()"><i class="material-icons control-icon">keyboard_arrow_left</i></button>
+            <button id="prev-page" class="control-button" onclick="zoomIn()"><i class="material-icons control-icon">zoom_in</i></button>
+            <button id="prev-page" class="control-button" onclick="zoomOut()"><i class="material-icons control-icon">zoom_out</i></button>
+            <button id="next-page" class="control-button" onclick="nextPage()"><i class="material-icons control-icon">keyboard_arrow_right</i></button>
+        </div>
+
+        <div class="info">
+            <p>Page <span id="pageNumber">0</span> of <span id="totalPages">0</span></p>
+        </div>
+    </div>
+
+    <div class="pdf-canvas-div">
+        <canvas class="pdf-canvas">
+        </canvas>
+    </div>
+
+    <div class="common-button-div">
+        <a class="common-button" href="/assets/files/resume.pdf" target="_blank">VIEW RAW DOCUMENT</a>
+
+        <a class="common-button" href="/contact.html">VIEW UNREDACTED VERSION</a>
+    </div>
+    
+
+    <footer class="footer">
+        <ul class="ftr-menu">
+            <li class="ftr-menu-item">
+                <a href="#" class="ftr-menu-option">About</a>
+            </li>
+            <li class="ftr-menu-item">
+                <a href="#" class="ftr-menu-option">Portifolio</a>
+            </li>
+            <li class="ftr-menu-item">
+                <a href="#" class="ftr-menu-option">Resume</a>
+            </li>
+            <li class="ftr-menu-item">
+                <a href="#" class="ftr-menu-option">Blog</a>
+            </li>
+            <li class="ftr-menu-item">
+                <a href="#" class="ftr-menu-option">Contact</a>
+            </li>
+        </ul>
+
+        <div class="sm-icon-div">
+            <a href="https://www.linkedin.com/in/vijay-ganaraju-2a0982126/" target="_blank"><img class="sm-icon"
+                    href="#" src="/assets/img/icons/li.png" alt="linkedin-icon"></a>
+
+            <a href="https://discord.gg/tBU7ZP" target="_blank"><img class="sm-icon" src="/assets/img/icons/discord.png"
+                    alt="discord-icon"></a>
+
+            <a href="https://twitter.com/vijaykvganaraju" target="_blank"><img class="sm-icon"
+                    src="/assets/img/icons/twitter.png" alt="twitter-icon"></a>
+
+            <a href="https://www.youtube.com/user/Tejaswi88" target="_blank"><img class="sm-icon"
+                    src="/assets/img/icons/yt.png" alt="youtube-icon"></a>
+
+            <a href="mailto:a@a.com"><img class="sm-icon" src="/assets/img/icons/email.png" alt="email"></a>
+        </div>
+
+        <div class="owner-info">© Owned and maintained by Vijay Kumar Varma Ganaraju</div>
+    </footer>
+
+    <!-- scripts -->
+    <script src="//mozilla.github.io/pdf.js/build/pdf.js"></script>
+    <script src="/assets/scripts/common.js"></script>
+    <script src="/assets/scripts/resume.js"></script>
+    
+</body>
+
+</html>

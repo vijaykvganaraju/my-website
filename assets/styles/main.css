@@ -1,0 +1,315 @@
+@import url('https://fonts.googleapis.com/css?family=Bitter|PT+Serif|Open+Sans|Open+Sans:600|Roboto+Slab&display=swap');
+
+
+@media screen and (min-width: 901px) {
+
+    /* start screen details */
+
+    .start-screen-button-div {
+        
+    }
+
+    .basic-details {
+
+    }
+    
+    .name-heading {
+        font-size: 3.6rem;
+        
+    }
+
+    .start-screen-desc {
+        max-width: 400px;
+        margin: 0;
+    }
+
+    /* end of start screen details */
+
+    /* second screen */
+
+    .about-me {
+
+    }
+
+    .about-me-heading {
+        flex: auto;
+    }
+
+    .about-me-desc {
+        width: 55vw;
+        max-width: 600px;
+        display: flex;
+        flex-direction: row;
+        flex: auto;
+        margin: 0;
+
+        
+    }
+
+    .about-me-button-div {
+        
+    }
+
+    /* end of seccond screen */
+
+    /* third screen */
+
+
+
+    /* end of third screen */
+
+    /* footer */
+
+
+
+    /* end of footer */
+
+    .screen-button {
+        background: none;
+        border: 1px solid #000000;
+        border-radius: 4px;
+        padding: 20px 80px;
+        cursor: pointer;
+
+        
+        font-family: 'Open Sans', serif;
+        font-size: 1rem;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .screen-button:hover {
+        background-color: #000000;
+        color: #ffffff;
+
+
+    }
+
+    .screen-button-div {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        flex-grow: 1;
+    }
+
+    .screen-div {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-end;
+        justify-content: space-between;
+        flex-grow: 1;
+        width: 100%;
+    }
+
+    .screen-heading {
+        font-family: 'PT Serif', serif;
+        font-size: 4rem;
+        text-shadow: 2px 2px 2px rgba(255, 255, 255, 0.6);
+        margin: 0;
+        padding-left: 20px;
+    }
+
+    .screen-desc {
+        font-family: 'Bitter', serif;
+        font-size: 1rem;
+        flex-wrap: wrap;
+        text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.6);
+        padding-right: 20px;
+    }
+
+    body {
+        min-height: 650px;
+    }
+
+}
+
+
+
+@media screen and (min-width: 320px) and (max-width: 900px) {
+
+    
+     /* start screen details */
+
+    .basic-details {
+        
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        
+    }
+    
+    .name-heading {
+        font-family: 'PT Serif', serif;
+        font-size: 3.6rem;
+        margin: 0;
+        
+    }
+
+    .small-description {
+        display: flex;
+        margin: 3px;
+        flex-wrap: wrap;
+
+    }
+
+    .start-screen-button-div {
+        
+    }
+
+    /* end of start screen details */
+
+    /* second screen */
+
+    .about-me {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    
+    }
+
+    .about-me-heading {
+        
+    }
+
+    .about-me-desc {
+
+    }
+
+    .about-me-button-div {
+
+    }
+
+    /* end of second screen */
+
+    /* third screen */
+
+
+
+    /* end of third screen */
+
+    
+
+    .screen-button {
+        background: none;
+        border: 1px solid #000000;
+        border-radius: 4px;
+        padding: 10px 50px;
+        cursor: pointer;
+
+
+        font-family: 'Open Sans', serif;
+        font-size: 1rem;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .screen-button:hover {
+        background-color: #000000;
+        color: #ffffff;
+
+
+    }
+
+    .screen-button-div {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        padding: 10px;
+    }
+
+    .bg-banner {
+        background-color: #ffffff50;
+        width: 100%;
+        border-radius: 4px;
+        text-align: center;
+    }
+
+    .screen-heading {
+        font-family: 'PT Serif', serif;
+        text-shadow: 2px 2px 2px rgba(61, 61, 61, 0.4);
+        margin-top: 0;
+        font-size: 3.5rem;
+        margin-bottom: 0.1em;
+    }
+
+    .screen-desc {
+        font-family: 'Bitter', serif;
+        font-size: 1rem;
+        text-shadow: 2px 2px 2px rgba(61, 61, 61, 0.4);
+    }
+
+    body {
+        min-height: 350px;
+    }
+
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+/* start screen */
+.start-screen {
+    background-image: url(/assets/img/bg/intro.jpg);
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* end  of start screen */
+
+
+/* second screen */
+
+
+.second-screen {
+    height: 100vh;
+    background-image: url(/assets/img/bg/about.jpg);
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* end of second screen */
+
+/* third screen */
+
+.third-screen {
+    height: 100vh;
+    background-image: url(/assets/img/bg/social.jpg);
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* end of third screen */
+
+li {
+    list-style-type: none;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    
+}
+

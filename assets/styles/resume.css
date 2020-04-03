@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css?family=Bitter|PT+Serif|Open+Sans|Open+Sans:600|Roboto+Slab&display=swap');
+
+@media screen and (min-width: 900px) {
+
+}
+
+@media screen and (min-width: 320px) and (max-width: 899px) {
+
+}
+
+.controls-info {
+    margin-top: 90px;
+}
+
+.controls, .info {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.control-button {
+    border: 1px solid #ffffff;
+    border-radius: 50%;
+    background-color: #ffffff;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    margin: 0 10px;
+    padding: 0;
+}
+
+.control-button:hover {
+    border: 1px solid #000000;
+}
+
+.control-icon {
+    padding: 5px 5px;
+}
+
+p {
+    font-family: 'Roboto Slab', serif;
+    padding: 10px 0;
+    margin: 0;
+}
+
+.pdf-canvas-div {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    margin: 0;
+}
