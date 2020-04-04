@@ -1,27 +1,30 @@
 function viewMenu() {
 
 
-    let navButton = document.querySelector("#navButtonIcon").innerText;
-    let menuState = document.querySelector(".menu").style.display;
+    let navButton = document.querySelector('#navButtonIcon').innerText;
+    let menuState = document.querySelector('.menu').style.display;
 
-    navButton === "menu" ? (navButton = "close", menuState = "flex") : (navButton = "menu", menuState = "none");
+    navButton === 'menu' ? (navButton = 'close', menuState = 'flex') : (navButton = 'menu', menuState = 'none');
 
-    document.querySelector("#navButtonIcon").innerHTML = navButton;
-    document.querySelector(".menu").style.display = menuState;
+    document.querySelector('#navButtonIcon').innerHTML = navButton;
+    document.querySelector('.menu').style.display = menuState;
 }
 
-window.addEventListener("resize", () => {
+window.addEventListener('resize', () => {
     const width = window.innerWidth;
 
     if (width > 320 && width < 900) {
-        document.querySelector(".menu").style.display = "none";
+        document.querySelector('.menu').style.display = 'none';
+        document.querySelector('.mobile-specific').style.display = 'flex';
+
 
     } else if (width >= 900) {
-        document.querySelector(".menu").style.display = "flex";
+        document.querySelector('.menu').style.display = 'flex';
+        document.querySelector('.mobile-specific').style.display = 'none';
 
     }
 
-    document.querySelector("#navButtonIcon").innerText = "menu";
+    document.querySelector('#navButtonIcon').innerText = 'menu';
 
 });
 

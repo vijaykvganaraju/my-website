@@ -47,6 +47,13 @@
         visibility: hidden;
     }
 
+    .mobile-specific {
+        display: none;
+    }
+
+    .current-page {
+        border-bottom: 1px solid rgba(61, 61, 61, 0.4);
+    }
     /* end of navbar */
 
     /* footer */
@@ -119,22 +126,15 @@
         height: 100vh;
         position: absolute;
         z-index: 1;
-        top: 85px;
         background-color: #ffffff;
         align-items: center;
         overflow: hidden;
     }
 
     .menu-item {
-        font-size: 1.5em;
-        padding: 1em 0;
-        border-bottom: 1px solid #ffffff;
-        transition: all 0.3s ease-in-out;
-    }
-
-    .menu-item:hover {
-        border-bottom: 1px solid black;
-        cursor: pointer;
+        font-size: 1.5rem;
+        padding: 20px 0;
+        text-align: center;
     }
 
     .mobile-menu-button {
@@ -159,6 +159,9 @@
         cursor: pointer;
     }
 
+    .current-page {
+        font-weight: 600;
+    }
     /* end of navbar */
 
     /* footer */
@@ -220,11 +223,6 @@
     top: 0;
     background-color: #ffffff;
     width: 100%;
-}
-
-.current-page {
-        border-bottom: 1px solid rgba(61, 61, 61, 0.4);
-
 }
 
 /* end of navbar */
