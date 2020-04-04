@@ -140,7 +140,6 @@
     
     .name-heading {
         font-family: 'PT Serif', serif;
-        font-size: 3.6rem;
         margin: 0;
         
     }
@@ -198,7 +197,7 @@
 
 
         font-family: 'Open Sans', serif;
-        font-size: 1rem;
+        font-size: 0.8rem;
         transition: all 0.3s ease-in-out;
     }
 
@@ -227,7 +226,7 @@
         font-family: 'PT Serif', serif;
         text-shadow: 2px 2px 2px rgba(61, 61, 61, 0.4);
         margin-top: 0;
-        font-size: 3.5rem;
+        font-size: 2rem;
         margin-bottom: 0.1em;
     }
 
