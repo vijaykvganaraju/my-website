@@ -1,4 +1,4 @@
-const url = '/assets/files/resume.pdf';
+const url = './assets/files/resume.pdf';
 
 let pdfjsLib = window['pdfjs-dist/build/pdf'];
 
@@ -81,9 +81,12 @@ function zoomOut() {
 }
 
 
-pdfjsLib.getDocument(url).promise.then(function (pdfDoc_) {
-    pdfDoc = pdfDoc_;
-    document.querySelector('#totalPages').textContent = pdfDoc.numPages;
-
-    renderPage(pageNum);
-});
+pdfjsLib.getDocument(url)
+    .promise.then(function (pdfDoc_) {
+        pdfDoc = pdfDoc_;
+        document.querySelector('#totalPages').textContent = pdfDoc.numPages;
+        renderPage(pageNum);
+    }) 
+    .catch(err => {
+        console.error(err);
+    });

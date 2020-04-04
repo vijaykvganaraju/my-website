@@ -23,8 +23,5 @@ window.addEventListener("resize", () => {
 
     document.querySelector("#navButtonIcon").innerText = "menu";
 
-    console.log(width);
-    
-
 });
 

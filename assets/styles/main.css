@@ -252,7 +252,7 @@
 
 /* start screen */
 .start-screen {
-    background-image: url(/assets/img/bg/intro.jpg);
+    background-image: url(../img/bg/intro.jpg);
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -272,7 +272,7 @@
 
 .second-screen {
     height: 100vh;
-    background-image: url(/assets/img/bg/about.jpg);
+    background-image: url(../img/bg/about.jpg);
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -289,7 +289,7 @@
 
 .third-screen {
     height: 100vh;
-    background-image: url(/assets/img/bg/social.jpg);
+    background-image: url(../img/bg/social.jpg);
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
