@@ -1,15 +1,11 @@
 @import url('https://fonts.googleapis.com/css?family=Bitter|PT+Serif|Open+Sans|Open+Sans:600|Roboto+Slab&display=swap');
 
-@media screen and (min-width: 900px) {
+@media only screen and (min-width: 900px) {
 
 }
 
-@media screen and (min-width: 320px) and (max-width: 899px) {
+@media only screen and (min-width: 320px) and (max-width: 900px) {
 
-}
-
-.controls-info {
-    margin-top: 90px;
 }
 
 .controls, .info {

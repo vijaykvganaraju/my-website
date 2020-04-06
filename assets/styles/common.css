@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Bitter|PT+Serif|Open+Sans|Open+Sans:600|Roboto+Slab&display=swap');
 
-@media screen and (min-width: 900px) {
+@media only screen and (min-width: 900px) {
 
     /* navbar */
     .navbar {
@@ -58,7 +58,11 @@
 
     /* footer */
 
-
+    .ftr-menu-item {
+        font-size: 1.2rem;
+        padding: 0.5em 2em;
+        text-align: center;
+    }
 
     /* end of footer */
 
@@ -73,7 +77,7 @@
         cursor: pointer;
         
         font-family: 'Open Sans', serif;
-        font-size: 1rem;
+        font-size: 0.8rem;
         text-decoration: none;
         color: #000000;
         transition: all 0.3s ease-in-out;
@@ -96,9 +100,45 @@
     }
 
     /* end of button */
+
+    .big-frc {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .big-fcc {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .limit-page {
+        max-width: 700px;
+    }
+
+    .page-title {
+        font-family: 'PT Serif', serif;
+        font-size: 3rem;
+        flex-wrap: wrap;
+        margin-bottom: 10px;
+    }
+
+    .heading {
+        font-family: 'PT Serif', serif;
+        font-size: 1.5rem;
+        flex-wrap: wrap;
+    }
+
+    .desc {
+        font-family: 'Bitter', serif;
+        font-size: 1rem;
+        flex-wrap: wrap;
+    }
+
 }
 
-@media screen and (min-width: 320px) and (max-width: 899px) {
+@media only screen and (min-width: 320px) and (max-width: 900px) {
     /* navbar */
     .navbar {
         flex-wrap: wrap;
@@ -128,7 +168,7 @@
         z-index: 1;
         background-color: #ffffff;
         align-items: center;
-        overflow: hidden;
+        /* overflow: hidden; */
     }
 
     .menu-item {
@@ -162,11 +202,16 @@
     .current-page {
         font-weight: 600;
     }
+
     /* end of navbar */
 
     /* footer */
 
-
+    .ftr-menu-item {
+        font-size: 1rem;
+        padding: 0.5em 1em;
+        min-width: 80px;
+    }
 
     /* end of footer */
 
@@ -176,14 +221,14 @@
         background: none;
         border: 1px solid #000000;
         border-radius: 4px;
-        padding: 10px 50px;
+        padding: 10px 40px;
         cursor: pointer;
         margin-bottom: 10px;
-        min-width: 220px;
         text-align: center;
+        min-width: 200px;
 
         font-family: 'Open Sans', serif;
-        font-size: 1rem;
+        font-size: 0.8rem;
         text-decoration: none;
         color: #000000;
         transition: all 0.3s ease-in-out;
@@ -206,6 +251,41 @@
 
     /* end of button */
 
+    .small-frc {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .small-fcc {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .limit-page {
+        padding: 0 20px;
+    }
+
+    .page-title {
+        font-family: 'PT Serif', serif;
+        font-size: 2rem;
+        flex-wrap: wrap;
+        margin: 0;
+    }
+
+    .heading {
+        font-family: 'PT Serif', serif;
+        font-size: 1.5rem;
+        flex-wrap: wrap;
+    }
+
+    .desc {
+        font-family: 'Bitter', serif;
+        font-size: 1rem;
+        flex-wrap: wrap;
+    }
+
 }
 
 /* navbar */
@@ -225,6 +305,13 @@
     width: 100%;
 }
 
+.logo-img {
+    width: 30px;
+}
+
+.nav-top {
+    padding-top: 85px;
+}
 /* end of navbar */
 
 /* footer */
@@ -253,11 +340,6 @@ footer {
     flex-wrap: wrap;
     margin: 0 0 0.5em 0;
     padding: 0;
-}
-
-.ftr-menu-item {
-    font-size: 1.2rem;
-    margin: 0.5em 2em;
 }
 
 .ftr-menu-option:hover {
@@ -290,10 +372,27 @@ footer {
     font-size: 0.7rem;
     padding-top: 1em;
     text-align: center;
+    flex-wrap: wrap;
 
 
 }
 /* end of footer */
+
+.stretch {
+    flex: auto;
+}
+
+.frc {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.fcc {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
 
 li {
     list-style-type: none;
@@ -303,4 +402,8 @@ body {
     margin: 0;
     padding: 0;
     
+}
+
+*:focus {
+    outline:none !important;
 }
