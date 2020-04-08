@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css?family=Bitter|PT+Serif|Open+Sans|Open+Sans:600|Roboto+Slab&display=swap');
+
+
+@media only screen and (min-width: 900px) {
+
+}
+
+
+
+@media only screen and (min-width: 320px) and (max-width: 900px) {
+
+    .trivia-link {
+        border: 1px solid #00000020;
+        border-radius: 4px;
+    }
+}
+
+
+/* movies */
+
+.trivia-div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+
+    margin-bottom: 10px;
+}
+
+.trivia-item {
+    width: 160px;
+    margin: 5px;
+}
+
+.trivia-link {
+    font-family: 'Roboto Slab', serif;
+    border-radius: 4px;
+    color: #000000;
+    font-size: 1rem;
+    padding: 10px 5px;
+
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.trivia-link .material-icons {
+    font-size: 1rem;
+}
+
+/* end of movies */
