@@ -31,7 +31,6 @@
     }
 
     .social-media:hover {
-        cursor: pointer;
         color: #000000;
         border: 1px solid #00000020;
     }
@@ -81,9 +80,6 @@ input:focus, textarea:focus {
 /* end of contact me form */
 
 /* social media */
-    .social-title {
-        margin-bottom: 1em;
-    }
 
     .social-links {
         width: 100%;
@@ -99,6 +95,10 @@ input:focus, textarea:focus {
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
+    }
+
+    .social-media:hover {
+        cursor: pointer;
     }
 
     .social-media .material-icons {
