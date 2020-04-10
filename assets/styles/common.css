@@ -339,6 +339,7 @@
 footer {
     height: 300px;
     background-color: #000000;
+    margin-top: auto;
 }
 
 .ftr-menu-option {
@@ -397,6 +398,10 @@ footer {
 
 }
 /* end of footer */
+
+.container {
+    min-height: 100vh;
+}
 
 .stretch {
     flex: auto;

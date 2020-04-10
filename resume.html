@@ -49,68 +49,74 @@
         <div class="break-row"></div>
     </nav>
     
-    <div class="controls-info nav-top">
-        <div class="controls">
-            <button id="prev-page" class="control-button" onclick="prevPage()"><i class="material-icons control-icon">keyboard_arrow_left</i></button>
-            <button id="prev-page" class="control-button" onclick="zoomIn()"><i class="material-icons control-icon">zoom_in</i></button>
-            <button id="prev-page" class="control-button" onclick="zoomOut()"><i class="material-icons control-icon">zoom_out</i></button>
-            <button id="next-page" class="control-button" onclick="nextPage()"><i class="material-icons control-icon">keyboard_arrow_right</i></button>
+    <div class="container fcc">
+        <div class="controls-info nav-top">
+            <div class="controls">
+                <button id="prev-page" class="control-button" onclick="prevPage()"><i
+                        class="material-icons control-icon">keyboard_arrow_left</i></button>
+                <button id="prev-page" class="control-button" onclick="zoomIn()"><i
+                        class="material-icons control-icon">zoom_in</i></button>
+                <button id="prev-page" class="control-button" onclick="zoomOut()"><i
+                        class="material-icons control-icon">zoom_out</i></button>
+                <button id="next-page" class="control-button" onclick="nextPage()"><i
+                        class="material-icons control-icon">keyboard_arrow_right</i></button>
+            </div>
+        
+            <div class="info">
+                <p>Page <span id="pageNumber">0</span> of <span id="totalPages">0</span></p>
+            </div>
         </div>
-
-        <div class="info">
-            <p>Page <span id="pageNumber">0</span> of <span id="totalPages">0</span></p>
+        
+        <div class="pdf-canvas-div">
+            <canvas class="pdf-canvas">
+            </canvas>
         </div>
-    </div>
-
-    <div class="pdf-canvas-div">
-        <canvas class="pdf-canvas">
-        </canvas>
-    </div>
-
-    <div class="common-button-div">
-        <a class="common-button frc" href="assets/files/resume.pdf" target="_blank">VIEW RAW DOCUMENT</a>
-
-        <a class="common-button frc" href="contact.html">VIEW UNREDACTED VERSION</a>
-    </div>
-    
-
-    <footer class="footer">
-        <ul class="ftr-menu">
-            <li class="ftr-menu-item">
-                <a href="about.html" class="ftr-menu-option">About</a>
-            </li>
-            <li class="ftr-menu-item">
-                <a href="portifolio.html" class="ftr-menu-option">Portifolio</a>
-            </li>
-            <li class="ftr-menu-item">
-                <a href="resume.html" class="ftr-menu-option">Resume</a>
-            </li>
-            <li class="ftr-menu-item">
-                <a href="blog.html" class="ftr-menu-option">Blog</a>
-            </li>
-            <li class="ftr-menu-item">
-                <a href="contact.html" class="ftr-menu-option">Contact</a>
-            </li>
-        </ul>
-
-        <div class="sm-icon-div">
-            <a href="https://www.linkedin.com/in/vijay-ganaraju-2a0982126/" target="_blank"><img class="sm-icon"
-                    href="#" src="assets/img/icons/li.png" alt="linkedin-icon"></a>
-
-            <a href="https://discord.gg/C4HSFYN" target="_blank"><img class="sm-icon" src="assets/img/icons/discord.png"
-                    alt="discord-icon"></a>
-
-            <a href="https://twitter.com/vijaykvganaraju" target="_blank"><img class="sm-icon"
-                    src="assets/img/icons/twitter.png" alt="twitter-icon"></a>
-
-            <a href="https://www.youtube.com/user/Tejaswi88" target="_blank"><img class="sm-icon"
-                    src="assets/img/icons/yt.png" alt="youtube-icon"></a>
-
-            <a href="mailto:a@a.com"><img class="sm-icon" src="assets/img/icons/email.png" alt="email"></a>
+        
+        <div class="common-button-div">
+            <a class="common-button frc" href="assets/files/resume.pdf" target="_blank">VIEW RAW DOCUMENT</a>
+        
+            <a class="common-button frc" href="contact.html">VIEW UNREDACTED VERSION</a>
         </div>
-
-        <div class="owner-info">© Owned and maintained by Vijay Kumar Varma Ganaraju</div>
-    </footer>
+        
+        
+        <footer class="footer">
+            <ul class="ftr-menu">
+                <li class="ftr-menu-item">
+                    <a href="about.html" class="ftr-menu-option">About</a>
+                </li>
+                <li class="ftr-menu-item">
+                    <a href="portifolio.html" class="ftr-menu-option">Portifolio</a>
+                </li>
+                <li class="ftr-menu-item">
+                    <a href="resume.html" class="ftr-menu-option">Resume</a>
+                </li>
+                <li class="ftr-menu-item">
+                    <a href="blog.html" class="ftr-menu-option">Blog</a>
+                </li>
+                <li class="ftr-menu-item">
+                    <a href="contact.html" class="ftr-menu-option">Contact</a>
+                </li>
+            </ul>
+        
+            <div class="sm-icon-div">
+                <a href="https://www.linkedin.com/in/vijay-ganaraju-2a0982126/" target="_blank"><img class="sm-icon" href="#"
+                        src="assets/img/icons/li.png" alt="linkedin-icon"></a>
+        
+                <a href="https://discord.gg/C4HSFYN" target="_blank"><img class="sm-icon" src="assets/img/icons/discord.png"
+                        alt="discord-icon"></a>
+        
+                <a href="https://twitter.com/vijaykvganaraju" target="_blank"><img class="sm-icon"
+                        src="assets/img/icons/twitter.png" alt="twitter-icon"></a>
+        
+                <a href="https://www.youtube.com/user/Tejaswi88" target="_blank"><img class="sm-icon"
+                        src="assets/img/icons/yt.png" alt="youtube-icon"></a>
+        
+                <a href="mailto:a@a.com"><img class="sm-icon" src="assets/img/icons/email.png" alt="email"></a>
+            </div>
+        
+            <div class="owner-info">© Owned and maintained by Vijay Kumar Varma Ganaraju</div>
+        </footer>
+    </div>
 
     <!-- scripts -->
     <script src="//mozilla.github.io/pdf.js/build/pdf.js"></script>
