@@ -13,6 +13,8 @@
 </head>
 
 <body>
+    <a class="skip-link" href="#container">Skip to Page Contents</a>
+
     <nav class="navbar">
         <a href="index.html" class="logo nav-item">
             <img class="logo-img" src="assets/img/logo/black50px.png" alt="logo">
@@ -22,7 +24,7 @@
             <li class="menu-item mobile-specific close-option">
                 <span id="menuNavButton" onclick="viewMenu()" class="material-icons nav-button">menu</span>
             </li>
-            <li class="menu-item mobile-specific current-page">
+            <li class="menu-item mobile-specific">
                 <a href="index.html" class="menu-option">Home</a>
             </li>
             <li class="menu-item">
@@ -31,7 +33,7 @@
             <li class="menu-item">
                 <a href="portifolio.html" class="menu-option">Portifolio</a>
             </li>
-            <li class="menu-item">
+            <li class="menu-item current-page">
                 <a href="resume.html" class="menu-option">Resume</a>
             </li>
             <li class="menu-item">
@@ -49,8 +51,11 @@
         <div class="break-row"></div>
     </nav>
     
-    <div class="container fcc">
+    <main id="container" class="container fcc">
         <div class="controls-info nav-top">
+            <div class="title-div frc">
+                <h1 class="page-title">Resumé</h1>
+            </div>
             <div class="controls">
                 <button id="prev-page" class="control-button" onclick="prevPage()"><i
                         class="material-icons control-icon">keyboard_arrow_left</i></button>
@@ -73,7 +78,7 @@
         </div>
         
         <div class="common-button-div">
-            <a class="common-button frc" href="assets/files/resume.pdf" target="_blank" rel=”noopener noreferrer”>VIEW RAW DOCUMENT</a>
+            <a class="common-button frc" href="assets/files/resume.pdf" target="_blank" rel="noopener noreferrer">VIEW RAW DOCUMENT</a>
         
             <a class="common-button frc" href="contact.html">VIEW UNREDACTED VERSION</a>
         </div>
@@ -99,24 +104,24 @@
             </ul>
         
             <div class="sm-icon-div">
-                <a href="https://www.linkedin.com/in/vijay-ganaraju-2a0982126/" target="_blank" rel=”noopener noreferrer”><img class="sm-icon" href="#"
-                        src="assets/img/icons/li.png" alt="linkedin-icon"></a>
+                <a href="https://www.linkedin.com/in/vijay-ganaraju-2a0982126/" target="_blank" rel="noopener noreferrer"><img class="sm-icon" href="#"
+                        src="assets/img/icons/social/li.png" alt="linkedin-icon"></a>
         
-                <a href="https://discord.gg/C4HSFYN" target="_blank" rel=”noopener noreferrer”><img class="sm-icon" src="assets/img/icons/discord.png"
+                <a href="https://discord.gg/C4HSFYN" target="_blank" rel="noopener noreferrer"><img class="sm-icon" src="assets/img/icons/social/discord.png"
                         alt="discord-icon"></a>
         
-                <a href="https://twitter.com/vijaykvganaraju" target="_blank" rel=”noopener noreferrer”><img class="sm-icon"
-                        src="assets/img/icons/twitter.png" alt="twitter-icon"></a>
+                <a href="https://twitter.com/vijaykvganaraju" target="_blank" rel="noopener noreferrer"><img class="sm-icon"
+                        src="assets/img/icons/social/twitter.png" alt="twitter-icon"></a>
         
-                <a href="https://www.youtube.com/user/Tejaswi88" target="_blank" rel=”noopener noreferrer”><img class="sm-icon"
-                        src="assets/img/icons/yt.png" alt="youtube-icon"></a>
+                <a href="https://www.youtube.com/user/Tejaswi88" target="_blank" rel="noopener noreferrer"><img class="sm-icon"
+                        src="assets/img/icons/social/yt.png" alt="youtube-icon"></a>
         
-                <a href="mailto:a@a.com"><img class="sm-icon" src="assets/img/icons/email.png" alt="email"></a>
+                <a href="mailto:a@a.com"><img class="sm-icon" src="assets/img/icons/social/email.png" alt="email"></a>
             </div>
         
             <div class="owner-info">© Owned and maintained by Vijay Kumar Varma Ganaraju</div>
         </footer>
-    </div>
+    </main>
 
     <!-- scripts -->
     <script src="//mozilla.github.io/pdf.js/build/pdf.js"></script>

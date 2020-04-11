@@ -14,6 +14,8 @@
 </head>
 
 <body>
+    <a class="skip-link" href="#container">Skip to Page Contents</a>
+
     <nav class="navbar">
         <a href="index.html" class="logo nav-item">
             <img class="logo-img" src="assets/img/logo/black50px.png" alt="logo">
@@ -23,7 +25,7 @@
             <li class="menu-item mobile-specific close-option">
                 <span id="menuNavButton" onclick="viewMenu()" class="material-icons nav-button">menu</span>
             </li>
-            <li class="menu-item mobile-specific current-page">
+            <li class="menu-item mobile-specific">
                 <a href="index.html" class="menu-option">Home</a>
             </li>
             <li class="menu-item">
@@ -38,7 +40,7 @@
             <li class="menu-item">
                 <a href="blog.html" class="menu-option">Blog</a>
             </li>
-            <li class="menu-item">
+            <li class="menu-item current-page">
                 <a href="contact.html" class="menu-option">Contact</a>
             </li>
         </ul>
@@ -50,9 +52,10 @@
         <div class="break-row"></div>
     </nav>
 
-    <div class="container fcc">
+
+    <main id="container" class="container fcc">
         <div class="big-frc nav-top">
-            <div class="limit-page page-title stretch">Contact me</div>
+            <h1 class="limit-page page-title stretch">Contact me</h1>
         </div>
         
         <div class="contact-me-div big-frc small-fcc">
@@ -80,54 +83,54 @@
         </div>
         
         <div class="social-title big-frc">
-            <div class="heading limit-page stretch">Hit Me Up On Social Media&#33;</div>
+            <h2 class="heading limit-page stretch">Hit Me Up On Social Media&#33;</h2>
         </div>
         
         <div class="social-screen frc">
             <div class="social-links limit-page">
-                <div class="social-media linkedin" onclick="redirectSocial('li')">
+                <button class="social-media linkedin" onclick="redirectSocial('li')">
                     LinkedIn
                     <span class="material-icons">
                         open_in_new
                     </span>
-                </div>
+                </button>
         
-                <div class="social-media twitter" onclick="redirectSocial('tw')">
+                <button class="social-media twitter" onclick="redirectSocial('tw')">
                     Twitter
                     <span class="material-icons">
                         open_in_new
                     </span>
-                </div>
+                </button>
         
-                <div class="social-media instagram" onclick="redirectSocial('in')">
+                <button class="social-media instagram" onclick="redirectSocial('in')">
                     Instagram
                     <span class="material-icons">
                         open_in_new
                     </span>
-                </div>
+                </button>
         
-                <div class="social-media discord" onclick="redirectSocial('di')">
+                <button class="social-media discord" onclick="redirectSocial('di')">
                     Discord
                     <span class="material-icons">
                         open_in_new
                     </span>
-                </div>
+                </button>
             </div>
         
         </div>
         
         <div class="social-title big-frc">
-            <div class="heading limit-page stretch">Watch My Video Game Streams&#33;</div>
+            <h2 class="heading limit-page stretch">Watch My Video Game Streams&#33;</h2>
         </div>
         
         <div class="social-screen frc">
             <div class="social-links limit-page">
-                <div class="social-media linkedin" onclick="redirectSocial('yt')">
+                <button class="social-media linkedin" onclick="redirectSocial('yt')">
                     YouTube
                     <span class="material-icons">
                         open_in_new
                     </span>
-                </div>
+                </button>
             </div>
         
         </div>
@@ -152,24 +155,24 @@
             </ul>
         
             <div class="sm-icon-div">
-                <a href="https://www.linkedin.com/in/vijay-ganaraju-2a0982126/" target="_blank" rel=”noopener noreferrer”><img class="sm-icon" href="#"
-                        src="assets/img/icons/li.png" alt="linkedin-icon"></a>
+                <a href="https://www.linkedin.com/in/vijay-ganaraju-2a0982126/" target="_blank" rel="noopener noreferrer"><img class="sm-icon" href="#"
+                        src="assets/img/icons/social/li.png" alt="linkedin-icon"></a>
         
-                <a href="https://discord.gg/C4HSFYN" target="_blank" rel=”noopener noreferrer”><img class="sm-icon" src="assets/img/icons/discord.png"
+                <a href="https://discord.gg/C4HSFYN" target="_blank" rel="noopener noreferrer"><img class="sm-icon" src="assets/img/icons/social/discord.png"
                         alt="discord-icon"></a>
         
-                <a href="https://twitter.com/vijaykvganaraju" target="_blank" rel=”noopener noreferrer”><img class="sm-icon"
-                        src="assets/img/icons/twitter.png" alt="twitter-icon"></a>
+                <a href="https://twitter.com/vijaykvganaraju" target="_blank" rel="noopener noreferrer"><img class="sm-icon"
+                        src="assets/img/icons/social/twitter.png" alt="twitter-icon"></a>
         
-                <a href="https://www.youtube.com/user/Tejaswi88" target="_blank" rel=”noopener noreferrer”><img class="sm-icon"
-                        src="assets/img/icons/yt.png" alt="youtube-icon"></a>
+                <a href="https://www.youtube.com/user/Tejaswi88" target="_blank" rel="noopener noreferrer"><img class="sm-icon"
+                        src="assets/img/icons/social/yt.png" alt="youtube-icon"></a>
         
-                <a href="mailto:a@a.com"><img class="sm-icon" src="assets/img/icons/email.png" alt="email"></a>
+                <a href="mailto:a@a.com"><img class="sm-icon" src="assets/img/icons/social/email.png" alt="email"></a>
             </div>
         
             <div class="owner-info">© Owned and maintained by Vijay Kumar Varma Ganaraju</div>
         </footer>
-    </div>
+    </main>
 
     <!-- scripts -->
     <script src="assets/scripts/common.js"></script>

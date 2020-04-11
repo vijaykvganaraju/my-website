@@ -14,6 +14,9 @@
 </head>
 
 <body>
+
+    <a class="skip-link" href="#container">Skip to Page Contents</a>
+
     <nav class="navbar">
         <a href="index.html" class="logo nav-item">
             <img class="logo-img" src="assets/img/logo/black50px.png" alt="logo">
@@ -23,10 +26,10 @@
             <li class="menu-item mobile-specific close-option">
                 <span id="menuNavButton" onclick="viewMenu()" class="material-icons nav-button">menu</span>
             </li>
-            <li class="menu-item mobile-specific current-page">
+            <li class="menu-item mobile-specific">
                 <a href="index.html" class="menu-option">Home</a>
             </li>
-            <li class="menu-item">
+            <li class="menu-item current-page">
                 <a href="about.html" class="menu-option">About</a>
             </li>
             <li class="menu-item">
@@ -50,10 +53,10 @@
         <div class="break-row"></div>
     </nav>
 
-    <div class="container fcc">
+    <main id="container" class="container fcc">
         <div class="about-div nav-top big-frc">
             <div class="limit-page">
-                <div class="about-title page-title small-frc">About Me</div>
+                <h1 class="about-title page-title small-frc">About Me</h1>
                 <div class="my-personality-title heading small-frc">My Personality</div>
                 <div class="my-personality-desc desc">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minus esse
                     officia, mollitia illum sunt distinctio incidunt iure adipisci culpa reiciendis voluptates ex qui fugiat sit
@@ -83,14 +86,14 @@
                         <div class="heading books-title small-frc stretch">Books I&apos;m Curretly Reading</div>
         
                         <div class="trivia-items-div stretch">
-                            <a href="https://www.goodreads.com/book/show/39088592-the-model-thinker" target="_blank" rel=”noopener noreferrer”>
-                                <img src="assets/img/about/books/mt.png" alt="The Model Thinker" class="books trivia-item">
+                            <a href="https://www.goodreads.com/book/show/39088592-the-model-thinker" target="_blank" rel="noopener noreferrer">
+                                <img src="assets/img/about/books/mt.jpg" alt="The Model Thinker" class="books trivia-item">
                             </a>
-                            <a href="https://www.goodreads.com/book/show/38589832-accessory-to-war" target="_blank" rel=”noopener noreferrer”>
-                                <img src="assets/img/about/books/atw.png" alt="Accessory To War" class="books trivia-item">
+                            <a href="https://www.goodreads.com/book/show/38589832-accessory-to-war" target="_blank" rel="noopener noreferrer">
+                                <img src="assets/img/about/books/atw.jpg" alt="Accessory To War" class="books trivia-item">
                             </a>
-                            <a href="https://www.goodreads.com/book/show/3028.Economics_in_One_Lesson" target="_blank" rel=”noopener noreferrer”>
-                                <img src="assets/img/about/books/eiol.png" alt="Economics in One Lesson"
+                            <a href="https://www.goodreads.com/book/show/3028.Economics_in_One_Lesson" target="_blank" rel="noopener noreferrer">
+                                <img src="assets/img/about/books/eiol.jpg" alt="Economics in One Lesson"
                                     class="books trivia-item">
                             </a>
                         </div>
@@ -101,21 +104,21 @@
                         <div class="heading movies-title small-frc stretch">My All-Time Favourite Movies</div>
         
                         <div class="trivia-items-div stretch">
-                            <a href="https://www.imdb.com/title/tt0050083/" target="_blank" rel=”noopener noreferrer”>
-                                <img src="assets/img/about/movies/12am.png" alt="12 Angry Men" class="movies trivia-item">
+                            <a href="https://www.imdb.com/title/tt0050083/" target="_blank" rel="noopener noreferrer">
+                                <img src="assets/img/about/movies/12am.jpg" alt="12 Angry Men" class="movies trivia-item">
                             </a>
-                            <a href="https://www.imdb.com/title/tt0075314/" target="_blank" rel=”noopener noreferrer”>
-                                <img src="assets/img/about/movies/td.png" alt="Taxi Driver" class="movies trivia-item">
+                            <a href="https://www.imdb.com/title/tt0075314/" target="_blank" rel="noopener noreferrer">
+                                <img src="assets/img/about/movies/td.jpg" alt="Taxi Driver" class="movies trivia-item">
                             </a>
-                            <a href="https://www.imdb.com/title/tt0432283/" target="_blank" rel=”noopener noreferrer”>
-                                <img src="assets/img/about/movies/fmf.png" alt="Fantastic Mr. Fox" class="movies trivia-item">
+                            <a href="https://www.imdb.com/title/tt0432283/" target="_blank" rel="noopener noreferrer">
+                                <img src="assets/img/about/movies/fmf.jpg" alt="Fantastic Mr. Fox" class="movies trivia-item">
                             </a>
-                            <a href="https://www.imdb.com/title/tt0361748/" target="_blank" rel=”noopener noreferrer”>
-                                <img src="assets/img/about/movies/ib.png" alt="Inglorious Basterds" class="movies trivia-item">
+                            <a href="https://www.imdb.com/title/tt0361748/" target="_blank" rel="noopener noreferrer">
+                                <img src="assets/img/about/movies/ib.jpg" alt="Inglorious Basterds" class="movies trivia-item">
                             </a>
                         </div>
         
-                        <a class="link limit-page stretch" href="https://letterboxd.com/vjmix/films/" target="_blank" rel=”noopener noreferrer”>
+                        <a class="link limit-page stretch" href="https://letterboxd.com/vjmix/films/" target="_blank" rel="noopener noreferrer">
                             My watched movies list (not complete)
                             <span class="material-icons">
                                 open_in_new
@@ -127,20 +130,20 @@
                         <div class="heading music-title small-frc stretch">My Holy Grail of Music</div>
         
                         <div class="trivia-items-div stretch">
-                            <a href="https://open.spotify.com/album/6t7956yu5zYf5A829XRiHC" target="_blank" rel=”noopener noreferrer”>
-                                <img src="assets/img/about/albums/mmlp.png" alt="The Marshall Mathers LP"
+                            <a href="https://open.spotify.com/album/6t7956yu5zYf5A829XRiHC" target="_blank" rel="noopener noreferrer">
+                                <img src="assets/img/about/albums/mmlp.jpg" alt="The Marshall Mathers LP"
                                     class="movies trivia-item">
                             </a>
-                            <a href="https://open.spotify.com/album/3WFTGIO6E3Xh4paEOBY9OU" target="_blank" rel=”noopener noreferrer”>
-                                <img src="assets/img/about/albums/808s.png" alt="808s &amp; Heartbreak"
+                            <a href="https://open.spotify.com/album/3WFTGIO6E3Xh4paEOBY9OU" target="_blank" rel="noopener noreferrer">
+                                <img src="assets/img/about/albums/808s.jpg" alt="808s &amp; Heartbreak"
                                     class="movies trivia-item">
                             </a>
-                            <a href="https://open.spotify.com/album/4m2880jivSbbyEGAKfITCa" target="_blank" rel=”noopener noreferrer”>
-                                <img src="assets/img/about/albums/ram.png" alt="Random Access Memories"
+                            <a href="https://open.spotify.com/album/4m2880jivSbbyEGAKfITCa" target="_blank" rel="noopener noreferrer">
+                                <img src="assets/img/about/albums/ram.jpg" alt="Random Access Memories"
                                     class="movies trivia-item">
                             </a>
-                            <a href="https://open.spotify.com/album/7ycBtnsMtyVbbwTfJwRjSP" target="_blank" rel=”noopener noreferrer”>
-                                <img src="assets/img/about/albums/tpab.png" alt="To Pimp A Butterfly"
+                            <a href="https://open.spotify.com/album/7ycBtnsMtyVbbwTfJwRjSP" target="_blank" rel="noopener noreferrer">
+                                <img src="assets/img/about/albums/tpab.jpg" alt="To Pimp A Butterfly"
                                     class="movies trivia-item">
                             </a>
                         </div>
@@ -153,20 +156,19 @@
                 <div class="ctoa fcc">
                     <div class="desc">Drop a &quot;Hello&quot; in my DM on</div>
                     <div class="ctoa-items fcc">
-                        <a class="link limit-page small-stretch" href="https://twitter.com/vijaykvganaraju" target="_blank" rel=”noopener noreferrer”>
+                        <div class="link limit-page small-stretch" onclick="redirectSocial('tw')">
                             Twitter
                             <span class="material-icons">
                                 open_in_new
                             </span>
-                        </a>
+                        </div>
         
-                        <a class="link limit-page small-stretch" href="https://www.instagram.com/vijaykvganaraju"
-                            target="_blank" rel=”noopener noreferrer”>
+                        <div class="link limit-page small-stretch" onclick="redirectSocial('tw')">
                             Instagram
                             <span class="material-icons">
                                 open_in_new
                             </span>
-                        </a>
+                        </div>
                     </div>
         
         
@@ -195,24 +197,24 @@
             </ul>
         
             <div class="sm-icon-div">
-                <a href="https://www.linkedin.com/in/vijay-ganaraju-2a0982126/" target="_blank" rel=”noopener noreferrer”><img class="sm-icon" href="#"
-                        src="assets/img/icons/li.png" alt="linkedin-icon"></a>
+                <a href="https://www.linkedin.com/in/vijay-ganaraju-2a0982126/" target="_blank" rel="noopener noreferrer"><img class="sm-icon" href="#"
+                        src="assets/img/icons/social/li.png" alt="linkedin-icon"></a>
         
-                <a href="https://discord.gg/C4HSFYN" target="_blank" rel=”noopener noreferrer”><img class="sm-icon" src="assets/img/icons/discord.png"
+                <a href="https://discord.gg/C4HSFYN" target="_blank" rel="noopener noreferrer"><img class="sm-icon" src="assets/img/icons/social/discord.png"
                         alt="discord-icon"></a>
         
-                <a href="https://twitter.com/vijaykvganaraju" target="_blank" rel=”noopener noreferrer”><img class="sm-icon"
-                        src="assets/img/icons/twitter.png" alt="twitter-icon"></a>
+                <a href="https://twitter.com/vijaykvganaraju" target="_blank" rel="noopener noreferrer"><img class="sm-icon"
+                        src="assets/img/icons/social/twitter.png" alt="twitter-icon"></a>
         
-                <a href="https://www.youtube.com/user/Tejaswi88" target="_blank" rel=”noopener noreferrer”><img class="sm-icon"
-                        src="assets/img/icons/yt.png" alt="youtube-icon"></a>
+                <a href="https://www.youtube.com/user/Tejaswi88" target="_blank" rel="noopener noreferrer"><img class="sm-icon"
+                        src="assets/img/icons/social/yt.png" alt="youtube-icon"></a>
         
-                <a href="mailto:a@a.com"><img class="sm-icon" src="assets/img/icons/email.png" alt="email"></a>
+                <a href="mailto:a@a.com"><img class="sm-icon" src="assets/img/icons/social/email.png" alt="email"></a>
             </div>
         
             <div class="owner-info">© Owned and maintained by Vijay Kumar Varma Ganaraju</div>
         </footer>
-    </div>
+    </main>
 
     <!-- scripts -->
     <script src="assets/scripts/common.js"></script>
