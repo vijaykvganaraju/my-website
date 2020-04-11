@@ -27,7 +27,7 @@ window.addEventListener('resize', () => {
 
     }
 
-    document.querySelector('#navButtonIcon').innerText = 'menu';
+    document.querySelector('.nav-button').innerText = 'menu';
 
 });
 
