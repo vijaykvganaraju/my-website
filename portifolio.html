@@ -5,20 +5,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#000000" />
-    <meta name="keywords" content="Vijay Kumar Varma Ganaraju, Vijay Ganaraju, Resume, Qualifications, Professional Details, Achievements, Curriculum vitae" />
-    <meta name="description" content="A resume of Vijay Ganaraju consisting his qualifications, work and achievements" />
+    <meta name="keywords" content="Vijay Kumar Varma Ganaraju, Vijay Ganaraju, Portifolio, Works, Projects, Applications, Android Apps, Websites, Front end, Back end, Databases, API, Machine Learning, Computer Vision, 3D modelling, Video Editing, Augmented Reality, Virtual Reality, AR VR" />
+    <meta name="description" content="A collection of Vijay Ganaraju's works, projects and contributions with links to some of them" />
 
-    <title>Resume</title>
+
+    <title>Portifolio</title>
 
     <link rel="manifest" href="manifest.webmanifest">
     <link rel="apple-touch-icon" href="assets/img/logo/black_bgw_192.png">
     <link rel="icon" href="assets/img/logo/White30.png" type="image/x-icon">
 
-    <link rel="stylesheet" href="assets/styles/resume.css">
     <link rel="stylesheet" href="assets/styles/common.css">
-
+    <link rel="stylesheet" href="assets/styles/portifolio.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
 </head>
 
 <body>
@@ -28,7 +27,7 @@
         <a href="index.html" class="logo nav-item">
             <img class="logo-img" src="assets/img/logo/black50px.png" alt="logo">
         </a>
-    
+
         <ul id="menu" class="menu nav-item">
             <li class="menu-item mobile-specific close-option">
                 <span id="menuNavButton" onclick="viewMenu()" class="material-icons nav-button">menu</span>
@@ -39,10 +38,10 @@
             <li class="menu-item">
                 <a href="about.html" class="menu-option">About</a>
             </li>
-            <li class="menu-item">
+            <li class="menu-item current-page">
                 <a href="portifolio.html" class="menu-option">Portifolio</a>
             </li>
-            <li class="menu-item current-page">
+            <li class="menu-item">
                 <a href="resume.html" class="menu-option">Resume</a>
             </li>
             <li class="menu-item">
@@ -52,47 +51,21 @@
                 <a href="contact.html" class="menu-option">Contact</a>
             </li>
         </ul>
-    
+
         <div class="mobile-menu-button nav-item">
             <span id="pageNavButton" onclick="viewMenu()" class="material-icons nav-button">menu</span>
         </div>
-    
+
         <div class="break-row"></div>
     </nav>
-    
     <main id="container" class="container fcc">
-        <div class="controls-info nav-top">
-            <div class="title-div frc">
-                <h1 class="page-title">Resumé</h1>
-            </div>
-            <div class="controls">
-                <button id="prev-page" class="control-button" onclick="prevPage()"><i
-                        class="material-icons control-icon">keyboard_arrow_left</i></button>
-                <button id="prev-page" class="control-button" onclick="zoomIn()"><i
-                        class="material-icons control-icon">zoom_in</i></button>
-                <button id="prev-page" class="control-button" onclick="zoomOut()"><i
-                        class="material-icons control-icon">zoom_out</i></button>
-                <button id="next-page" class="control-button" onclick="nextPage()"><i
-                        class="material-icons control-icon">keyboard_arrow_right</i></button>
-            </div>
-        
-            <div class="info">
-                <p>Page <span id="pageNumber">0</span> of <span id="totalPages">0</span></p>
-            </div>
-        </div>
-        
-        <div class="pdf-canvas-div">
-            <canvas class="pdf-canvas">
-            </canvas>
-        </div>
-        
-        <div class="common-button-div">
-            <a class="common-button frc" href="assets/files/resume.pdf" target="_blank" rel="noopener noreferrer">VIEW RAW DOCUMENT</a>
-        
-            <a class="common-button frc" href="contact.html">VIEW UNREDACTED VERSION</a>
-        </div>
-        
-        
+        <header class="title-div nav-top frc">
+            <h1 class="page-title limit-page stretch">Portifolio</h1>
+        </header>
+
+
+
+
         <footer class="footer">
             <ul class="ftr-menu">
                 <li class="ftr-menu-item">
@@ -111,32 +84,34 @@
                     <a href="contact.html" class="ftr-menu-option">Contact</a>
                 </li>
             </ul>
-        
+
             <div class="sm-icon-div">
-                <a href="https://www.linkedin.com/in/vijay-ganaraju-2a0982126/" target="_blank" rel="noopener noreferrer"><img class="sm-icon" href="#"
-                        src="assets/img/icons/social/li.png" alt="linkedin-icon"></a>
-        
-                <a href="https://discord.gg/C4HSFYN" target="_blank" rel="noopener noreferrer"><img class="sm-icon" src="assets/img/icons/social/discord.png"
-                        alt="discord-icon"></a>
-        
-                <a href="https://twitter.com/vijaykvganaraju" target="_blank" rel="noopener noreferrer"><img class="sm-icon"
-                        src="assets/img/icons/social/twitter.png" alt="twitter-icon"></a>
-        
-                <a href="https://www.youtube.com/user/Tejaswi88" target="_blank" rel="noopener noreferrer"><img class="sm-icon"
-                        src="assets/img/icons/social/yt.png" alt="youtube-icon"></a>
-        
+                <a href="https://www.linkedin.com/in/vijay-ganaraju-2a0982126/" target="_blank"
+                    rel="noopener noreferrer"><img class="sm-icon" href="#" src="assets/img/icons/social/li.png"
+                        alt="linkedin-icon"></a>
+
+                <a href="https://discord.gg/C4HSFYN" target="_blank" rel="noopener noreferrer"><img class="sm-icon"
+                        src="assets/img/icons/social/discord.png" alt="discord-icon"></a>
+
+                <a href="https://twitter.com/vijaykvganaraju" target="_blank" rel="noopener noreferrer"><img
+                        class="sm-icon" src="assets/img/icons/social/twitter.png" alt="twitter-icon"></a>
+
+                <a href="https://www.youtube.com/user/Tejaswi88" target="_blank" rel="noopener noreferrer"><img
+                        class="sm-icon" src="assets/img/icons/social/yt.png" alt="youtube-icon"></a>
+
                 <a href="mailto:a@a.com"><img class="sm-icon" src="assets/img/icons/social/email.png" alt="email"></a>
             </div>
-        
+
             <div class="owner-info">&copy; Owned and maintained by Vijay Kumar Varma Ganaraju</div>
         </footer>
     </main>
 
+
+
     <!-- scripts -->
-    <script src="//mozilla.github.io/pdf.js/build/pdf.js"></script>
     <script src="assets/scripts/common.js"></script>
-    <script src="assets/scripts/resume.js"></script>
-    
+    <script src="assets/scripts/portifolio.js"></script>
+
 </body>
 
 </html>
