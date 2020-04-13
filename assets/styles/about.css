@@ -47,6 +47,7 @@
 .trivia-item {
     width: 160px;
     margin: 5px;
+    border-radius: 4px;
 }
 
 .link {

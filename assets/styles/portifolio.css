@@ -2,7 +2,47 @@
 
 
 @media only screen and (min-width: 900px) {
+    .project-name {
+        position: absolute;
+        color: #ffffff;
+        top: 0;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-family: 'Open Sans', serif;
+        opacity: 0;
 
+        transition: 0.3s all ease-in-out;
+    }
+
+    .img-overlay {
+        position: absolute;
+        background-color: #00000090;
+        width: 100%;
+        height: 100%;
+
+        opacity: 0;
+
+        transition: 0.3s all ease-in-out;
+
+    }
+
+    .project:hover .img-overlay, .project:hover .project-name {
+        opacity: 1;
+        cursor: pointer;
+    }
+
+    .project:hover .project-name {
+        top: 50%;
+    }
+
+    .modal-content {
+        margin: 50px auto;
+        width: 80%;
+    }
+
+    .caption {
+        margin-top: 1em;
+    }
 
 }
 
@@ -10,5 +50,91 @@
 
 @media only screen and (min-width: 320px) and (max-width: 900px) {
 
+    .project-img {
+        border-radius: 4px;
+    }
 
+    .project-name {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .modal-content {
+        margin-top: 50px;
+        width: 100%;
+    }
+
+    .caption {
+        margin: auto;
+    }
+}
+
+.projects {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    z-index: 0;
+
+}
+
+.project {
+    position: relative;
+    width: 250px;
+    height: 250px;
+    border-radius: 4px;
+    margin: 5px;
+    overflow: hidden;
+}
+
+.project-img {
+    width: 250px;
+}
+
+.project-name {
+    font-family: 'Open Sans', serif;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background-color: #00000090;   
+}
+
+.modal-content {
+    display: block;
+    max-width: 900px;
+}
+
+.caption {
+    color: #ffffff;
+    font-family: 'Open Sans', serif;
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 1rem;
+    transition: 0.3s;
+    color: #ffffff;
+    cursor: pointer;       
+}
+
+.disclaimer {
+    position: absolute;
+    left: 10px;
+    bottom: 10px;
+    font-family: 'Open Sans', serif;
+    font-style: italic;
+    color: #ffffff;
+    flex-wrap: wrap;
 }

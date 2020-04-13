@@ -22,7 +22,7 @@
 
 <body>
     <a class="skip-link" href="#container">Skip to Page Contents</a>
-
+    
     <nav class="navbar">
         <a href="index.html" class="logo nav-item">
             <img class="logo-img" src="assets/img/logo/black50px.png" alt="logo">
@@ -58,53 +58,117 @@
 
         <div class="break-row"></div>
     </nav>
-    <main id="container" class="container fcc">
-        <header class="title-div nav-top frc">
-            <h1 class="page-title limit-page stretch">Portifolio</h1>
+    <main id="container" class="container limit-page">
+
+        <div id="modal" class="modal" onclick="closeModal()">
+            <span class="material-icons close">close</span>
+            <img class="modal-content" id="displayImg">
+            <div id="caption" class="caption"></div>
+            <div class="disclaimer">Images are uploaded in compressed formats for faster loading times</div>
+        </div>
+
+        <header class="title-div nav-top small-frc">
+            <h1 class="page-title">Portifolio</h1>
         </header>
 
+        <section class="artwork">
+            <header class="title-div small-frc">
+                <h2 class="heading">
+                    Artwork
+                </h2>
+            </header>
+            <div class="projects">
 
+                <div id="art1" class="project fcc" onclick="enlarge(this.id)">
+                    <img src="assets/img/portifolio/artwork/farewell.jpg" alt="Farewell Banner" class="project-img">
+                    <div class="img-overlay">
+                        <p class="project-name">Farewell Banner</p>
+                    </div>    
+                </div>
 
+                <div id="art2" class="project fcc" onclick="enlarge(this.id)">
+                    <img src="assets/img/portifolio/artwork/ibm_hackathon.jpg" alt="IBM Hackathon Banner" class="project-img">
+                    <div class="img-overlay">
+                        <p class="project-name">IBM Hackathon</p>
+                    </div>
+                </div>
 
-        <footer class="footer">
-            <ul class="ftr-menu">
-                <li class="ftr-menu-item">
-                    <a href="about.html" class="ftr-menu-option">About</a>
-                </li>
-                <li class="ftr-menu-item">
-                    <a href="portifolio.html" class="ftr-menu-option">Portifolio</a>
-                </li>
-                <li class="ftr-menu-item">
-                    <a href="resume.html" class="ftr-menu-option">Resume</a>
-                </li>
-                <li class="ftr-menu-item">
-                    <a href="blog.html" class="ftr-menu-option">Blog</a>
-                </li>
-                <li class="ftr-menu-item">
-                    <a href="contact.html" class="ftr-menu-option">Contact</a>
-                </li>
-            </ul>
+                <div id="art3" class="project fcc" onclick="enlarge(this.id)">
+                    <img src="assets/img/portifolio/artwork/elevar_brochure.jpg" alt="Elevar Brochure" class="project-img">
+                    <div class="img-overlay">
+                        <p class="project-name">Elevar Brochure</p>
+                    </div>
+                </div>
 
-            <div class="sm-icon-div">
-                <a href="https://www.linkedin.com/in/vijay-ganaraju-2a0982126/" target="_blank"
-                    rel="noopener noreferrer"><img class="sm-icon" href="#" src="assets/img/icons/social/li.png"
-                        alt="linkedin-icon"></a>
-
-                <a href="https://discord.gg/C4HSFYN" target="_blank" rel="noopener noreferrer"><img class="sm-icon"
-                        src="assets/img/icons/social/discord.png" alt="discord-icon"></a>
-
-                <a href="https://twitter.com/vijaykvganaraju" target="_blank" rel="noopener noreferrer"><img
-                        class="sm-icon" src="assets/img/icons/social/twitter.png" alt="twitter-icon"></a>
-
-                <a href="https://www.youtube.com/user/Tejaswi88" target="_blank" rel="noopener noreferrer"><img
-                        class="sm-icon" src="assets/img/icons/social/yt.png" alt="youtube-icon"></a>
-
-                <a href="mailto:a@a.com"><img class="sm-icon" src="assets/img/icons/social/email.png" alt="email"></a>
+                <div id="art4" class="project fcc" onclick="enlarge(this.id)">
+                    <img src="assets/img/portifolio/artwork/ieee_banner.jpg" alt="IEEE Banner" class="project-img">
+                    <div class="img-overlay">
+                        <p class="project-name">IEEE Banner</p>
+                    </div>    
+                </div>
             </div>
+        </section>
 
-            <div class="owner-info">&copy; Owned and maintained by Vijay Kumar Varma Ganaraju</div>
-        </footer>
+        <section class="">
+            <header class="title-div frc">
+                <h2 class="heading">
+                    
+                </h2>
+            </header>
+            <div class="projects">
+                <div class="project fcc" onclick="enlarge(this.id)">
+                    <img src="" alt="" class="project-img">
+                    <p class="project-name"></p>
+                    
+                </div>
+            </div>
+        </section>
+
+
+       
+
+
+
     </main>
+
+    <footer class="footer fcc">
+        <ul class="ftr-menu">
+            <li class="ftr-menu-item">
+                <a href="about.html" class="ftr-menu-option">About</a>
+            </li>
+            <li class="ftr-menu-item">
+                <a href="portifolio.html" class="ftr-menu-option">Portifolio</a>
+            </li>
+            <li class="ftr-menu-item">
+                <a href="resume.html" class="ftr-menu-option">Resume</a>
+            </li>
+            <li class="ftr-menu-item">
+                <a href="blog.html" class="ftr-menu-option">Blog</a>
+            </li>
+            <li class="ftr-menu-item">
+                <a href="contact.html" class="ftr-menu-option">Contact</a>
+            </li>
+        </ul>
+
+        <div class="sm-icon-div">
+            <a href="https://www.linkedin.com/in/vijay-ganaraju-2a0982126/" target="_blank"
+                rel="noopener noreferrer"><img class="sm-icon" href="#" src="assets/img/icons/social/li.png"
+                    alt="linkedin-icon"></a>
+
+            <a href="https://discord.gg/C4HSFYN" target="_blank" rel="noopener noreferrer"><img class="sm-icon"
+                    src="assets/img/icons/social/discord.png" alt="discord-icon"></a>
+
+            <a href="https://twitter.com/vijaykvganaraju" target="_blank" rel="noopener noreferrer"><img
+                    class="sm-icon" src="assets/img/icons/social/twitter.png" alt="twitter-icon"></a>
+
+            <a href="https://www.youtube.com/user/Tejaswi88" target="_blank" rel="noopener noreferrer"><img
+                    class="sm-icon" src="assets/img/icons/social/yt.png" alt="youtube-icon"></a>
+
+            <a href="mailto:a@a.com"><img class="sm-icon" src="assets/img/icons/social/email.png" alt="email"></a>
+        </div>
+
+        <div class="owner-info">&copy; Owned and maintained by Vijay Kumar Varma Ganaraju</div>
+    </footer>
 
 
 
