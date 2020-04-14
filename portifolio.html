@@ -23,11 +23,171 @@
 <body>
     <a class="skip-link" href="#container">Skip to Page Contents</a>
     
+    
+    <main id="container" class="container limit-page">
+
+        <div id="modal" class="modal" onclick="closeModal()">
+            <span class="material-icons close">close</span>
+            <img class="modal-content" id="displayImg">
+            <div id="caption" class="caption"></div>
+            <div class="disclaimer">Images are uploaded in compressed formats for faster loading times</div>
+        </div>
+        
+        <header class="title-div nav-top small-frc">
+            <h1 class="page-title">Portifolio</h1>
+        </header>
+
+        <section class="ai">
+            <header class="title-div small-frc">
+                <h2 class="heading">
+                    Deep Learning 
+                </h2>
+            </header>
+            <div class="projects">
+                <a id="web1" class="project fcc" href="https://github.com/VJmix/real-time-object-detection" target="_blank"
+                rel="noopener noreferrer">
+                <img src="assets/img/portifolio/ai/rtod.jpg" alt="Real-Time Object Detection" class="project-img">
+                    <div class="img-overlay">
+                        <p class="project-name">Real-Time Object Detection</p>
+                    </div>
+                </a>
+        </section>
+
+        <section class="web">
+            <header class="title-div small-frc">
+                <h2 class="heading">
+                    Web Technologies
+                </h2>
+            </header>
+            <div class="projects">
+                <a id="web1" class="project fcc" href="https://github.com/harikesh409/elevar" target="_blank"
+                    rel="noopener noreferrer">
+                    <img src="assets/img/portifolio/web/elevar.jpg" alt="Elevar" class="project-img">
+                    <div class="img-overlay">
+                        <p class="project-name">Elevar Fest (Fronend)</p>
+                    </div>
+                </a>
+
+                <a id="web2" class="project fcc" href="https://github.com/harikesh409/resume-builder" target="_blank" rel="noopener noreferrer">
+                    <img src="assets/img/portifolio/web/resume.jpg" alt="Resume Genrator" class="project-img">
+                    <div class="img-overlay">
+                        <p class="project-name">Resumé Builder (Frontend &amp; Backend)</p>
+                    </div>
+                </a>
+
+                <a id="web3" class="project fcc" href="https://github.com/VJmix/rest-shop" target="_blank" rel="noopener noreferrer">
+                    <img src="assets/img/portifolio/web/rest.jpg" alt="RESTful Service" class="project-img">
+                    <div class="img-overlay">
+                        <p class="project-name">REST API for Shopping</p>
+                    </div>
+                </a>
+                
+                <a id="web4" class="project fcc" href="https://github.com/VJmix/basic-programs-in-js" target="_blank"
+                    rel="noopener noreferrer">
+                    <img src="assets/img/portifolio/web/basics.jpg" alt="Basic Problems" class="project-img">
+                    <div class="img-overlay">
+                        <p class="project-name">Basic CS Problems</p>
+                    </div>
+                </a>
+
+                <a id="web5" class="project fcc" href="https://github.com/VJmix/basic-tictactoe" target="_blank" rel="noopener noreferrer">
+                    <img src="assets/img/portifolio/web/tictactoe.jpg" alt="Tictactoe" class="project-img">
+                    <div class="img-overlay">
+                        <p class="project-name">Tic-Tac-Toe</p>
+                    </div>
+                </a>
+        </section>
+        
+        <section class="iot">
+            <header class="title-div small-frc">
+                <h2 class="heading">
+                    Internet of Things
+                </h2>
+            </header>
+            <div class="projects">
+                <a id="iot1" class="project fcc" href="https://github.com/VJmix/autocar" target="_blank" rel="noopener noreferrer">
+                    <img src="assets/img/portifolio/iot/autocar.jpg" alt="Obstacle Avoiding Rover" class="project-img">
+                    <div class="img-overlay">
+                        <p class="project-name">Obstacle Avoiding Rover</p>
+                    </div>
+                </a>
+        
+        </section>
+
+        <section class="artwork">
+            <header class="title-div small-frc">
+                <h2 class="heading">
+                    Artwork
+                </h2>
+            </header>
+            <div class="projects">
+
+                <div id="art1" class="project fcc" onclick="enlarge(this.id)">
+                    <img src="assets/img/portifolio/artwork/farewell.jpg" alt="Farewell Banner" class="project-img">
+                    <div class="img-overlay">
+                        <p class="project-name">Farewell Banner</p>
+                    </div>    
+                </div>
+
+                <div id="art2" class="project fcc" onclick="enlarge(this.id)">
+                    <img src="assets/img/portifolio/artwork/ibm_hackathon.jpg" alt="IBM Hackathon Banner" class="project-img">
+                    <div class="img-overlay">
+                        <p class="project-name">Hackathon Banner</p>
+                    </div>
+                </div>
+
+                <div id="art3" class="project fcc" onclick="enlarge(this.id)">
+                    <img src="assets/img/portifolio/artwork/elevar_brochure.jpg" alt="Elevar Brochure" class="project-img">
+                    <div class="img-overlay">
+                        <p class="project-name">Elevar Brochure</p>
+                    </div>
+                </div>
+
+                <div id="art4" class="project fcc" onclick="enlarge(this.id)">
+                    <img src="assets/img/portifolio/artwork/ieee_banner.jpg" alt="IEEE Banner" class="project-img">
+                    <div class="img-overlay">
+                        <p class="project-name">IEEE Banner</p>
+                    </div>    
+                </div>
+            </div>
+        </section>
+
+        <section class="modelling">
+            <header class="title-div frc">
+                <h2 class="heading">
+                    3D Modelling
+                </h2>
+            </header>
+            <div class="projects">
+                <div id="model1" class="project fcc" onclick="enlarge(this.id)">
+                    <img src="assets/img/portifolio/3d/donut.jpg" alt="Donut Meal" class="project-img">
+                    <div class="img-overlay">
+                        <p class="project-name">Donut Meal</p>
+                    </div>
+                </div>
+
+                <div id="model2" class="project fcc" onclick="enlarge(this.id)">
+                    <img src="assets/img/portifolio/3d/top.jpg" alt="Spinning Top" class="project-img">
+                    <div class="img-overlay">
+                        <p class="project-name">Spinning Top</p>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+
+       
+
+
+
+    </main>
+
     <nav class="navbar">
         <a href="index.html" class="logo nav-item">
             <img class="logo-img" src="assets/img/logo/black50px.png" alt="logo">
         </a>
-
+    
         <ul id="menu" class="menu nav-item">
             <li class="menu-item mobile-specific close-option">
                 <span id="menuNavButton" onclick="viewMenu()" class="material-icons nav-button">menu</span>
@@ -51,85 +211,13 @@
                 <a href="contact.html" class="menu-option">Contact</a>
             </li>
         </ul>
-
+    
         <div class="mobile-menu-button nav-item">
             <span id="pageNavButton" onclick="viewMenu()" class="material-icons nav-button">menu</span>
         </div>
-
+    
         <div class="break-row"></div>
     </nav>
-    <main id="container" class="container limit-page">
-
-        <div id="modal" class="modal" onclick="closeModal()">
-            <span class="material-icons close">close</span>
-            <img class="modal-content" id="displayImg">
-            <div id="caption" class="caption"></div>
-            <div class="disclaimer">Images are uploaded in compressed formats for faster loading times</div>
-        </div>
-
-        <header class="title-div nav-top small-frc">
-            <h1 class="page-title">Portifolio</h1>
-        </header>
-
-        <section class="artwork">
-            <header class="title-div small-frc">
-                <h2 class="heading">
-                    Artwork
-                </h2>
-            </header>
-            <div class="projects">
-
-                <div id="art1" class="project fcc" onclick="enlarge(this.id)">
-                    <img src="assets/img/portifolio/artwork/farewell.jpg" alt="Farewell Banner" class="project-img">
-                    <div class="img-overlay">
-                        <p class="project-name">Farewell Banner</p>
-                    </div>    
-                </div>
-
-                <div id="art2" class="project fcc" onclick="enlarge(this.id)">
-                    <img src="assets/img/portifolio/artwork/ibm_hackathon.jpg" alt="IBM Hackathon Banner" class="project-img">
-                    <div class="img-overlay">
-                        <p class="project-name">IBM Hackathon</p>
-                    </div>
-                </div>
-
-                <div id="art3" class="project fcc" onclick="enlarge(this.id)">
-                    <img src="assets/img/portifolio/artwork/elevar_brochure.jpg" alt="Elevar Brochure" class="project-img">
-                    <div class="img-overlay">
-                        <p class="project-name">Elevar Brochure</p>
-                    </div>
-                </div>
-
-                <div id="art4" class="project fcc" onclick="enlarge(this.id)">
-                    <img src="assets/img/portifolio/artwork/ieee_banner.jpg" alt="IEEE Banner" class="project-img">
-                    <div class="img-overlay">
-                        <p class="project-name">IEEE Banner</p>
-                    </div>    
-                </div>
-            </div>
-        </section>
-
-        <section class="">
-            <header class="title-div frc">
-                <h2 class="heading">
-                    
-                </h2>
-            </header>
-            <div class="projects">
-                <div class="project fcc" onclick="enlarge(this.id)">
-                    <img src="" alt="" class="project-img">
-                    <p class="project-name"></p>
-                    
-                </div>
-            </div>
-        </section>
-
-
-       
-
-
-
-    </main>
 
     <footer class="footer fcc">
         <ul class="ftr-menu">

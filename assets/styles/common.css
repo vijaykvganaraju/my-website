@@ -195,7 +195,7 @@
         z-index: 1;
         background-color: #ffffff;
         align-items: center;
-        /* overflow: hidden; */
+        overflow: hidden;
     }
 
     .menu-item {

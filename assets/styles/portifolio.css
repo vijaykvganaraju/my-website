@@ -28,7 +28,6 @@
 
     .project:hover .img-overlay, .project:hover .project-name {
         opacity: 1;
-        cursor: pointer;
     }
 
     .project:hover .project-name {
@@ -56,9 +55,13 @@
 
     .project-name {
         position: absolute;
+        color: #000000;
         bottom: 0;
         left: 50%;
         transform: translateX(-50%);
+        font-size: 0.8rem;
+        width: 100%;
+
     }
 
     .modal-content {
@@ -75,8 +78,6 @@
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
-    z-index: 0;
-
 }
 
 .project {
@@ -86,6 +87,7 @@
     border-radius: 4px;
     margin: 5px;
     overflow: hidden;
+    cursor: pointer;
 }
 
 .project-img {
@@ -94,6 +96,7 @@
 
 .project-name {
     font-family: 'Open Sans', serif;
+    text-align: center;
 }
 
 .modal {
@@ -137,4 +140,8 @@
     font-style: italic;
     color: #ffffff;
     flex-wrap: wrap;
+}
+
+section {
+    margin-bottom: 15px;
 }
