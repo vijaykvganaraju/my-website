@@ -24,41 +24,6 @@
 <body>
     <a class="skip-link" href="#container">Skip to Page Contents</a>
     
-    <main id="container" class="container">
-        <div class="controls-info nav-top">
-            <div class="title-div frc">
-                <h1 class="page-title">Resumé</h1>
-            </div>
-            <div class="controls">
-                <button id="prev-page" class="control-button" onclick="prevPage()"><i
-                        class="material-icons control-icon">keyboard_arrow_left</i></button>
-                <button id="prev-page" class="control-button" onclick="zoomIn()"><i
-                        class="material-icons control-icon">zoom_in</i></button>
-                <button id="prev-page" class="control-button" onclick="zoomOut()"><i
-                        class="material-icons control-icon">zoom_out</i></button>
-                <button id="next-page" class="control-button" onclick="nextPage()"><i
-                        class="material-icons control-icon">keyboard_arrow_right</i></button>
-            </div>
-        
-            <div class="info">
-                <p>Page <span id="pageNumber">0</span> of <span id="totalPages">0</span></p>
-            </div>
-        </div>
-        
-        <div class="pdf-canvas-div">
-            <canvas class="pdf-canvas">
-            </canvas>
-        </div>
-        
-        <div class="common-button-div">
-            <a class="common-button frc" href="assets/files/resume.pdf" target="_blank" rel="noopener noreferrer">VIEW RAW DOCUMENT</a>
-        
-            <a class="common-button frc" href="contact.html">VIEW UNREDACTED VERSION</a>
-        </div>
-        
-        
-    </main>
-
     <nav class="navbar">
         <a href="index.html" class="logo nav-item">
             <img class="logo-img" src="assets/img/logo/black50px.png" alt="logo">
@@ -94,6 +59,41 @@
     
         <div class="break-row"></div>
     </nav>
+    
+    <main id="container" class="container">
+        <div class="controls-info nav-top">
+            <div class="title-div frc">
+                <h1 class="page-title">Resumé</h1>
+            </div>
+            <div class="controls">
+                <button id="prev-page" class="control-button" onclick="prevPage()"><i
+                        class="material-icons control-icon">keyboard_arrow_left</i></button>
+                <button id="prev-page" class="control-button" onclick="zoomIn()"><i
+                        class="material-icons control-icon">zoom_in</i></button>
+                <button id="prev-page" class="control-button" onclick="zoomOut()"><i
+                        class="material-icons control-icon">zoom_out</i></button>
+                <button id="next-page" class="control-button" onclick="nextPage()"><i
+                        class="material-icons control-icon">keyboard_arrow_right</i></button>
+            </div>
+        
+            <div class="info">
+                <p>Page <span id="pageNumber">0</span> of <span id="totalPages">0</span></p>
+            </div>
+        </div>
+        
+        <div class="pdf-canvas-div">
+            <canvas class="pdf-canvas">
+            </canvas>
+        </div>
+        
+        <div class="common-button-div">
+            <a class="common-button frc" href="assets/files/resume.pdf" target="_blank" rel="noopener noreferrer">VIEW RAW DOCUMENT</a>
+        
+            <a class="common-button frc" href="contact.html">VIEW UNREDACTED VERSION</a>
+        </div>
+        
+        
+    </main>
     
     <footer class="footer fcc">
         <ul class="ftr-menu">

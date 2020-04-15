@@ -26,11 +26,11 @@
 
     }
 
-    .project:hover .img-overlay, .project:hover .project-name {
+    .project:hover .img-overlay, .project:hover .project-name, .project:focus .img-overlay, .project:focus .project-name {
         opacity: 1;
     }
 
-    .project:hover .project-name {
+    .project:hover .project-name, .project:focus .project-name {
         top: 50%;
     }
 
@@ -86,9 +86,14 @@
     height: 250px;
     border-radius: 4px;
     margin: 5px;
+    padding: 0;
     overflow: hidden;
     cursor: pointer;
+    border: none;
+
+    background-color: #ffffff;
 }
+
 
 .project-img {
     width: 250px;
@@ -106,7 +111,7 @@
     right: 0;
     width: 100%;
     height: 100%;
-    z-index: 1;
+    z-index: 999;
     background-color: #00000090;   
 }
 

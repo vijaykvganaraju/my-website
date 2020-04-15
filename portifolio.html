@@ -23,6 +23,42 @@
 <body>
     <a class="skip-link" href="#container">Skip to Page Contents</a>
     
+    <nav class="navbar">
+        <a href="index.html" class="logo nav-item">
+            <img class="logo-img" src="assets/img/logo/black50px.png" alt="logo">
+        </a>
+    
+        <ul id="menu" class="menu nav-item">
+            <li class="menu-item mobile-specific close-option">
+                <span id="menuNavButton" onclick="viewMenu()" class="material-icons nav-button">menu</span>
+            </li>
+            <li class="menu-item mobile-specific">
+                <a href="index.html" class="menu-option">Home</a>
+            </li>
+            <li class="menu-item">
+                <a href="about.html" class="menu-option">About</a>
+            </li>
+            <li class="menu-item current-page">
+                <a href="portifolio.html" class="menu-option">Portifolio</a>
+            </li>
+            <li class="menu-item">
+                <a href="resume.html" class="menu-option">Resume</a>
+            </li>
+            <li class="menu-item">
+                <a href="blog.html" class="menu-option">Blog</a>
+            </li>
+            <li class="menu-item">
+                <a href="contact.html" class="menu-option">Contact</a>
+            </li>
+        </ul>
+    
+        <div class="mobile-menu-button nav-item">
+            <span id="pageNavButton" onclick="viewMenu()" class="material-icons nav-button">menu</span>
+        </div>
+    
+        <div class="break-row"></div>
+    </nav>
+
     
     <main id="container" class="container limit-page">
 
@@ -122,33 +158,33 @@
             </header>
             <div class="projects">
 
-                <div id="art1" class="project fcc" onclick="enlarge(this.id)">
+                <button id="art1" class="project fcc" onclick="enlarge(this.id)">
                     <img src="assets/img/portifolio/artwork/farewell.jpg" alt="Farewell Banner" class="project-img">
                     <div class="img-overlay">
                         <p class="project-name">Farewell Banner</p>
                     </div>    
-                </div>
+                </button>
 
-                <div id="art2" class="project fcc" onclick="enlarge(this.id)">
+                <button id="art2" class="project fcc" onclick="enlarge(this.id)">
                     <img src="assets/img/portifolio/artwork/ibm_hackathon.jpg" alt="IBM Hackathon Banner" class="project-img">
                     <div class="img-overlay">
                         <p class="project-name">Hackathon Banner</p>
                     </div>
-                </div>
+                </button>
 
-                <div id="art3" class="project fcc" onclick="enlarge(this.id)">
+                <button id="art3" class="project fcc" onclick="enlarge(this.id)">
                     <img src="assets/img/portifolio/artwork/elevar_brochure.jpg" alt="Elevar Brochure" class="project-img">
                     <div class="img-overlay">
                         <p class="project-name">Elevar Brochure</p>
                     </div>
-                </div>
+                </button>
 
-                <div id="art4" class="project fcc" onclick="enlarge(this.id)">
+                <button id="art4" class="project fcc" onclick="enlarge(this.id)">
                     <img src="assets/img/portifolio/artwork/ieee_banner.jpg" alt="IEEE Banner" class="project-img">
                     <div class="img-overlay">
                         <p class="project-name">IEEE Banner</p>
                     </div>    
-                </div>
+                </button>
             </div>
         </section>
 
@@ -159,19 +195,19 @@
                 </h2>
             </header>
             <div class="projects">
-                <div id="model1" class="project fcc" onclick="enlarge(this.id)">
+                <button id="model1" class="project fcc" onclick="enlarge(this.id)">
                     <img src="assets/img/portifolio/3d/donut.jpg" alt="Donut Meal" class="project-img">
                     <div class="img-overlay">
                         <p class="project-name">Donut Meal</p>
                     </div>
-                </div>
+                </button>
 
-                <div id="model2" class="project fcc" onclick="enlarge(this.id)">
+                <button id="model2" class="project fcc" onclick="enlarge(this.id)">
                     <img src="assets/img/portifolio/3d/top.jpg" alt="Spinning Top" class="project-img">
                     <div class="img-overlay">
                         <p class="project-name">Spinning Top</p>
                     </div>
-                </div>
+                </button>
             </div>
 
         </section>
@@ -183,42 +219,7 @@
 
     </main>
 
-    <nav class="navbar">
-        <a href="index.html" class="logo nav-item">
-            <img class="logo-img" src="assets/img/logo/black50px.png" alt="logo">
-        </a>
     
-        <ul id="menu" class="menu nav-item">
-            <li class="menu-item mobile-specific close-option">
-                <span id="menuNavButton" onclick="viewMenu()" class="material-icons nav-button">menu</span>
-            </li>
-            <li class="menu-item mobile-specific">
-                <a href="index.html" class="menu-option">Home</a>
-            </li>
-            <li class="menu-item">
-                <a href="about.html" class="menu-option">About</a>
-            </li>
-            <li class="menu-item current-page">
-                <a href="portifolio.html" class="menu-option">Portifolio</a>
-            </li>
-            <li class="menu-item">
-                <a href="resume.html" class="menu-option">Resume</a>
-            </li>
-            <li class="menu-item">
-                <a href="blog.html" class="menu-option">Blog</a>
-            </li>
-            <li class="menu-item">
-                <a href="contact.html" class="menu-option">Contact</a>
-            </li>
-        </ul>
-    
-        <div class="mobile-menu-button nav-item">
-            <span id="pageNavButton" onclick="viewMenu()" class="material-icons nav-button">menu</span>
-        </div>
-    
-        <div class="break-row"></div>
-    </nav>
-
     <footer class="footer fcc">
         <ul class="ftr-menu">
             <li class="ftr-menu-item">
