@@ -43,6 +43,15 @@
         margin-top: 1em;
     }
 
+    .link {
+        border: 1px solid #ffffff;
+    }
+
+    .link:hover {
+        color: #000000;
+        border: 1px solid #00000020;
+    }
+
 }
 
 
@@ -72,6 +81,11 @@
     .caption {
         margin: auto;
     }
+
+    .link {
+        border: 1px solid #00000020;
+        border-radius: 4px;
+    }                                       
 }
 
 .projects {
@@ -146,6 +160,27 @@
     color: #ffffff;
     flex-wrap: wrap;
 }
+
+.link {
+    font-family: 'Roboto Slab', serif;
+    border-radius: 4px;
+    font-size: 1rem;
+    padding: 10px 5px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    color: #000000;
+    background-color: #ffffff;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.link .material-icons {
+    font-size: 1rem;
+}
+
 
 section {
     margin-bottom: 15px;
