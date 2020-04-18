@@ -408,6 +408,21 @@ footer {
 
  /* end of skip-link */
 
+ /* error page */
+
+ .action {
+    border: none;
+    background-color: #ffffff;
+    font-size: 1rem;
+    font-family: 'Bitter', serif;
+    color: #32066b;
+    text-decoration: underline;
+    cursor: pointer;
+ }
+
+ /* end of error page */
+
+
 .container {
     min-height: calc(100vh - 300px);
     z-index: 1;
@@ -440,7 +455,7 @@ h2 {
     margin: 0;
 }
 
-body, p, ul {
+body, p, ul, .action {
     margin: 0;
     padding: 0;
     
