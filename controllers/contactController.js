@@ -1,6 +1,8 @@
 const path = require('path');
 const nodemailer = require('nodemailer');
 
+const process = require('./../process');
+
 // Path of views directory
 const viewsPath = path.dirname(require.main.filename) + '/views/';
 
@@ -8,14 +10,14 @@ const viewsPath = path.dirname(require.main.filename) + '/views/';
 const tranporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-        user: '',
-        pass: ''
+        user: process.env.FROM_EMAIL,
+        pass: process.env.FROM_PASSWORD
     }
 });
 
 const mailOptions = {
     from: '',
-    to: '',
+    to: process.env.TO_EMAIL,
     subject: '',
     text: ''
 };
@@ -26,6 +28,14 @@ exports.getContactPage = (req, res, next) => {
 
 exports.contactMe = (req, res, next) => {
     if (req.body['g-recaptcha-response'].length > 0) {
+        mailOptions.from = req.body.email;
+        mailOptions.subject = req.body.subject;
+        mailOptions.text = req.body.message;
+        tranporter.sendMail(mailOptions, err => {
+            if(err) {
+                res.sendFile('contact_error.html', { root: viewsPath });
+            }
+        });
         res.sendFile('contact_success.html', { root: viewsPath });
     } else {
         res.sendFile('contact_error.html', { root: viewsPath });
