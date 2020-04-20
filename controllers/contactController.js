@@ -1,7 +1,7 @@
 const path = require('path');
 const nodemailer = require('nodemailer');
 
-const process = require('./../process');
+// const process = require('./../process');
 
 // Path of views directory
 const viewsPath = path.dirname(require.main.filename) + '/views/';
