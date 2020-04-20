@@ -1,8 +1,11 @@
 # Markup file
-template.html
+/views/template.html
 
 # Stylesheet
-assets/styles/template.css
+/views/assets/styles/template.css
 
-#node modules
+# node modules
 /node_modules
+
+# dummy process file
+process.json

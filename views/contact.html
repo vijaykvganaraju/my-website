@@ -69,19 +69,22 @@
                 <div class="name-div big-frc small-fcc">
                     <div class="fn-holder fcc stretch">
                         <label for="firstName">First Name</label>
-                        <input type="text" name="firstName" id="firstName">
+                        <input type="text" name="firstName" id="firstName" required>
                     </div>
         
                     <div class="ln-holder fcc stretch">
                         <label for="lastName">Last Name</label>
-                        <input type="text" name="lastName" id="lastName">
+                        <input type="text" name="lastName" id="lastName" required>
                     </div>
                 </div>
         
                 <label for="email">Email</label>
-                <input type="email" name="email" id="email">
+                <input type="email" name="email" id="email" required>
+                <label for="subject">Subject</label>
+                <input type="text" name="subject" id="subject" required>
                 <label for="message">Message</label>
-                <textarea name="message" id="message" cols="30" rows="10"></textarea>
+                <textarea name="message" id="message" cols="30" rows="10" required></textarea>
+                <div class="g-recaptcha frc" data-sitekey="6Lf16-oUAAAAAF7KtpJtvu52fWCE5GVllQKLcCl5"></div>
                 <div class="common-button-div">
                     <input type="submit" value="SEND" class="common-button frc">
                 </div>
@@ -182,6 +185,7 @@
     </footer>
     
     <!-- scripts -->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <script src="assets/scripts/common.js"></script>
     <script src="assets/scripts/contact.js"></script>
 </body>
