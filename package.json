@@ -1,0 +1,37 @@
+{
+  "name": "my-site",
+  "version": "1.0.0",
+  "description": "A website about my information, blogs, portifolio etc",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "serve": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VJmix/my-website.git"
+  },
+  "keywords": [
+    "my-website",
+    "personal",
+    "blog",
+    "resume",
+    "portifolio",
+    "about",
+    "contact"
+  ],
+  "author": "Vijay Ganaraju",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/VJmix/my-website/issues"
+  },
+  "homepage": "https://github.com/VJmix/my-website#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "ejs": "^3.0.2",
+    "express": "^4.17.1",
+    "mongoose": "^5.9.9",
+    "nodemailer": "^6.4.6",
+    "nodemon": "^2.0.3"
+  }
+}

@@ -3,3 +3,6 @@ template.html
 
 # Stylesheet
 assets/styles/template.css
+
+#node modules
+/node_modules
