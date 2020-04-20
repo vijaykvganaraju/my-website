@@ -27,8 +27,8 @@ exports.getContactPage = (req, res, next) => {
 };
 
 exports.contactMe = (req, res, next) => {
-    if (req.body['g-recaptcha-response'].length > 0) {
-        mailOptions.from = req.body.email;
+    if (req.body['g-recaptcha-response'].length > 0 && (req.body.firstName.length > 0 && req.body.lastName.length > 0 && req.body.email.length > 0 && req.body.subject.length > 0 && req.body.message.length > 0)) {
+        mailOptions.from = `"${req.body.firstName} ${req.body.lastName}" <${ req.body.email }>`;
         mailOptions.subject = req.body.subject;
         mailOptions.text = req.body.message;
         tranporter.sendMail(mailOptions, err => {
