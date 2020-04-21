@@ -51,7 +51,7 @@ exports.contactMe = (req, res, next) => {
                 mailOptions.text = `${req.body.email } says:\n${ req.body.message }`;
                 tranporter.sendMail(mailOptions, (err, info) => {
                     if (err) {
-                        res.sendFile('contact_error.html', { root: viewsPath });
+                        res.redirect('/error');
                     }
                 });
                 res.sendFile('contact_success.html', { root: viewsPath });

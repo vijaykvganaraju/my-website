@@ -12,9 +12,11 @@ const portifolioRoutes = require('./routes/portifolioRoutes');
 const resumeRoutes = require('./routes/resumeRoutes');
 const blogRoutes = require('./routes/blogRoutes');
 const contactRoutes = require('./routes/contactRoutes');
+const errorRoutes = require('./routes/errorRoutes');
 
 // accessing files
-app.use(express.static('views'));
+app.use(express.static(__dirname + '/views'));
+app.use(express.static(__dirname + '/views/assets/scripts'));
 
 // setting view engine to ejs for templating
 app.set('view engine', 'ejs');
@@ -41,6 +43,17 @@ app.use('/portifolio', portifolioRoutes);
 app.use('/resume', resumeRoutes);
 app.use('/blog', blogRoutes);
 app.use('/contact', contactRoutes);
+app.use('/error', errorRoutes);
 
+app.use((req, res, next) => {
+    const error = new Error('Invalid request')
+    error.status = 404;
+    next(error);
+});
+
+app.use((error, req, res, next) => {
+    res.status(error.status || 500);
+    res.redirect('/error');
+});
 
 module.exports = app;

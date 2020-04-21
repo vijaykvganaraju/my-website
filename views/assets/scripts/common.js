@@ -32,7 +32,6 @@ window.addEventListener('resize', () => {
 });
 
 function redirectSocial(media) {
-    console.log(media);
     let link = null;
     if (media === 'li') {
         link = 'https://www.linkedin.com/in/vijay-ganaraju-2a0982126';
