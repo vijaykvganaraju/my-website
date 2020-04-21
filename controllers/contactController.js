@@ -1,17 +1,19 @@
 const path = require('path');
 const nodemailer = require('nodemailer');
 const request = require('request');
-const dummyProcess = require('./../dummyProcess.json');
+
+// Initialize this only when running on localhost
+// const process = require('./../dummyProcess.json');
 
 // Path of views directory
 const viewsPath = path.dirname(require.main.filename) + '/views/';
 
 // Initializing necessary variables
 
-const fromEmail = process.env.FROM_EMAIL || dummyProcess.env.FROM_EMAIL;
-const fromPassword = process.env.FROM_PASSWORD || dummyProcess.env.FROM_PASSWORD;
-const toEmail = process.env.TO_EMAIL || dummyProcess.env.TO_EMAIL;
-const secretRecaptchaKey = process.env.SECRET_RECAPTCHA_KEY || dummyProcess.env.SECRET_RECAPTCHA_KEY;
+const fromEmail = process.env.FROM_EMAIL;
+const fromPassword = process.env.FROM_PASSWORD;
+const toEmail = process.env.TO_EMAIL;
+const secretRecaptchaKey = process.env.SECRET_RECAPTCHA_KEY;
 
 // tranporter for email
 const tranporter = nodemailer.createTransport({
@@ -37,7 +39,7 @@ exports.contactMe = (req, res, next) => {
     let gCaptchaResponse = req.body['g-recaptcha-response'];
     let validationToken = false;
     request.post({ url: 'https://www.google.com/recaptcha/api/siteverify',
-        form: { secret: '6Lf16-oUAAAAAJC0w9_9ITvNT_US1FZ5JlZW7xHk',  response: gCaptchaResponse }},
+        form: { secret: secretRecaptchaKey,  response: gCaptchaResponse }},
         (err, httpRes, body) => {
             if(err) {
                 console.error(err);
@@ -45,8 +47,8 @@ exports.contactMe = (req, res, next) => {
             }
             validationToken = JSON.parse(body).success;
             if (validationToken === true && (req.body.firstName.length > 0 && req.body.lastName.length > 0 && req.body.email.length > 0 && req.body.subject.length > 0 && (req.body.message.length > 0 && req.body.message.length < 1000))) {
-                mailOptions.subject = `<Website> ${ req.body.email } says: \n ${ req.body.subject }`;
-                mailOptions.text = req.body.message;
+                mailOptions.subject = `<Website> ${ req.body.subject }`;
+                mailOptions.text = `${req.body.email } says:\n${ req.body.message }`;
                 tranporter.sendMail(mailOptions, (err, info) => {
                     if (err) {
                         res.sendFile('contact_error.html', { root: viewsPath });
