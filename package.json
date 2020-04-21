@@ -32,9 +32,11 @@
     "ejs": "^3.0.2",
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
+    "marked": "^1.0.0",
     "mongoose": "^5.9.9",
     "nodemailer": "^6.4.6",
-    "request": "^2.88.2"
+    "request": "^2.88.2",
+    "slugify": "^1.4.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.3"

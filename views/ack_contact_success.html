@@ -5,24 +5,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#000000" />
-    <meta name="keywords" content="Vijay Kumar Varma Ganaraju, Vijay Ganaraju, blogs, thoughts, opinions, updates" />
-    <meta name="description" content="A blog page of Vijay Ganaraju about his thoughts, opions, findings, information, updates etc." />
+    <meta name="keywords" content="Vijay Kumar Varma Ganaraju, Vijay Ganaraju, " />
+    <meta name="description" content="" />
 
 
-    <title>Blogs</title>
-    
+    <title></title>
+
     <link rel="manifest" href="manifest.webmanifest">
     <link rel="apple-touch-icon" href="assets/img/logo/black_bgw_192.png">
     <link rel="icon" href="assets/img/logo/White30.png" type="image/x-icon">
 
     <link rel="stylesheet" href="assets/styles/common.css">
-    <link rel="stylesheet" href="assets/styles/blog.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 
 <body>
     <a class="skip-link" href="#container">Skip to Page Contents</a>
-    
+
     <nav class="navbar">
         <a href="/" class="logo nav-item">
             <img class="logo-img" src="assets/img/logo/black50px.png" alt="logo">
@@ -44,7 +43,7 @@
             <li class="menu-item">
                 <a href="resume" class="menu-option">Resume</a>
             </li>
-            <li class="menu-item current-page">
+            <li class="menu-item">
                 <a href="blog" class="menu-option">Blog</a>
             </li>
             <li class="menu-item">
@@ -57,31 +56,18 @@
         </div>
     
     </nav>
-    
-    <main id="container" class="container limit-page">
-        <header class="nav-top small-frc">
-            <h1 class="page-title">Blog</h1>
-        </header>
-        <section class="blogs-div">
-            <% blogs.forEach(blog => {  %>
-                <div class="blog-preview">
-                    <h2 class="heading"><%= blog.title %></h2>
-                    <p class="datetime"><%= blog.datetime.toLocaleString('en-US', dateOptions) %></p>
-                    <p class="subject"><%= blog.subject %></p>
-                    <div class="tags-div">
-                        <% blog.tags.forEach(tag => { %>
-                        <a href="blog/tags/<%= tag %>" class="tag"><%= tag %></a>
-                        <% }); %>
-                    </div>
-                    <div class="read-more-div">
-                        <a class="read-more" href="<%= blog.url %>">Read more <img src="assets/img/icons/blog/trending_flat.png" alt="Goto"></a>
-                    </div>
-                    </div>
-            <% }); %>
-        </section>
 
+    <main id="container" class="container limit-page">
+
+        <header class="nav-top">
+            <h1 class="page-title">Message sent successfully!</h1>
+            <p class="desc">Thanks for the message/feedback/query.</p>
+            <p class="desc">I will reply you as soon as possible.</p>
+            <p class="desc ">For more details, Go to <a href="/" class="action">Homepage</a>!</p>
+
+        </header>
     </main>
-    
+
     <footer class="footer fcc">
         <ul class="ftr-menu">
             <li class="ftr-menu-item">
@@ -102,11 +88,11 @@
         </ul>
     
         <div class="sm-icon-div">
-            <a href="https://www.linkedin.com/in/vijay-ganaraju-2a0982126/" target="_blank" rel="noopener noreferrer"><img class="sm-icon" href="#"
-                    src="assets/img/icons/social/li.png" alt="linkedin-icon"></a>
+            <a href="https://www.linkedin.com/in/vijay-ganaraju-2a0982126/" target="_blank" rel="noopener noreferrer"><img
+                    class="sm-icon" href="#" src="assets/img/icons/social/li.png" alt="linkedin-icon"></a>
     
-            <a href="https://discord.gg/C4HSFYN" target="_blank" rel="noopener noreferrer"><img class="sm-icon" src="assets/img/icons/social/discord.png"
-                    alt="discord-icon"></a>
+            <a href="https://discord.gg/C4HSFYN" target="_blank" rel="noopener noreferrer"><img class="sm-icon"
+                    src="assets/img/icons/social/discord.png" alt="discord-icon"></a>
     
             <a href="https://twitter.com/vijaykvganaraju" target="_blank" rel="noopener noreferrer"><img class="sm-icon"
                     src="assets/img/icons/social/twitter.png" alt="twitter-icon"></a>
@@ -122,8 +108,6 @@
 
     <!-- scripts -->
     <script src="assets/scripts/common.js"></script>
-    <script src="assets/scripts/blog.js"></script>
-
 </body>
 
 </html>
