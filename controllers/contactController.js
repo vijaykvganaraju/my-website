@@ -1,23 +1,30 @@
 const path = require('path');
 const nodemailer = require('nodemailer');
 const request = require('request');
-// const process = require('./../process');
+const dummyProcess = require('./../dummyProcess.json');
 
 // Path of views directory
 const viewsPath = path.dirname(require.main.filename) + '/views/';
+
+// Initializing necessary variables
+
+const fromEmail = process.env.FROM_EMAIL || dummyProcess.env.FROM_EMAIL;
+const fromPassword = process.env.FROM_PASSWORD || dummyProcess.env.FROM_PASSWORD;
+const toEmail = process.env.TO_EMAIL || dummyProcess.env.TO_EMAIL;
+const secretRecaptchaKey = process.env.SECRET_RECAPTCHA_KEY || dummyProcess.env.SECRET_RECAPTCHA_KEY;
 
 // tranporter for email
 const tranporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-        user: process.env.FROM_EMAIL,
-        pass: process.env.FROM_PASSWORD
+        user: fromEmail,
+        pass: fromPassword
     }
 });
 
 const mailOptions = {
-    from: '',
-    to: process.env.TO_EMAIL,
+    from: fromEmail,
+    to: toEmail,
     subject: '',
     text: ''
 };
@@ -38,8 +45,7 @@ exports.contactMe = (req, res, next) => {
             }
             validationToken = JSON.parse(body).success;
             if (validationToken === true && (req.body.firstName.length > 0 && req.body.lastName.length > 0 && req.body.email.length > 0 && req.body.subject.length > 0 && (req.body.message.length > 0 && req.body.message.length < 1000))) {
-                mailOptions.from = `"${req.body.firstName} ${req.body.lastName}" <${req.body.email}>`;
-                mailOptions.subject = '<Website> ' + req.body.subject;
+                mailOptions.subject = `<Website> ${ req.body.email } says: \n ${ req.body.subject }`;
                 mailOptions.text = req.body.message;
                 tranporter.sendMail(mailOptions, (err, info) => {
                     if (err) {
