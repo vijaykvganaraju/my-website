@@ -6,17 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#000000" />
     <meta name="keywords" content="Vijay Kumar Varma Ganaraju, Vijay Ganaraju, blogs, thoughts, opinions, updates" />
-    <meta name="description" content="A blog on <%= blog.title %>, <%= blog.subject %> by Vijay Kumar Varma Ganaraju" />
+    <meta name="description"
+        content="A blog page of Vijay Ganaraju about his thoughts, opions, findings, information, updates etc." />
 
-
-    <title><%= blog.title %></title>
+    <title>Blogs with <%= property_value %></title>
 
     <link rel="manifest" href="/manifest.webmanifest">
     <link rel="apple-touch-icon" href="/assets/img/logo/black_bgw_192.png">
     <link rel="icon" href="/assets/img/logo/White30.png" type="image/x-icon">
 
     <link rel="stylesheet" href="/assets/styles/common.css">
-    <link rel="stylesheet" href="/assets/styles/view-blog.css">
+    <link rel="stylesheet" href="/assets/styles/blog.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 
@@ -59,35 +59,31 @@
     </nav>
 
     <main id="container" class="container limit-page">
-
-       <header class="nav-top">
-           <h1 class="page-title"><%= blog.title %></h1>
-           <p class="datetime"><%= blog.datetime.toLocaleString('en-US', dateOptions) %></p>
-           <h2 class="heading"><%= blog.subject %></h2>
-       </header>
-       <section class="content">
-           <div class="blog-body">
-            <%= blog.body %>
-           </div>
-           <div class="tags-div">
-               <% blog.tags.forEach(tag => { %>
-               <a href="/blog/tag/<%= tag %>" class="tag"><%= tag %></a>
-               <% }); %>
-           </div>
-       </section>
-        <section class="blog-navigation frc">
-            <% if (blog.next.slug != '') { %>
-            <div class="next-blog stretch"><a href="<%= blog.next.slug %>" class="next-page blog-button"><img
-                    src="/assets/img/icons/blog/trending_flat_left.png"><%= blog.next.title %></a></div>
-            <% } %>
-            <% if (blog.prev.slug != '')  { %>
-            <div class="prev-blog stretch"><a href="<%= blog.prev.slug %>" class="prev-page blog-button"><%= blog.prev.title %><img
-                    src="/assets/img/icons/blog/trending_flat.png"></a></div>
-            <% } %>
+        <header class="nav-top small-frc">
+            <h1 class="page-title">Blogs with "<%= property_value %>" as a <%= property %></h1>
+        </header>
+        <section class="blogs-div">
+            <% blogs.forEach(blog => {  %>
+            <div class="blog-preview">
+                <h2 class="heading"><%= blog.title %></h2>
+                <p class="datetime"><%= blog.datetime.toLocaleString('en-US', dateOptions) %></p>
+                <p class="subject"><%= blog.subject %></p>
+                <div class="tags-div">
+                    <% blog.tags.forEach(tag => { %>
+                    <a href="/blog/tag/<%= tag %>" class="tag"><%= tag %></a>
+                    <% }); %>
+                </div>
+                <div class="read-more-div">
+                    <a class="read-more" href="/blog/<%= blog.slug %>">Read more <img
+                            src="/assets/img/icons/blog/trending_flat.png" alt="Goto"></a>
+                </div>
+            </div>
+            <% }); %>
         </section>
+    
     </main>
 
-    
+
     <footer class="footer fcc">
         <ul class="ftr-menu">
             <li class="ftr-menu-item">

@@ -70,11 +70,11 @@
                     <p class="subject"><%= blog.subject %></p>
                     <div class="tags-div">
                         <% blog.tags.forEach(tag => { %>
-                        <a href="blog/tags/<%= tag %>" class="tag"><%= tag %></a>
+                        <a href="/blog/tag/<%= tag %>" class="tag"><%= tag %></a>
                         <% }); %>
                     </div>
                     <div class="read-more-div">
-                        <a class="read-more" href="<%= blog.url %>">Read more <img src="assets/img/icons/blog/trending_flat.png" alt="Goto"></a>
+                        <a class="read-more" href="blog/<%= blog.slug %>">Read more <img src="assets/img/icons/blog/trending_flat.png" alt="Goto"></a>
                     </div>
                     </div>
             <% }); %>

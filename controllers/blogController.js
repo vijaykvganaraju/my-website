@@ -16,24 +16,10 @@ exports.getBlogPage = async (req, res, next) => {
     try {
         const blogData = await Blog
                                 .find()
-                                .select('_id title datetime subject body tags slug')
+                                .select('_id title datetime subject tags slug')
                                 .sort({ datetime: 'desc' });
-        const allBlogs = {
-            count: blogData.length,
-            blogs: blogData.map(eachBlog => {
-                return {
-                    id: eachBlog._id,
-                    title: eachBlog.title,
-                    datetime: eachBlog.datetime,
-                    subject: eachBlog.subject,
-                    body: eachBlog.body,
-                    tags: eachBlog.tags,
-                    url: 'blog/' + eachBlog.slug
-                }
-            })
-        }
         const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-        res.render('blog', { blogs: allBlogs.blogs, length: allBlogs.count, dateOptions: options });
+        res.render('blog', { blogs: blogData, length: blogData.length, dateOptions: options });
     } catch (err) {
         console.error(err);
         res.status(504).redirect('/error');
@@ -52,6 +38,23 @@ exports.getSpecificBlog = async (req, res, next) => {
         console.error(err);
         res.status(504).redirect('/error');
     }
+};
+
+exports.getBlogsWithTag = async (req, res, next) => {
+    const tag = req.params.tag;
+    
+    try {
+        const blogData = await Blog
+            .find({ tags: tag })
+            .select('_id title datetime subject body tags slug')
+            .sort({ datetime: 'desc' });
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        res.render('searchBlog', { blogs: blogData, property: 'tag', property_value: tag, dateOptions: options });
+    } catch (err) {
+        console.error(err);
+        res.status(504).redirect('/error');
+    }
+        
 };
 
 exports.setNewBlog = async (req, res,  next) => {

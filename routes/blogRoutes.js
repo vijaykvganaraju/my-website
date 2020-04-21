@@ -9,6 +9,8 @@ router.get('/', BlogController.getBlogPage);
 
 router.get('/:slug', BlogController.getSpecificBlog);
 
+router.get('/tag/:tag', BlogController.getBlogsWithTag)
+
 router.post('/', BlogController.setNewBlog);
 
 // exporting module to access from another module
