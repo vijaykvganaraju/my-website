@@ -8,6 +8,7 @@ const blogSchema = mongoose.Schema({
     title: { type: String, required: true },
     datetime: { type: Date, default: Date.now },
     subject: { type: String, required: true },
+    markdown: { type: String, required: true },
     body: { type: String, required: true },
     tags: { type: Array, required: true },
     slug: { type: String, required: true, unique: true },

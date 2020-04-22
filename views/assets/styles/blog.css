@@ -30,7 +30,7 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    margin: 5px 0;
+    margin-bottom: 10px;
 }
 
 .tag {
@@ -54,5 +54,27 @@
 }
 
 .read-more:hover {
+    text-decoration: underline;
+}
+
+.pages-navigation {
+    margin: 1em 0;
+    display: flex;
+}
+
+.prev-div, .prev-link {
+    float: right;
+}
+
+.next-div, .next-link {
+    float: left;
+
+}
+
+.prev-link, .next-link {
+    color: #000000;
+}
+
+.prev-link:hover, .next-link:hover {
     text-decoration: underline;
 }

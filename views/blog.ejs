@@ -11,12 +11,12 @@
 
     <title>Blogs</title>
     
-    <link rel="manifest" href="manifest.webmanifest">
-    <link rel="apple-touch-icon" href="assets/img/logo/black_bgw_192.png">
-    <link rel="icon" href="assets/img/logo/White30.png" type="image/x-icon">
+    <link rel="manifest" href="/manifest.webmanifest">
+    <link rel="apple-touch-icon" href="/assets/img/logo/black_bgw_192.png">
+    <link rel="icon" href="/assets/img/logo/White30.png" type="image/x-icon">
 
-    <link rel="stylesheet" href="assets/styles/common.css">
-    <link rel="stylesheet" href="assets/styles/blog.css">
+    <link rel="stylesheet" href="/assets/styles/common.css">
+    <link rel="stylesheet" href="/assets/styles/blog.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 
@@ -25,7 +25,7 @@
     
     <nav class="navbar">
         <a href="/" class="logo nav-item">
-            <img class="logo-img" src="assets/img/logo/black50px.png" alt="logo">
+            <img class="logo-img" src="/assets/img/logo/black50px.png" alt="logo">
         </a>
     
         <ul id="menu" class="menu nav-item">
@@ -36,19 +36,19 @@
                 <a href="/" class="menu-option">Home</a>
             </li>
             <li class="menu-item">
-                <a href="about" class="menu-option">About</a>
+                <a href="/about" class="menu-option">About</a>
             </li>
             <li class="menu-item">
-                <a href="portifolio" class="menu-option">Portifolio</a>
+                <a href="/portifolio" class="menu-option">Portifolio</a>
             </li>
             <li class="menu-item">
-                <a href="resume" class="menu-option">Resume</a>
+                <a href="/resume" class="menu-option">Resume</a>
             </li>
             <li class="menu-item current-page">
-                <a href="blog" class="menu-option">Blog</a>
+                <a href="/blog" class="menu-option">Blog</a>
             </li>
             <li class="menu-item">
-                <a href="contact" class="menu-option">Contact</a>
+                <a href="/contact" class="menu-option">Contact</a>
             </li>
         </ul>
     
@@ -63,21 +63,33 @@
             <h1 class="page-title">Blog</h1>
         </header>
         <section class="blogs-div">
-            <% blogs.forEach(blog => {  %>
-                <div class="blog-preview">
-                    <h2 class="heading"><%= blog.title %></h2>
-                    <p class="datetime"><%= blog.datetime.toLocaleString('en-US', dateOptions) %></p>
-                    <p class="subject"><%= blog.subject %></p>
-                    <div class="tags-div">
-                        <% blog.tags.forEach(tag => { %>
-                        <a href="/blog/tag/<%= tag %>" class="tag"><%= tag %></a>
-                        <% }); %>
+            <% if(!blogAvailability) { %>
+                    <h2 class="headiing">No blogs to show.</h2>
+                <% } else {
+                blogs.forEach(blog => {  %>
+                    <div class="blog-preview">
+                        <h2 class="heading"><%= blog.title %></h2>
+                        <p class="datetime"><%= blog.datetime.toLocaleString('en-US', dateOptions) %></p>
+                        <p class="subject"><%= blog.subject %></p>
+                        <div class="tags-div">
+                            <% blog.tags.forEach(tag => { %>
+                            <a href="/blog/tag/<%= tag %>" class="tag"><%= tag %></a>
+                            <% }); %>
+                        </div>
+                        <div class="read-more-div">
+                            <a class="read-more" href="/blog/<%= blog.slug %>">Read more <img src="/assets/img/icons/blog/trending_flat.png" alt="Goto"></a>
+                        </div>
                     </div>
-                    <div class="read-more-div">
-                        <a class="read-more" href="blog/<%= blog.slug %>">Read more <img src="assets/img/icons/blog/trending_flat.png" alt="Goto"></a>
-                    </div>
-                    </div>
-            <% }); %>
+                <% }); } %> 
+        </section>
+
+        <section class="pages-navigation">
+            <% if(pagesData.next)  { %>
+                <div class="next-div stretch"><a href="/blog/next" class="next-link"><img src="/assets/img/icons/blog/trending_flat_left.png" alt="left arrow">Next</a></div>
+            <% } %>
+            <% if(pagesData.prev) { %>
+                <div class="prev-div stretch"><a href="/blog/prev" class="prev-link">Prev<img src="/assets/img/icons/blog/trending_flat.png" alt="right arrow"></a></div>
+            <% } %>
         </section>
 
     </main>
@@ -85,44 +97,44 @@
     <footer class="footer fcc">
         <ul class="ftr-menu">
             <li class="ftr-menu-item">
-                <a href="about" class="ftr-menu-option">About</a>
+                <a href="/about" class="ftr-menu-option">About</a>
             </li>
             <li class="ftr-menu-item">
-                <a href="portifolio" class="ftr-menu-option">Portifolio</a>
+                <a href="/portifolio" class="ftr-menu-option">Portifolio</a>
             </li>
             <li class="ftr-menu-item">
-                <a href="resume" class="ftr-menu-option">Resume</a>
+                <a href="/resume" class="ftr-menu-option">Resume</a>
             </li>
             <li class="ftr-menu-item">
-                <a href="blog" class="ftr-menu-option">Blog</a>
+                <a href="/blog" class="ftr-menu-option">Blog</a>
             </li>
             <li class="ftr-menu-item">
-                <a href="contact" class="ftr-menu-option">Contact</a>
+                <a href="/contact" class="ftr-menu-option">Contact</a>
             </li>
         </ul>
     
         <div class="sm-icon-div">
             <a href="https://www.linkedin.com/in/vijay-ganaraju-2a0982126/" target="_blank" rel="noopener noreferrer"><img class="sm-icon" href="#"
-                    src="assets/img/icons/social/li.png" alt="linkedin-icon"></a>
+                    src="/assets/img/icons/social/li.png" alt="linkedin-icon"></a>
     
-            <a href="https://discord.gg/C4HSFYN" target="_blank" rel="noopener noreferrer"><img class="sm-icon" src="assets/img/icons/social/discord.png"
+            <a href="https://discord.gg/C4HSFYN" target="_blank" rel="noopener noreferrer"><img class="sm-icon" src="/assets/img/icons/social/discord.png"
                     alt="discord-icon"></a>
     
             <a href="https://twitter.com/vijaykvganaraju" target="_blank" rel="noopener noreferrer"><img class="sm-icon"
-                    src="assets/img/icons/social/twitter.png" alt="twitter-icon"></a>
+                    src="/assets/img/icons/social/twitter.png" alt="twitter-icon"></a>
     
             <a href="https://www.youtube.com/user/Tejaswi88" target="_blank" rel="noopener noreferrer"><img class="sm-icon"
-                    src="assets/img/icons/social/yt.png" alt="youtube-icon"></a>
+                    src="/assets/img/icons/social/yt.png" alt="youtube-icon"></a>
     
-            <a href="mailto:a@a.com"><img class="sm-icon" src="assets/img/icons/social/email.png" alt="email"></a>
+            <a href="mailto:a@a.com"><img class="sm-icon" src="/assets/img/icons/social/email.png" alt="email"></a>
         </div>
     
         <div class="owner-info">&copy; Owned and maintained by Vijay Kumar Varma Ganaraju</div>
     </footer>
 
     <!-- scripts -->
-    <script src="assets/scripts/common.js"></script>
-    <script src="assets/scripts/blog.js"></script>
+    <script src="/assets/scripts/common.js"></script>
+    <script src="/assets/scripts/blog.js"></script>
 
 </body>
 

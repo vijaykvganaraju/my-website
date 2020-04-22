@@ -33,7 +33,7 @@ app.use(bodyParser.json());
 mongoose.connect(
     'mongodb+srv://' + process.env.MONGO_ATLAS_USERNAME + ':' +
     process.env.MONGO_ATLAS_PASSWORD +
-    '@my-apis-kff0p.mongodb.net/test?retryWrites=true&w=majority',
+    '@my-apis-kff0p.mongodb.net/my-website?retryWrites=true&w=majority',
     { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true }
 );
 
