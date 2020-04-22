@@ -38,6 +38,8 @@ exports.getBlogPage = async (req, res, next) => {
             if(skipRecords - LIMIT_RECORDS >= 0) {
                 skipRecords = skipRecords - LIMIT_RECORDS;
             }
+        } else {
+            skipRecords = 0;
         }
 
         if(recordsCount === 0) {
