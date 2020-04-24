@@ -3,7 +3,7 @@ const nodemailer = require('nodemailer');
 const request = require('request');
 
 // Initialize this only when running on localhost
-const process = require('./../dummyProcess.json');
+// const process = require('./../dummyProcess.json');
 
 // Path of views directory
 const viewsPath = path.dirname(require.main.filename) + '/views/';
