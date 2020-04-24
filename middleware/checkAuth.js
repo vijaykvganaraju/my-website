@@ -3,6 +3,7 @@ const User = require('./../models/userModel');
 
 module.exports  = async (req, res, next) => {
     try {
+
         let username = req.body.username;
         const user = await User.findOne({username: username});
         

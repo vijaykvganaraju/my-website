@@ -17,7 +17,9 @@ router.get('/prev', BlogController.getBlogPage);
 
 router.get('/new', BlogController.createNewBlog);
 
-router.get('/edit/:slug', BlogController.editBlog);
+router.get('/edit/:slug', BlogController.editOrDeleteBlog);
+
+router.get('/delete/:slug', BlogController.editOrDeleteBlog);
 
 router.get('/:slug', BlogController.getSpecificBlog);
 
@@ -25,9 +27,9 @@ router.get('/tag/:tag', BlogController.getBlogsWithTag);
 
 router.post('/new', checkAuth, BlogController.setNewBlog);
 
-router.put('/edit', checkAuth, BlogController.saveEditedBlog);
+router.put('/', checkAuth, BlogController.saveEditedBlog);
 
-router.get('/delete/:id', checkAuth, BlogController.deleteBlog);
+router.delete('/', checkAuth, BlogController.deleteBlog);
 
 
 // exporting module to access from another module

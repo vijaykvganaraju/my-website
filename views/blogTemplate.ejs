@@ -64,8 +64,8 @@
             <h1 class="page-title"></h1>
         </header>
         <section>
-            <form action="/blog/<%= pageMode %><% if(pageMode === 'edit') { %><%= '?_method=PUT' %><% } %> " class="fcc" method="POST">
-                <% if(pageMode === 'edit') { %>
+            <form action="/blog<% if(pageMode === 'edit') { %><%= '?_method=PUT' %><% } else if( pageMode === 'delete') { %><%= '?_method=DELETE' %><% } %>" class="fcc" method="POST">
+                <% if(pageMode != 'new') { %>
                     <input type="text" name="blogId" id="blogId" value="<%= blog._id %>" style="display:none">
                 <% } %>
                 <label for="title">Title</label>
@@ -81,9 +81,6 @@
                 <label for="password">Password</label>
                 <input type="password" name="password" id="password" required>
                 <div class="common-button-div">
-                    <% if(pageMode === 'edit') { %>
-                    <a href="/blog/delete/<%= blog._id %>" class="common-button">Delete</a>
-                    <% } %> 
                     <input type="submit" value="Submit" class="common-button">
                 </div>
 

@@ -175,16 +175,16 @@ exports.createNewBlog = async (req, res, next) => {
     res.render('blogTemplate', { blog: blog, pageMode: 'new' });
 };
 
-exports.editBlog = async (req, res, next) => {
-
+exports.editOrDeleteBlog = async (req, res, next) => {
+    const reqType = req.url.split('/')[1];
     const slug = req.params.slug;
 
     try {
         const blog = await Blog.findOne({ slug: slug }).select('_id title subject tags markdown');
-        res.render('blogTemplate', { blog: blog, pageMode: 'edit' });
+        res.render('blogTemplate', { blog: blog, pageMode: reqType });
     } catch(err) {
         console.error(err);
-        res.render('ack_error', { errorMessage: 'Unable to create a new blog!' });
+        res.render('ack_error', { errorMessage: 'Unable to edit the blog!' });
     }
 
 };
@@ -241,7 +241,7 @@ exports.saveEditedBlog = async (req, res, next) => {
 };
 
 exports.deleteBlog = async (req, res, next) => {
-    const blogId = req.params.id;
+    const blogId = req.body.blogId;
     
     try {
         await Blog.deleteOne({ _id: blogId });
