@@ -3,7 +3,7 @@ const nodemailer = require('nodemailer');
 const request = require('request');
 
 // Initialize this only when running on localhost
-// const process = require('./../dummyProcess.json');
+const process = require('./../dummyProcess.json');
 
 // Path of views directory
 const viewsPath = path.dirname(require.main.filename) + '/views/';
@@ -54,9 +54,9 @@ exports.contactMe = (req, res, next) => {
                         res.render('ack_error', { errorMessage: 'Message not sent! Try again.' });
                     }
                 });
-                res.sendFile('ack_contact_success.html', { root: viewsPath });
+                res.render('ack_contact_success');
             } else {
-                res.sendFile('ack_contact_error.html', { root: viewsPath });
+                res.render('ack_contact_error');
             }
             
         });
