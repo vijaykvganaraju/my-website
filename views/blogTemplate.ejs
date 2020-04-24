@@ -64,23 +64,24 @@
             <h1 class="page-title"></h1>
         </header>
         <section>
-            <form action="/blog/<%= pageMode %>" class="fcc" method="POST">
+            <form action="/blog/edit?_method=PUT" class="fcc" method="POST">
                 <% if(pageMode === 'edit') { %>
                     <input type="text" name="blogId" id="blogId" value="<%= blog._id %>" style="display:none">
                 <% } %>
                 <label for="title">Title</label>
-                <input type="text" name="title" id="title" value="<%= blog.title %>">
+                <input type="text" name="title" id="title" value="<%= blog.title %>" required>
                 <label for="subject">Subject</label>
-                <input type="text" name="subject" id="subject" value="<%= blog.subject %>">
+                <input type="text" name="subject" id="subject" value="<%= blog.subject %>" required>
                 <label for="tags">Tags</label>
-                <input type="text" name="tags" id="tags" value="<%= blog.tags %>">
+                <input type="text" name="tags" id="tags" value="<%= blog.tags %>" required>
                 <label for="markdown">Markdown</label>
-                <textarea name="markdown" id="markdown" rows="30"><%= blog.markdown %></textarea>
+                <textarea name="markdown" id="markdown" rows="30" required><%= blog.markdown %></textarea>
                 <label for="username">User</label>
-                <input type="text" name="username" id="username">
+                <input type="text" name="username" id="username" required>
                 <label for="password">Password</label>
-                <input type="password" name="password" id="password">
+                <input type="password" name="password" id="password" required>
                 <div class="common-button-div">
+                    <a href="/blog/delete/<%= blog._id %>" class="common-button">Delete</a>
                     <input type="submit" value="Submit" class="common-button">
                 </div>
 

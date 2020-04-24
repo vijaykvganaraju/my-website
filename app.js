@@ -2,6 +2,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+const methodOverride = require('method-override');
 
 const app = express();
 const path = __dirname + '/views';
@@ -36,6 +37,9 @@ mongoose.connect(
     '@my-apis-kff0p.mongodb.net/my-website?retryWrites=true&w=majority',
     { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true }
 );
+
+// override with the other methods in the request
+app.use(methodOverride('_method'));
 
 // To prevent CORS errors
 app.use((req, res, next) => {

@@ -25,7 +25,9 @@ router.get('/tag/:tag', BlogController.getBlogsWithTag);
 
 router.post('/new', checkAuth, BlogController.setNewBlog);
 
-router.post('/edit', checkAuth, BlogController.saveEditedBlog);
+router.put('/edit', checkAuth, BlogController.saveEditedBlog);
+
+router.get('/delete/:id', checkAuth, BlogController.deleteBlog);
 
 
 // exporting module to access from another module
