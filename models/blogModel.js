@@ -1,7 +1,4 @@
 const mongoose = require('mongoose');
-const marked = require('marked');
-
-
 
 const blogSchema = mongoose.Schema({
     _id: mongoose.Schema.Types.ObjectId,

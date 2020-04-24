@@ -12,11 +12,6 @@ const Blog = require('./../models/blogModel');
 // Path of views directory
 const viewsPath = path.dirname(require.main.filename) + '/views/';
 
-// route handles
-const express = require('express');
-express().set('view engine', 'ejs');
-
-
 const LIMIT_RECORDS = 4;
 let skipRecords = 0;
 exports.getBlogPage = async (req, res, next) => {
@@ -115,11 +110,16 @@ exports.getBlogsWithTag = async (req, res, next) => {
 };
 
 exports.setNewBlog = async (req, res,  next) => {
+
+    if(req.body.title === '' || req.body.subject == '' || req.body.tags === '' || req.body.markdown === '') {
+        res.render('ack_error', { errorMessage: 'Some necessary fields are empty!' });
+    }
+    
     let tagString = req.body.tags;
     tagsArray = tagString.split(',');
     tagsArray = tagsArray.map(tag => tag.toString().trim());
     
-    let markdown = req.body.body;
+    let markdown = req.body.markdown;
     let sanitizedBody = domPurify.sanitize(marked(markdown));
 
     let newBlog = {
@@ -160,14 +160,83 @@ exports.setNewBlog = async (req, res,  next) => {
             await prevBlog.updateOne({ next: prevBlogNextData });
         }
         
-        res.status(200).json({
-            message: 'New blog added'
-        });
+        res.status(200).redirect(`/blog/${ newBlog.slug }`);
 
     } catch(err) {
         console.error('Navigation settings error: ' + err);
         res.status(500).render('/error');
     }
     
+
+};
+
+exports.createNewBlog = async (req, res, next) => {
+    let blog = new Blog();
+    res.render('blogTemplate', { blog: blog, pageMode: 'new' });
+};
+
+exports.editBlog = async (req, res, next) => {
+    const slug = req.params.slug;
+    try {
+        const blog = await Blog.findOne({ slug: slug }).select('_id title subject tags markdown');
+        res.render('blogTemplate', { blog: blog, pageMode: 'new' });
+    } catch(err) {
+        console.error(err);
+        res.render('ack_error', { errorMessage: 'Unable to create a new blog!' });
+    }
+
+};
+
+exports.saveEditedBlog = async (req, res, next) => {
+    if (req.body.title === '' || req.body.subject == '' || req.body.tags === '' || req.body.markdown === '') {
+        res.render('ack_error', { errorMessage: 'Some necessary fields are empty!'});
+    }
+
+    try {
+        
+        let blog = await Blog
+            .findOne({ _id: req.body.blogId });
+
+            
+        let tagString = req.body.tags;
+        tagsArray = tagString.split(',');
+        tagsArray = tagsArray.map(tag => tag.toString().trim());
+        
+        let markdown = req.body.markdown;
+        let sanitizedBody = domPurify.sanitize(marked(markdown));
+
+        const title = req.body.title;
+        const subject = req.body.subject;
+        const tags = tagsArray;
+        const slug = slugify(title, { lower: true, strict: true });
+
+        let updateFields = {};
+
+        if (title.localeCompare(blog.title) != 0) {
+            updateFields['title'] = title;
+            updateFields['slug'] = slug;
+
+        } 
+        if (subject.localeCompare(blog.subject)) {
+            updateFields['subject'] = subject;
+        }
+        if (JSON.stringify(tags) == JSON.stringify(blog.tags)) {
+            updateFields['tags'] = tags;
+        }
+        if (markdown.localeCompare(blog.markdown)) {
+            updateFields['markdown'] = markdown;
+            updateFields['body'] = sanitizedBody;
+        }
+
+        await blog.updateOne(updateFields);
+
+        res.status(200).redirect(`/blog/${ slug }`);
+    } catch (err) {
+        console.error(err);
+        res.render('ack_error', { errorMessage: 'Blog not updated!' });
+    }
+    
+
+
 
 };

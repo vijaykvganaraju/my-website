@@ -5,18 +5,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#000000" />
-    <meta name="keywords" content="Vijay Kumar Varma Ganaraju, Vijay Ganaraju, blogs, thoughts, opinions, updates" />
-    <meta name="description" content="A blog on <%= blog.title %>, <%= blog.subject %> by Vijay Kumar Varma Ganaraju" />
+    <meta name="keywords" content="Vijay Kumar Varma Ganaraju, Vijay Ganaraju, new blogs" />
+    <meta name="description"
+        content="A blog page for creating a new blog or edit the old one." />
 
 
-    <title><%= blog.title %></title>
+    <title>Blog Creator/Editor</title>
 
     <link rel="manifest" href="/manifest.webmanifest">
     <link rel="apple-touch-icon" href="/assets/img/logo/black_bgw_192.png">
     <link rel="icon" href="/assets/img/logo/White30.png" type="image/x-icon">
 
     <link rel="stylesheet" href="/assets/styles/common.css">
-    <link rel="stylesheet" href="/assets/styles/view-blog.css">
+    <link rel="stylesheet" href="/assets/styles/blog-template.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 
@@ -59,35 +60,35 @@
     </nav>
 
     <main id="container" class="container limit-page">
+        <header class="nav-top small-frc">
+            <h1 class="page-title"></h1>
+        </header>
+        <section>
+            <form action="/blog/<%= pageMode %>" class="fcc" method="POST">
+                <% if(pageMode === 'edit') { %>
+                    <input type="text" name="blogId" id="blogId" value="<%= blog._id %>" style="display:none">
+                <% } %>
+                <label for="title">Title</label>
+                <input type="text" name="title" id="title" value="<%= blog.title %>">
+                <label for="subject">Subject</label>
+                <input type="text" name="subject" id="subject" value="<%= blog.subject %>">
+                <label for="tags">Tags</label>
+                <input type="text" name="tags" id="tags" value="<%= blog.tags %>">
+                <label for="markdown">Markdown</label>
+                <textarea name="markdown" id="markdown" rows="30"><%= blog.markdown %></textarea>
+                <label for="username">User</label>
+                <input type="text" name="username" id="username">
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password">
+                <div class="common-button-div">
+                    <input type="submit" value="Submit" class="common-button">
+                </div>
 
-       <header class="nav-top">
-           <h1 class="page-title"><%= blog.title %></h1>
-           <p class="datetime"><%= blog.datetime.toLocaleString('en-US', dateOptions) %></p>
-           <h2 class="heading"><%= blog.subject %></h2>
-       </header>
-       <section class="content">
-           <div class="blog-body">
-            <%- blog.body %>
-           </div>
-           <div class="tags-div">
-               <% blog.tags.forEach(tag => { %>
-               <a href="/blog/tag/<%= tag %>" class="tag"><%= tag %></a>
-               <% }); %>
-           </div>
-       </section>
-        <section class="blog-navigation frc">
-            <% if (blog.next.slug != '') { %>
-            <div class="next-blog stretch"><a href="<%= blog.next.slug %>" class="next-page blog-button"><img
-                    src="/assets/img/icons/blog/trending_flat_left.png"><%= blog.next.title %></a></div>
-            <% } %>
-            <% if (blog.prev.slug != '')  { %>
-            <div class="prev-blog stretch"><a href="<%= blog.prev.slug %>" class="prev-page blog-button"><%= blog.prev.title %><img
-                    src="/assets/img/icons/blog/trending_flat.png"></a></div>
-            <% } %>
+            </form>
         </section>
+
     </main>
 
-    
     <footer class="footer fcc">
         <ul class="ftr-menu">
             <li class="ftr-menu-item">
@@ -129,7 +130,6 @@
 
     <!-- scripts -->
     <script src="/assets/scripts/common.js"></script>
-    <script src="/assets/scripts/blog.js"></script>
 
 </body>
 

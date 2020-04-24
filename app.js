@@ -16,7 +16,7 @@ const portifolioRoutes = require('./routes/portifolioRoutes');
 const resumeRoutes = require('./routes/resumeRoutes');
 const blogRoutes = require('./routes/blogRoutes');
 const contactRoutes = require('./routes/contactRoutes');
-const errorRoutes = require('./routes/errorRoutes');
+const userRoutes = require('./routes/userRoutes');
 
 // accessing files
 app.use(express.static(__dirname + '/views'));
@@ -55,7 +55,8 @@ app.use('/portifolio', portifolioRoutes);
 app.use('/resume', resumeRoutes);
 app.use('/blog', blogRoutes);
 app.use('/contact', contactRoutes);
-app.use('/error', errorRoutes);
+app.use('/user', userRoutes);
+
 
 app.use((req, res, next) => {
     const error = new Error('Invalid request')
@@ -65,7 +66,7 @@ app.use((req, res, next) => {
 
 app.use((error, req, res, next) => {
     res.status(error.status || 500);
-    res.redirect('/error');
+    res.render('ack_error', { errorMessage: 'Invalid URL' });
 });
 
 module.exports = app;

@@ -51,12 +51,12 @@ exports.contactMe = (req, res, next) => {
                 mailOptions.text = `${req.body.email } says:\n${ req.body.message }`;
                 tranporter.sendMail(mailOptions, (err, info) => {
                     if (err) {
-                        res.redirect('/error');
+                        res.render('ack_error', { errorMessage: 'Message not sent! Try again.' });
                     }
                 });
-                res.sendFile('contact_success.html', { root: viewsPath });
+                res.sendFile('ack_contact_success.html', { root: viewsPath });
             } else {
-                res.sendFile('contact_error.html', { root: viewsPath });
+                res.sendFile('ack_contact_error.html', { root: viewsPath });
             }
             
         });

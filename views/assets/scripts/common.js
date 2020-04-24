@@ -3,11 +3,8 @@ function viewMenu() {
     let menu = ''; 
     let navButton = document.querySelector('.nav-button').innerHTML;
     let menuState = document.querySelector('.menu').style.display;
-
-    console.log({navButton, menuState});
     
     navButton === 'menu' ? (navButton = 'close', menuState = 'flex') : (navButton = 'menu', menuState = 'none');
-    console.log({ navButton, menuState });
 
     document.querySelector('.nav-button').innerHTML = navButton;
     document.querySelector('.menu').style.display = menuState;
