@@ -13,10 +13,7 @@
 
     }
     
-    .name-heading {
-        font-size: 3.6rem;
-        
-    }
+    
 
     .start-screen-desc {
         max-width: 400px;
@@ -32,7 +29,7 @@
     }
 
     .about-me-heading {
-        flex: auto;
+        
     }
 
     .about-me-desc {
@@ -74,6 +71,7 @@
         
         font-family: 'Open Sans', serif;
         font-size: 1rem;
+        color: #000000;
         transition: all 0.3s ease-in-out;
     }
 
@@ -103,18 +101,20 @@
 
     .screen-heading {
         font-family: 'PT Serif', serif;
-        font-size: 4rem;
-        text-shadow: 2px 2px 2px rgba(255, 255, 255, 0.6);
         margin: 0;
-        padding-left: 20px;
+        font-size: 3.5rem;
+        padding: 10px 20px;
+        background-color: #ffffff;
     }
 
     .screen-desc {
         font-family: 'Bitter', serif;
         font-size: 1rem;
         flex-wrap: wrap;
-        text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.6);
-        padding-right: 20px;
+        text-shadow: 0px 0px 2px rgba(255, 255, 255);
+        padding: 20px;
+        background-color: #ffffff;
+
     }
 
     body {
@@ -125,7 +125,7 @@
 
 
 
-@media only screen and (min-width: 320px) and (max-width: 900px) {
+@media only screen and (min-width: 320px) and (max-width: 899px) {
 
     
      /* start screen details */
@@ -233,7 +233,7 @@
     .screen-desc {
         font-family: 'Bitter', serif;
         font-size: 1rem;
-        text-shadow: 2px 2px 2px rgba(61, 61, 61, 0.4);
+        text-shadow: 0px 0px 2px rgba(61, 61, 61, 0.4);
     }
 
     body {
