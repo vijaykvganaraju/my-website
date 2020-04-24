@@ -1,8 +1,10 @@
-const http = require('http');
-const port = process.env.PORT || 9000;
+var https = require('https');
+var fs = require('fs');
+var app = require('./app');
 
-const app = require('./app');
+var options = {
+    key: fs.readFileSync('key.pem'),
+    cert: fs.readFileSync('cert.pem')
+};
 
-http
-    .createServer(app)
-    .listen(port, () => console.log(`Listening on Port ${ port }`));
+https.createServer(options, app).listen(process.env.PORT || 3000);
