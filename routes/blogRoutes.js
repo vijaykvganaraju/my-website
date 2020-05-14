@@ -25,7 +25,7 @@ router.get('/:slug', BlogController.getSpecificBlog);
 
 router.get('/tag/:tag', BlogController.getBlogsWithTag);
 
-router.post('/new', checkAuth, BlogController.setNewBlog);
+router.post('/', checkAuth, BlogController.setNewBlog);
 
 router.put('/', checkAuth, BlogController.saveEditedBlog);
 
