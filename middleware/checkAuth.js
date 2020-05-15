@@ -18,7 +18,7 @@ module.exports  = async (req, res, next) => {
         
                 if (encryptedRecdPass === user.auth.encryptedPass) {
 					if(noOfTries < 3) {
-						await user.updateOne({ tries: '0' });
+						await user.updateOne({ tries: '3' });
 					}
                     next();
                 } else {
