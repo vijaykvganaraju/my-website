@@ -1,7 +1,7 @@
 {
   "name": "my-site",
   "version": "1.0.0",
-  "description": "A website about my information, blogs, portifolio etc",
+  "description": "A website about my information, blogs, portfolio etc",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -16,7 +16,7 @@
     "personal",
     "blog",
     "resume",
-    "portifolio",
+    "portfolio",
     "about",
     "contact"
   ],

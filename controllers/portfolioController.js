@@ -5,6 +5,6 @@ const viewsPath = path.dirname(require.main.filename) + '/views/';
 
 // route handles
 
-exports.getPortifolioPage = (req, res, next) => {
-    res.sendFile('portifolio.html', { root: viewsPath });
+exports.getportfolioPage = (req, res, next) => {
+    res.sendFile('portfolio.html', { root: viewsPath });
 }

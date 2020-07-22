@@ -13,7 +13,7 @@ const path = __dirname + '/views';
 // import routes files 
 const indexRoutes = require('./routes/indexRoutes');
 const aboutRoutes = require('./routes/aboutRoutes');
-const portifolioRoutes = require('./routes/portifolioRoutes');
+const portfolioRoutes = require('./routes/portfolioRoutes');
 const resumeRoutes = require('./routes/resumeRoutes');
 const blogRoutes = require('./routes/blogRoutes');
 const contactRoutes = require('./routes/contactRoutes');
@@ -55,7 +55,7 @@ app.use((req, res, next) => {
 // assigning app routes to handle requests
 app.use('/', indexRoutes);
 app.use('/about', aboutRoutes);
-app.use('/portifolio', portifolioRoutes);
+app.use('/portfolio', portfolioRoutes);
 app.use('/resume', resumeRoutes);
 app.use('/blog', blogRoutes);
 app.use('/contact', contactRoutes);
