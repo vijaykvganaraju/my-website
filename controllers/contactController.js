@@ -50,7 +50,7 @@ exports.contactMe = (req, res, next) => {
             validationToken = JSON.parse(body).success;
             if (validationToken === true && (req.body.firstName.length > 0 && req.body.lastName.length > 0 && req.body.email.length > 0 && req.body.subject.length > 0 && (req.body.message.length > 0 && req.body.message.length < 1000))) {
                 mailOptions.subject = `<Website> ${ req.body.subject }`;
-                mailOptions.text = `${req.body.email } says:\n${ req.body.message }`;
+                mailOptions.text = `${req.body.firstName} ${req.body.lastName}[${req.body.email }] says:\n Subject: ${req.body.subject} \n Body:\n${ req.body.message }`;
                 tranporter.sendMail(mailOptions, (err, info) => {
                     if (err) {
                         res.render('ack_error', { errorMessage: 'Message not sent! Try again.' });
