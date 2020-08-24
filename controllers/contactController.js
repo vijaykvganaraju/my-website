@@ -17,7 +17,9 @@ const secretRecaptchaKey = process.env.SECRET_RECAPTCHA_KEY;
 
 // tranporter for email
 const tranporter = nodemailer.createTransport({
-    service: 'gmail',
+    host: 'smtp-relay.sendinblue.com',
+    port: 587,
+    secure: false,
     auth: {
         user: fromEmail,
         pass: fromPassword
