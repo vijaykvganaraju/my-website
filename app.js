@@ -8,7 +8,7 @@ const app = express();
 const path = __dirname + '/views';
 
 // Initialize this only when running on localhost
-const process = require('./dummyProcess');
+// const process = require('./dummyProcess');
 
 // import routes files 
 const indexRoutes = require('./routes/indexRoutes');
