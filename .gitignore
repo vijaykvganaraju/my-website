@@ -9,3 +9,7 @@
 
 # dummy process file
 dummyProcess.json
+
+# SSL Keys
+cert.pem
+key.pem
