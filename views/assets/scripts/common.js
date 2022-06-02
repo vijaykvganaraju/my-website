@@ -31,11 +31,11 @@ window.addEventListener('resize', () => {
 function redirectSocial(media) {
     let link = null;
     if (media === 'li') {
-        link = 'https://www.linkedin.com/in/vijay-ganaraju-2a0982126';
+        link = 'https://www.linkedin.com/in/vijaykvgan';
     } else if (media === 'tw') {
-        link = 'https://twitter.com/vijaykvganaraju';
+        link = 'https://twitter.com/vijaykvgan';
     } else if (media === 'in') {
-        link = 'https://www.instagram.com/vijaykvganaraju';
+        link = 'https://www.instagram.com/vijaykvgan';
     } else if (media === 'di') {
         link = 'https://discord.gg/C4HSFYN';
     } else if (media === 'yt') {
