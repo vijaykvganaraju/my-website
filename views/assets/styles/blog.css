@@ -43,20 +43,6 @@
     border-radius: 4px;
 }
 
-.read-more-div {
-    margin-top: 1em;
-}
-
-
-.read-more {
-    font-size: 1rem;
-    color: #000000;
-}
-
-.read-more:hover {
-    text-decoration: underline;
-}
-
 .pages-navigation {
     margin: 1em 0;
     display: flex;
