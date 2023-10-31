@@ -86,3 +86,11 @@
 }
 
 /* end of call to action */
+
+/* professional title and description */
+.my-professional-job-desc{
+    font-size: 0.8rem;
+    margin-top: 0.5em;
+    margin-bottom: 0.2em;
+}
+/* end of professional title and description */
