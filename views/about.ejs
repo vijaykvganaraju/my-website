@@ -9,56 +9,19 @@
     <meta name="description" content="A short but lucid detail about the personality traits, goals, quirks and likes of Vijay Kumar Varma Ganaraju" />
 
     <title>About Me</title>
-    
-    <link rel="manifest" href="manifest.webmanifest">
-    <link rel="apple-touch-icon" href="assets/img/logo/black_bgw_192.png">
-    <link rel="icon" href="assets/img/logo/White30.png" type="image/x-icon">
 
-    <link rel="stylesheet" href="assets/styles/common.css">
-    <link rel="stylesheet" href="assets/styles/about.css">
+    <link rel="manifest" href="/manifest.webmanifest">
+    <link rel="apple-touch-icon" href="/assets/img/logo/black_bgw_192.png">
+    <link rel="icon" href="/assets/img/logo/White30.png" type="image/x-icon">
 
+    <link rel="stylesheet" href="/assets/styles/common.css">
+    <link rel="stylesheet" href="/assets/styles/about.css">
 
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 
 <body>
-
-    <a class="skip-link" href="#container">Skip to Page Contents</a>
-
-    <nav class="navbar">
-        <a href="/" class="logo nav-item">
-            <img class="logo-img" src="assets/img/logo/black50px.png" alt="logo">
-        </a>
-    
-        <ul id="menu" class="menu nav-item">
-            <li class="menu-item mobile-specific close-option">
-                <span id="menuNavButton" onclick="viewMenu()" class="material-icons nav-button">menu</span>
-            </li>
-            <li class="menu-item mobile-specific">
-                    <a href="/" class="menu-option">Home</a>
-            </li>
-            <li class="menu-item current-page">
-                <a href="about" class="menu-option">About</a>
-            </li>
-            <li class="menu-item">
-                <a href="portfolio" class="menu-option">Portfolio</a>
-            </li>
-            <li class="menu-item">
-                <a href="resume" class="menu-option">Resume</a>
-            </li>
-            <li class="menu-item">
-                <a href="blog" class="menu-option">Blog</a>
-            </li>
-            <li class="menu-item">
-                <a href="contact" class="menu-option">Contact</a>
-            </li>
-        </ul>
-    
-        <div class="mobile-menu-button nav-item">
-            <span id="pageNavButton" onclick="viewMenu()" class="material-icons nav-button">menu</span>
-        </div>
-    
-    </nav>
+    <%- include('partials/header') %>
 
     <main id="container" class="container limit-page fcc">
         <div class="about-div nav-top">
@@ -82,7 +45,7 @@
                     </div>
                     <div class="my-personality-title heading small-frc">My Personality</div>
                     <div class="my-personality-desc desc">
-                        I am a passionate human. Perhaps a little anxious but I can work my way out and adapt to any work dynamic. I am never afraid of asking the right questions or being an overt critique. I am also a compassionate person who is always willing to learn from others or to spread my knowledge. I make some innocuous mistakes but sometimes you poke around and you find out and I genuinely believe that's what helps you grow as person without limiting yourself. 
+                        I am a passionate human. Perhaps a little anxious but I can work my way out and adapt to any work dynamic. I am never afraid of asking the right questions or being an overt critique. I am also a compassionate person who is always willing to learn from others or to spread my knowledge. I make some innocuous mistakes but sometimes you poke around and you find out and I genuinely believe that's what helps you grow as person without limiting yourself.
                     </div>
                     <div class="read-more-div">
                         <a class="read-more" href="/blog">Get even more personal with my blog <img src="/assets/img/icons/blog/return_key_arrow.png"
@@ -107,44 +70,44 @@
                                 src="/assets/img/icons/blog/return_key_arrow.png" alt="Goto"></a>
                     </div>
                 </section>
-        
+
                 <section class="trivia">
                     <div class="books-trivia trivia-div">
                         <div class="heading books-title small-frc">Books I&apos;m Curretly Reading</div>
-        
+
                         <div class="trivia-items-div">
                             <a href="https://www.goodreads.com/en/book/show/24072897-deep-learning" target="_blank" rel="noopener noreferrer">
-                                <img src="assets/img/about/books/dl.jpg" alt="Deep Learning" class="books trivia-item">
+                                <img src="/assets/img/about/books/dl.jpg" alt="Deep Learning" class="books trivia-item">
                             </a>
                             <a href="https://www.goodreads.com/book/show/39088592-the-model-thinker" target="_blank" rel="noopener noreferrer">
-                                <img src="assets/img/about/books/mt.jpg" alt="The Model Thinker" class="books trivia-item">
+                                <img src="/assets/img/about/books/mt.jpg" alt="The Model Thinker" class="books trivia-item">
                             </a>
                             <a href="https://www.goodreads.com/book/show/51014619-good-economics-for-hard-times" target="_blank" rel="noopener noreferrer">
-                                <img src="assets/img/about/books/gcfht.jpg" alt="Good Economics for Hard Times"
+                                <img src="/assets/img/about/books/gcfht.jpg" alt="Good Economics for Hard Times"
                                     class="books trivia-item">
                             </a>
                         </div>
-        
+
                     </div>
-        
+
                     <div class="movies-trivia trivia-div">
                         <div class="heading movies-title small-frc">My All-Time Favorite Movies</div>
-        
+
                         <div class="trivia-items-div">
                             <a href="https://www.imdb.com/title/tt0050083/" target="_blank" rel="noopener noreferrer">
-                                <img src="assets/img/about/movies/12am.jpg" alt="12 Angry Men" class="movies trivia-item">
+                                <img src="/assets/img/about/movies/12am.jpg" alt="12 Angry Men" class="movies trivia-item">
                             </a>
                             <a href="https://www.imdb.com/title/tt0075314/" target="_blank" rel="noopener noreferrer">
-                                <img src="assets/img/about/movies/td.jpg" alt="Taxi Driver" class="movies trivia-item">
+                                <img src="/assets/img/about/movies/td.jpg" alt="Taxi Driver" class="movies trivia-item">
                             </a>
                             <a href="https://www.imdb.com/title/tt0432283/" target="_blank" rel="noopener noreferrer">
-                                <img src="assets/img/about/movies/fmf.jpg" alt="Fantastic Mr. Fox" class="movies trivia-item">
+                                <img src="/assets/img/about/movies/fmf.jpg" alt="Fantastic Mr. Fox" class="movies trivia-item">
                             </a>
                             <a href="https://www.imdb.com/title/tt0361748/" target="_blank" rel="noopener noreferrer">
-                                <img src="assets/img/about/movies/ib.jpg" alt="Inglorious Basterds" class="movies trivia-item">
+                                <img src="/assets/img/about/movies/ib.jpg" alt="Inglorious Basterds" class="movies trivia-item">
                             </a>
                         </div>
-        
+
                         <a class="link" href="https://letterboxd.com/vjmix/films/" target="_blank" rel="noopener noreferrer">
                             My watched movies list (not complete)
                             <span class="material-icons">
@@ -152,79 +115,42 @@
                             </span>
                         </a>
                     </div>
-        
+
                     <div class="music-trivia trivia-div">
                         <div class="heading music-title small-frc">My Holy Grail of Music</div>
-        
+
                         <div class="trivia-items-div">
                             <a href="https://open.spotify.com/album/6t7956yu5zYf5A829XRiHC" target="_blank" rel="noopener noreferrer">
-                                <img src="assets/img/about/albums/mmlp.jpg" alt="The Marshall Mathers LP"
+                                <img src="/assets/img/about/albums/mmlp.jpg" alt="The Marshall Mathers LP"
                                     class="albums trivia-item">
                             </a>
                             <a href="https://open.spotify.com/album/3WFTGIO6E3Xh4paEOBY9OU" target="_blank" rel="noopener noreferrer">
-                                <img src="assets/img/about/albums/808s.jpg" alt="808s &amp; Heartbreak"
+                                <img src="/assets/img/about/albums/808s.jpg" alt="808s &amp; Heartbreak"
                                     class="albums trivia-item">
                             </a>
                             <a href="https://open.spotify.com/album/4m2880jivSbbyEGAKfITCa" target="_blank" rel="noopener noreferrer">
-                                <img src="assets/img/about/albums/ram.jpg" alt="Random Access Memories"
+                                <img src="/assets/img/about/albums/ram.jpg" alt="Random Access Memories"
                                     class="albums trivia-item">
                             </a>
                             <a href="https://open.spotify.com/album/748dZDqSZy6aPXKcI9H80u" target="_blank" rel="noopener noreferrer">
-                                <img src="assets/img/about/albums/gkmc.jpg" alt="good Kid, M.A.A.D City"
+                                <img src="/assets/img/about/albums/gkmc.jpg" alt="good Kid, M.A.A.D City"
                                     class="albums trivia-item">
                             </a>
                         </div>
-        
-                    </div>
-        
-        
-                </section>
-        
-        </div>
-        
-    </main>
-    
-    <footer class="footer fcc">
-        <ul class="ftr-menu">
-            <li class="ftr-menu-item">
-                <a href="about" class="ftr-menu-option">About</a>
-            </li>
-            <li class="ftr-menu-item">
-                <a href="portfolio" class="ftr-menu-option">Portfolio</a>
-            </li>
-            <li class="ftr-menu-item">
-                <a href="resume" class="ftr-menu-option">Resume</a>
-            </li>
-            <li class="ftr-menu-item">
-                <a href="blog" class="ftr-menu-option">Blog</a>
-            </li>
-            <li class="ftr-menu-item">
-                <a href="contact" class="ftr-menu-option">Contact</a>
-            </li>
-        </ul>
-    
-        <div class="sm-icon-div">
-            <a href="https://www.linkedin.com/in/vijaykvgan" target="_blank" rel="noopener noreferrer"><img class="sm-icon" 
-                    src="assets/img/icons/social/li.png" alt="linkedin-icon"></a>
-    
-            <a href="https://discord.gg/C4HSFYN" target="_blank" rel="noopener noreferrer"><img class="sm-icon" src="assets/img/icons/social/discord.png"
-                    alt="discord-icon"></a>
-    
-            <a href="https://twitter.com/vijaykvgan" target="_blank" rel="noopener noreferrer"><img class="sm-icon"
-                    src="assets/img/icons/social/twitter.png" alt="twitter-icon"></a>
-    
-            <a href="https://www.youtube.com/user/Tejaswi88" target="_blank" rel="noopener noreferrer"><img class="sm-icon"
-                    src="assets/img/icons/social/yt.png" alt="youtube-icon"></a>
-    
-            <a href="/contact"><img class="sm-icon" src="assets/img/icons/social/email.png" alt="email"></a>
-        </div>
-    
-        <div class="owner-info">&copy; Owned and maintained by Vijay Ganaraju</div>
-    </footer>
 
-    <!-- scripts -->
-    <script src="assets/scripts/common.js"></script>
-    <script src="assets/scripts/about.js"></script>
+                    </div>
+
+
+                </section>
+
+        </div>
+
+    </main>
+
+    <%- include('partials/footer') %>
+
+    <script src="/assets/scripts/common.js"></script>
+    <script src="/assets/scripts/about.js"></script>
 
 </body>
 

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#000000" />
+    <meta name="keywords" content="Vijay Kumar Varma Ganaraju, Vijay Ganaraju, Software Developer, Tech Enthusiast, Gamer, Space enthusiast, Bibliophile, Lifelong learner, Audiophile, Homepage, Basic Information" />
+    <meta name="description" content="Homepage for Vijay Ganaraju's website to display his passion, work and a way to contact him" />
+
+    <title>Vijay Ganaraju's Homepage</title>
+
+    <link rel="manifest" href="/manifest.webmanifest">
+    <link rel="apple-touch-icon" href="/assets/img/logo/black_bgw_192.png">
+    <link rel="icon" href="/assets/img/logo/White30.png" type="image/x-icon">
+
+    <link rel="stylesheet" href="/assets/styles/main.css">
+    <link rel="stylesheet" href="/assets/styles/common.css">
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body onload="basics()">
+    <%- include('partials/header') %>
+
+    <main class="container" id="container">
+        <section class="start-screen stretch">
+            <header class="basic-details screen-div bg-banner">
+                <h1 class="name-heading screen-heading">Vijay Ganaraju</h1>
+                <h2 class="start-screen-desc screen-desc">Lifetime Learner, Software Developer, Technology Enthusiast, Space Junky, Basketball fanatic, Melophile, Optimist.</h2>
+            </header>
+
+            <div class="start-screen-button-div screen-button-div bg-banner">
+                <a href="/portfolio" class="screen-button">Portfolio</a>
+            </div>
+        </section>
+
+        <section class="second-screen stretch">
+            <header class="about-me screen-div bg-banner">
+                <h1 class="about-me-heading screen-heading">About me</h1>
+                <h2 class="about-me-desc screen-desc">
+                    I am a passionate and open-minded Computer Science student. I never let an obstacle hinder my persistence and consider myself as a compassionate and a decisive person.
+                </h2>
+            </header>
+
+            <div class="about-me-button-div screen-button-div bg-banner">
+                <a href="/about" class="about-me-button screen-button">About Me</a>
+            </div>
+        </section>
+
+        <section class="third-screen stretch">
+            <header class="contact-me screen-div bg-banner">
+                <h1 class="contact-me-heading screen-heading">Contact me</h1>
+                <h2 class="about-me-desc screen-desc">
+                    Have a question or a suggestion? Need my help? Want to talk to me? Or just bored? Let's have a conversation. Feel free to contact me through email or social media.
+                </h2>
+            </header>
+
+            <div class="contact-me-div screen-button-div bg-banner">
+                <a href="/contact" class="contact-me-button screen-button">CONTACT ME</a>
+            </div>
+        </section>
+    </main>
+
+    <%- include('partials/footer') %>
+
+    <script src="/assets/scripts/main.js"></script>
+    <script src="/assets/scripts/common.js"></script>
+</body>
+</html>

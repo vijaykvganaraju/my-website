@@ -7,9 +7,9 @@
     <meta name="theme-color" content="#000000" />
     <meta name="keywords" content="Vijay Kumar Varma Ganaraju, Vijay Ganaraju, Contact me, Instagram, Twitter, LinkedIn, YouTube, Discord"/>
     <meta name="description" content="A way to contact Vijay Ganaraju either via a form or through different Social Media platforms"/>
-    
+
     <title>Contact Me</title>
-    
+
     <link rel="manifest" href="/manifest.webmanifest">
     <link rel="apple-touch-icon" href="/assets/img/logo/black_bgw_192.png">
     <link rel="icon" href="/assets/img/logo/White30.png" type="image/x-icon">
@@ -22,48 +22,13 @@
 </head>
 
 <body>
-    <a class="skip-link" href="#container">Skip to Page Contents</a>
+    <%- include('partials/header') %>
 
-    <nav class="navbar">
-        <a href="/" class="logo nav-item">
-            <img class="logo-img" src="/assets/img/logo/black50px.png" alt="logo">
-        </a>
-    
-        <ul id="menu" class="menu nav-item">
-            <li class="menu-item mobile-specific close-option">
-                <span id="menuNavButton" onclick="viewMenu()" class="material-icons nav-button">menu</span>
-            </li>
-            <li class="menu-item mobile-specific">
-                    <a href="/" class="menu-option">Home</a>
-            </li>
-            <li class="menu-item">
-                <a href="/about" class="menu-option">About</a>
-            </li>
-            <li class="menu-item">
-                <a href="/portfolio" class="menu-option">Portfolio</a>
-            </li>
-            <li class="menu-item">
-                <a href="/resume" class="menu-option">Resume</a>
-            </li>
-            <li class="menu-item">
-                <a href="/blog" class="menu-option">Blog</a>
-            </li>
-            <li class="menu-item current-page">
-                <a href="/contact" class="menu-option">Contact</a>
-            </li>
-        </ul>
-    
-        <div class="mobile-menu-button nav-item">
-            <span id="pageNavButton" onclick="viewMenu()" class="material-icons nav-button">menu</span>
-        </div>
-    
-    </nav>
-    
     <main id="container" class="container limit-page">
         <header class="nav-top small-frc">
             <h1 class="page-title">Contact me</h1>
         </header>
-        
+
         <section class="contact-me-div">
             <form action="" method="post" class="contact-me-form fcc">
                 <div class="name-div big-frc small-fcc">
@@ -71,13 +36,13 @@
                         <label for="firstName">First Name</label>
                         <input type="text" name="firstName" id="firstName" required>
                     </div>
-        
+
                     <div class="ln-holder fcc stretch">
                         <label for="lastName">Last Name</label>
                         <input type="text" name="lastName" id="lastName" required>
                     </div>
                 </div>
-        
+
                 <label for="email">Email</label>
                 <input type="email" name="email" id="email" required>
                 <label for="subject">Subject</label>
@@ -90,11 +55,11 @@
                 </div>
             </form>
         </section>
-        
+
         <header class="social-title small-frc">
             <h2 class="heading">Hit Me Up On Social Media&#33;</h2>
         </header>
-        
+
         <section class="social-screen">
             <div class="social-links">
                 <button class="social-media linkedin" onclick="redirectSocial('li')">
@@ -103,21 +68,21 @@
                         open_in_new
                     </span>
                 </button>
-        
+
                 <button class="social-media twitter" onclick="redirectSocial('tw')">
                     Twitter
                     <span class="material-icons">
                         open_in_new
                     </span>
                 </button>
-        
+
                 <button class="social-media instagram" onclick="redirectSocial('in')">
                     Instagram
                     <span class="material-icons">
                         open_in_new
                     </span>
                 </button>
-        
+
                 <button class="social-media discord" onclick="redirectSocial('di')">
                     Discord
                     <span class="material-icons">
@@ -125,13 +90,13 @@
                     </span>
                 </button>
             </div>
-        
+
         </section>
-        
+
         <header class="social-title small-frc">
             <h2 class="heading">Watch My Video Game Streams&#33;</h2>
         </header>
-        
+
         <section class="social-screen">
             <div class="social-links">
                 <button class="social-media linkedin" onclick="redirectSocial('yt')">
@@ -141,50 +106,13 @@
                     </span>
                 </button>
             </div>
-        
+
         </section>
-        
+
     </main>
-    
-    <footer class="footer fcc">
-        <ul class="ftr-menu">
-            <li class="ftr-menu-item">
-                <a href="/about" class="ftr-menu-option">About</a>
-            </li>
-            <li class="ftr-menu-item">
-                <a href="/portfolio" class="ftr-menu-option">Portfolio</a>
-            </li>
-            <li class="ftr-menu-item">
-                <a href="/resume" class="ftr-menu-option">Resume</a>
-            </li>
-            <li class="ftr-menu-item">
-                <a href="/blog" class="ftr-menu-option">Blog</a>
-            </li>
-            <li class="ftr-menu-item">
-                <a href="/contact" class="ftr-menu-option">Contact</a>
-            </li>
-        </ul>
-    
-        <div class="sm-icon-div">
-            <a href="https://www.linkedin.com/in/vijaykvgan" target="_blank" rel="noopener noreferrer"><img class="sm-icon"
-                    src="assets/img/icons/social/li.png" alt="linkedin-icon"></a>
-        
-            <a href="https://discord.gg/C4HSFYN" target="_blank" rel="noopener noreferrer"><img class="sm-icon"
-                    src="assets/img/icons/social/discord.png" alt="discord-icon"></a>
-        
-            <a href="https://twitter.com/vijaykvgan" target="_blank" rel="noopener noreferrer"><img class="sm-icon"
-                    src="assets/img/icons/social/twitter.png" alt="twitter-icon"></a>
-        
-            <a href="https://www.youtube.com/user/Tejaswi88" target="_blank" rel="noopener noreferrer"><img class="sm-icon"
-                    src="assets/img/icons/social/yt.png" alt="youtube-icon"></a>
-        
-            <a href="/contact"><img class="sm-icon" src="assets/img/icons/social/email.png" alt="email"></a>
-        </div>
-    
-        <div class="owner-info">&copy; Owned and maintained by Vijay Ganaraju</div>
-    </footer>
-    
-    <!-- scripts -->
+
+    <%- include('partials/footer') %>
+
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <script src="/assets/scripts/common.js"></script>
     <script src="/assets/scripts/contact.js"></script>

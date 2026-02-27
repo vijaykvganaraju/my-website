@@ -1,13 +1,5 @@
-const express = require('express');
+import express from 'express';
 const router = express.Router();
-
-// importing controller file
-const portfolioController = require('./../controllers/portfolioController');
-
-// assigning functions to request
-
+import * as portfolioController from '../controllers/portfolioController.js';
 router.get('/', portfolioController.getportfolioPage);
-
-
-// exporting module to access from another module
-module.exports = router;
+export default router;

@@ -1,12 +1,5 @@
-const express = require('express');
+import express from 'express';
 const router = express.Router();
-
-// importing controller file
-const ResumeController = require('./../controllers/resumeController');
-
-// assigning functions to request
-
+import * as ResumeController from '../controllers/resumeController.js';
 router.get('/', ResumeController.getResumePage);
-
-// exporting module to access from another module
-module.exports = router;
+export default router;

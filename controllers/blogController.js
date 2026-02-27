@@ -1,20 +1,15 @@
-const path = require('path');
-const mongoose = require('mongoose');
-const url = require('url');
-const slugify = require('slugify');
-const marked = require('marked');
-const createDomPurify = require('dompurify');
-const { JSDOM } = require('jsdom');
+import mongoose from 'mongoose';
+import slugify from 'slugify';
+import marked from 'marked';
+import createDomPurify from 'dompurify';
+import { JSDOM } from 'jsdom';
 const domPurify = createDomPurify(new JSDOM().window );
 
-const Blog = require('./../models/blogModel');
-
-// Path of views directory
-const viewsPath = path.dirname(require.main.filename) + '/views/';
+import Blog from '../models/blogModel.js';
 
 const LIMIT_RECORDS = 4;
 let skipRecords = 0;
-exports.getBlogPage = async (req, res, next) => {
+export const getBlogPage = async (req, res, next) => {
     
     let blogAvailability = false;
     let pagesData = {
@@ -80,7 +75,7 @@ exports.getBlogPage = async (req, res, next) => {
     
 };
 
-exports.getSpecificBlog = async (req, res, next) => {
+export const getSpecificBlog = async (req, res, next) => {
     try {
         const receivedBlog = await Blog.findOne({ slug: req.params.slug });
         const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
@@ -92,7 +87,7 @@ exports.getSpecificBlog = async (req, res, next) => {
     }
 };
 
-exports.getBlogsWithTag = async (req, res, next) => {
+export const getBlogsWithTag = async (req, res, next) => {
     const tag = req.params.tag;
     const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
     
@@ -109,7 +104,7 @@ exports.getBlogsWithTag = async (req, res, next) => {
         
 };
 
-exports.setNewBlog = async (req, res,  next) => {
+export const setNewBlog = async (req, res,  next) => {
 
     if(req.body.title === '' || req.body.subject == '' || req.body.tags === '' || req.body.markdown === '') {
         res.render('ack_error', { errorMessage: 'Some necessary fields are empty!' });
@@ -170,12 +165,12 @@ exports.setNewBlog = async (req, res,  next) => {
 
 };
 
-exports.createNewBlog = async (req, res, next) => {
+export const createNewBlog = async (req, res, next) => {
     let blog = new Blog();
     res.render('blogTemplate', { blog: blog, pageMode: 'new' });
 };
 
-exports.editOrDeleteBlog = async (req, res, next) => {
+export const editOrDeleteBlog = async (req, res, next) => {
     const reqType = req.url.split('/')[1];
     const slug = req.params.slug;
 
@@ -189,7 +184,7 @@ exports.editOrDeleteBlog = async (req, res, next) => {
 
 };
 
-exports.saveEditedBlog = async (req, res, next) => {
+export const saveEditedBlog = async (req, res, next) => {
     if (req.body.title === '' || req.body.subject == '' || req.body.tags === '' || req.body.markdown === '') {
         res.render('ack_error', { errorMessage: 'Some necessary fields are empty!'});
     }
@@ -240,7 +235,7 @@ exports.saveEditedBlog = async (req, res, next) => {
     
 };
 
-exports.deleteBlog = async (req, res, next) => {
+export const deleteBlog = async (req, res, next) => {
     const blogId = req.body.blogId;
     
     try {

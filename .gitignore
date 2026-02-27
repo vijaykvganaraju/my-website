@@ -13,3 +13,6 @@ dummyProcess.json
 # SSL Keys
 cert.pem
 key.pem
+
+# environment variables
+.env

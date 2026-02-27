@@ -1,26 +1,26 @@
-// import modules
-const express = require('express');
-const bodyParser = require('body-parser');
-const mongoose = require('mongoose');
-const methodOverride = require('method-override');
+import 'dotenv/config';
+import express from 'express';
+import bodyParser from 'body-parser';
+import mongoose from 'mongoose';
+import methodOverride from 'method-override';
+import { dirname, join } from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 const app = express();
-const path = __dirname + '/views';
-
-// Initialize this only when running on localhost
-// const process = require('./dummyProcess');
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 // import routes files 
-const indexRoutes = require('./routes/indexRoutes');
-const aboutRoutes = require('./routes/aboutRoutes');
-const portfolioRoutes = require('./routes/portfolioRoutes');
-const resumeRoutes = require('./routes/resumeRoutes');
-const blogRoutes = require('./routes/blogRoutes');
-const contactRoutes = require('./routes/contactRoutes');
-const userRoutes = require('./routes/userRoutes');
+import indexRoutes from './routes/indexRoutes.js';
+import aboutRoutes from './routes/aboutRoutes.js';
+import portfolioRoutes from './routes/portfolioRoutes.js';
+import resumeRoutes from './routes/resumeRoutes.js';
+import blogRoutes from './routes/blogRoutes.js';
+import contactRoutes from './routes/contactRoutes.js';
+import userRoutes from './routes/userRoutes.js';
 
 // accessing files
-app.use(express.static(__dirname + '/views'));
+app.use(express.static(join(__dirname, 'views')));
 
 // setting view engine to ejs for templating
 app.set('view engine', 'ejs');
@@ -29,14 +29,32 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-// connecting database
+app.use((req, res, next) => {
+    if (req.path === '/') {
+        res.locals.activePage = 'home';
+    } else if (req.path.startsWith('/about')) {
+        res.locals.activePage = 'about';
+    } else if (req.path.startsWith('/portfolio')) {
+        res.locals.activePage = 'portfolio';
+    } else if (req.path.startsWith('/resume')) {
+        res.locals.activePage = 'resume';
+    } else if (req.path.startsWith('/blog')) {
+        res.locals.activePage = 'blog';
+    } else if (req.path.startsWith('/contact')) {
+        res.locals.activePage = 'contact';
+    } else {
+        res.locals.activePage = '';
+    }
 
-mongoose.connect(
-    'mongodb+srv://' + process.env.MONGO_ATLAS_USERNAME + ':' +
-    process.env.MONGO_ATLAS_PASSWORD +
-    '@my-apis-kff0p.mongodb.net/my-website?retryWrites=true&w=majority',
-    { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true }
-);
+    next();
+});
+
+// connecting database
+const mongoUser = encodeURIComponent(process.env.MONGO_ATLAS_USERNAME || '');
+const mongoPassword = encodeURIComponent(process.env.MONGO_ATLAS_PASSWORD || '');
+const mongoUri = `mongodb+srv://${mongoUser}:${mongoPassword}@my-apis-kff0p.mongodb.net/my-website?retryWrites=true&w=majority`;
+
+mongoose.connect(mongoUri);
 
 // override with the other methods in the request
 app.use(methodOverride('_method'));
@@ -73,4 +91,4 @@ app.use((error, req, res, next) => {
     res.render('ack_error', { errorMessage: 'Invalid URL' });
 });
 
-module.exports = app;
+export default app;
