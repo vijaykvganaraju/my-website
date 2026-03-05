@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#000000" />
+    <meta name="keywords" content="Vijay Kumar Varma Ganaraju, Vijay Ganaraju, Resume, Qualifications, Professional Details, Achievements, Curriculum vitae" />
+    <meta name="description" content="A resume of Vijay Ganaraju consisting his qualifications, work and achievements" />
+
+    <title>Resume</title>
+
+    <link rel="manifest" href="/manifest.webmanifest">
+    <link rel="apple-touch-icon" href="/assets/img/logo/black_bgw_192.png">
+    <link rel="icon" href="/assets/img/logo/White30.png" type="image/x-icon">
+
+    <link rel="stylesheet" href="/assets/styles/resume.css">
+    <link rel="stylesheet" href="/assets/styles/common.css">
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+</head>
+
+<body>
+    <%- include('partials/header') %>
+
+    <main id="container" class="container">
+        <div class="controls-info nav-top">
+            <div class="title-div frc">
+                <h1 class="page-title">Resumé</h1>
+            </div>
+            <div class="controls">
+                <button id="prev-page" class="control-button" onclick="prevPage()"><i
+                        class="material-icons control-icon">keyboard_arrow_left</i></button>
+                <button id="zoom-in" class="control-button" onclick="zoomIn()"><i
+                        class="material-icons control-icon">zoom_in</i></button>
+                <button id="zoom-out" class="control-button" onclick="zoomOut()"><i
+                        class="material-icons control-icon">zoom_out</i></button>
+                <button id="next-page" class="control-button" onclick="nextPage()"><i
+                        class="material-icons control-icon">keyboard_arrow_right</i></button>
+            </div>
+
+            <div class="info">
+                <p>Page <span id="pageNumber">0</span> of <span id="totalPages">0</span></p>
+            </div>
+        </div>
+
+        <div class="pdf-canvas-div">
+            <canvas class="pdf-canvas">
+            </canvas>
+        </div>
+
+        <div class="common-button-div">
+            <a class="common-button frc" href="/assets/files/resume.pdf" target="_blank" rel="noopener noreferrer">VIEW RAW DOCUMENT</a>
+
+            <a class="common-button frc" href="/contact">GET UNREDACTED VERSION</a>
+        </div>
+
+
+    </main>
+
+    <%- include('partials/footer') %>
+
+    <script src="https://unpkg.com/pdfjs-dist@2.16.105/build/pdf.min.js"></script>
+    <script src="/assets/scripts/common.js"></script>
+    <script src="/assets/scripts/resume.js"></script>
+
+</body>
+
+</html>

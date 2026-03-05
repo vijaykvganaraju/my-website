@@ -1,30 +1,47 @@
 function viewMenu() {
+    const menu = document.querySelector('.menu');
+    const navButtons = document.querySelectorAll('.nav-button');
 
-    let menu = ''; 
-    let navButton = document.querySelector('.nav-button').innerHTML;
-    let menuState = document.querySelector('.menu').style.display;
-    
-    navButton === 'menu' ? (navButton = 'close', menuState = 'flex') : (navButton = 'menu', menuState = 'none');
+    if (!menu || navButtons.length === 0) {
+        return;
+    }
 
-    document.querySelector('.nav-button').innerHTML = navButton;
-    document.querySelector('.menu').style.display = menuState;
+    const shouldOpenMenu = menu.style.display !== 'flex';
+    const icon = shouldOpenMenu ? 'close' : 'menu';
+
+    menu.style.display = shouldOpenMenu ? 'flex' : 'none';
+    navButtons.forEach((button) => {
+        button.innerText = icon;
+    });
 }
 
 window.addEventListener('resize', () => {
     const width = window.innerWidth;
+    const menu = document.querySelector('.menu');
+    const mobileSpecificItems = document.querySelectorAll('.mobile-specific');
+    const navButtons = document.querySelectorAll('.nav-button');
 
-    if (width > 320 && width < 900) {
-        document.querySelector('.menu').style.display = 'none';
-        document.querySelector('.mobile-specific').style.display = 'flex';
+    if (!menu || mobileSpecificItems.length === 0 || navButtons.length === 0) {
+        return;
+    }
 
+    if (width < 900) {
+        menu.style.display = 'none';
+        mobileSpecificItems.forEach((item) => {
+            item.style.display = 'flex';
+        });
 
-    } else if (width >= 900) {
-        document.querySelector('.menu').style.display = 'flex';
-        document.querySelector('.mobile-specific').style.display = 'none';
+    } else {
+        menu.style.display = 'flex';
+        mobileSpecificItems.forEach((item) => {
+            item.style.display = 'none';
+        });
 
     }
 
-    document.querySelector('.nav-button').innerText = 'menu';
+    navButtons.forEach((button) => {
+        button.innerText = 'menu';
+    });
 
 });
 
@@ -45,4 +62,3 @@ function redirectSocial(media) {
     window.open(link, '_blank', 'noopener');
 
 }
-

@@ -1,7 +1,8 @@
-const crypto = require('crypto');
-const User = require('./../models/userModel');
+import crypto from 'node:crypto';
+import bcrypt from 'bcrypt';
+import User from '../models/userModel.js';
 
-module.exports  = async (req, res, next) => {
+const checkAuth = async (req, res, next) => {
     try {
 
         let username = req.body.username;
@@ -9,9 +10,10 @@ module.exports  = async (req, res, next) => {
         
         if(user) {
             const recdPass = req.body.password;
-            const noOfTries = parseInt(user.tries);
+            const noOfTries = user.tries;
 
             if (noOfTries > 0) {
+				const passwordHash = bcrypt.compare();
                 const cipher = crypto.createCipheriv('aes-256-gcm', user.auth.key, user.auth.iv);
                 let encryptedRecdPass = cipher.update(recdPass, 'utf8', 'hex');
                 encryptedRecdPass += cipher.final('hex');
@@ -38,3 +40,5 @@ module.exports  = async (req, res, next) => {
         res.render('ack_error', { errorMessage: `Authentication error` });
     }
 };
+
+export default checkAuth;

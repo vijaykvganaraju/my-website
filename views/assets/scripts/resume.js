@@ -1,8 +1,12 @@
 const url = './assets/files/resume.pdf';
 
-let pdfjsLib = window['pdfjs-dist/build/pdf'];
+let pdfjsLib = window['pdfjs-dist/build/pdf'] || window.pdfjsLib;
 
-pdfjsLib.GlobalWorkerOptions.workerSrc = '//mozilla.github.io/pdf.js/build/pdf.worker.js';
+if (!pdfjsLib) {
+    throw new Error('PDF.js library failed to load');
+}
+
+pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://unpkg.com/pdfjs-dist@2.16.105/build/pdf.worker.min.js';
 
 
 let pdfDoc = null,

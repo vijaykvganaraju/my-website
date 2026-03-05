@@ -1,14 +1,8 @@
-const express = require('express');
+import express from 'express';
 const router = express.Router();
 
-// importing controller file
-const BlogController = require('./../controllers/blogController');
-
-// middleware or authenticator
-const checkAuth = require('./../middleware/checkAuth');
-
-
-// assigning functions to request
+import * as BlogController from '../controllers/blogController.js';
+import checkAuth from '../middleware/checkAuth.js';
 router.get('/', BlogController.getBlogPage);
 
 router.get('/next', BlogController.getBlogPage);
@@ -21,16 +15,13 @@ router.get('/edit/:slug', BlogController.editOrDeleteBlog);
 
 router.get('/delete/:slug', BlogController.editOrDeleteBlog);
 
-router.get('/:slug', BlogController.getSpecificBlog);
-
 router.get('/tag/:tag', BlogController.getBlogsWithTag);
+
+router.get('/:slug', BlogController.getSpecificBlog);
 
 router.post('/', checkAuth, BlogController.setNewBlog);
 
 router.put('/', checkAuth, BlogController.saveEditedBlog);
 
 router.delete('/', checkAuth, BlogController.deleteBlog);
-
-
-// exporting module to access from another module
-module.exports = router;
+export default router;

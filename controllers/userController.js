@@ -1,9 +1,9 @@
-const mongoose = require('mongoose');
-const crypto = require('crypto');
+import mongoose from 'mongoose';
+import crypto from 'node:crypto';
 
-const User = require('./../models/userModel');
+import User from '../models/userModel.js';
 
-exports.getUsers = async (req, res, next) => {
+export const getUsers = async (req, res, next) => {
     try {
         const users  = await User
             .find()
@@ -23,7 +23,7 @@ exports.getUsers = async (req, res, next) => {
     }
 };
 
-exports.createUser = async (req, res, next) => {
+export const createUser = async (req, res, next) => {
     let user = {
         _id: new mongoose.Types.ObjectId,
         username: '',

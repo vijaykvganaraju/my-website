@@ -1,11 +1,23 @@
 function enlarge(id) {
     const divId = '#' + id;
+    const selectedProject = document.querySelector(divId);
 
-    const imgAddress = document.querySelector(divId).childNodes[1].getAttribute('src');
-    const text = document.querySelector(divId).childNodes[3].innerText;
+    if (!selectedProject) {
+        return;
+    }
+
+    const selectedImage = selectedProject.querySelector('img');
+    const selectedCaption = selectedProject.querySelector('.project-name');
+
+    if (!selectedImage || !selectedCaption) {
+        return;
+    }
+
+    const imgAddress = selectedImage.getAttribute('src');
+    const text = selectedCaption.innerText;
     
     document.querySelector('#displayImg').src = imgAddress;
-    document.querySelector('#caption').innerText = text;;
+    document.querySelector('#caption').innerText = text;
     document.querySelector('#modal').style.display = 'block';
 }
 
@@ -17,7 +29,7 @@ function closeModal() {
 document.onkeydown = function (evt) {
     evt = evt || window.event;
     
-    if (evt.keyCode == 27 && document.querySelector('#modal').style.display ==='block') {
+    if (evt.key === 'Escape' && document.querySelector('#modal').style.display === 'block') {
         closeModal();
     }
 };
