@@ -59,6 +59,7 @@ const checkAuth = async (req, res, next) => {
 					if(noOfTries < 3) {
 						await user.updateOne({ tries: 3 });
 					}
+                    req.user = user;
                     next();
                 } else {
                     await user.updateOne({ tries: noOfTries - 1 });

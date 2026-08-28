@@ -11,10 +11,24 @@ const LIMIT_RECORDS = 4;
 
 const dateOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
 
-const parseTags = (tagString) => tagString
-    .split(',')
-    .map(tag => tag.trim())
-    .filter(Boolean);
+const parseTags = (tagInput) => {
+    if (tagInput === undefined || tagInput === null) {
+        return [];
+    }
+
+    const tagString = Array.isArray(tagInput) ? tagInput.join(',') : String(tagInput);
+
+    return tagString
+        .split(',')
+        .map(tag => tag.trim())
+        .filter(Boolean);
+};
+
+const hasRequiredBlogFields = ({ title, subject, tags, markdown }) =>
+    typeof title === 'string' && title.trim().length > 0 &&
+    typeof subject === 'string' && subject.trim().length > 0 &&
+    tags !== undefined && tags !== null && String(tags).trim().length > 0 &&
+    typeof markdown === 'string' && markdown.trim().length > 0;
 
 const renderMarkdown = (markdown) => domPurify.sanitize(marked(markdown));
 
@@ -115,43 +129,42 @@ export const getBlogsWithTag = async (req, res, next) => {
 };
 
 export const setNewBlog = async (req, res,  next) => {
-
-    if(req.body.title === '' || req.body.subject == '' || req.body.tags === '' || req.body.markdown === '') {
-        return res.status(400).render('ack_error', { errorMessage: 'Some necessary fields are empty!' });
-    }
-    
-    const tagsArray = parseTags(req.body.tags);
-
-    if (tagsArray.length === 0) {
-        return res.status(400).render('ack_error', { errorMessage: 'At least one tag is required!' });
-    }
-    
-    const markdown = req.body.markdown;
-    const sanitizedBody = renderMarkdown(markdown);
-    const slug = getSlug(req.body.title);
-
-    if (!slug) {
-        return res.status(400).render('ack_error', { errorMessage: 'Title must contain at least one URL-safe character!' });
-    }
-
-    const newBlog = {
-        _id: new mongoose.Types.ObjectId(),
-        title: req.body.title,
-        subject: req.body.subject,
-        markdown: markdown,
-        body: sanitizedBody,
-        tags: tagsArray,
-        slug,
-        prev: { title: '', slug: '' },
-        next: { title: '', slug: '' }
-    };
-    
     try {
+        const { title, subject, tags, markdown } = req.body;
+
+        if (!hasRequiredBlogFields({ title, subject, tags, markdown })) {
+            return res.status(400).render('ack_error', { errorMessage: 'Some necessary fields are empty!' });
+        }
+
+        const tagsArray = parseTags(tags);
+
+        if (tagsArray.length === 0) {
+            return res.status(400).render('ack_error', { errorMessage: 'At least one tag is required!' });
+        }
+
+        const sanitizedBody = renderMarkdown(markdown);
+        const slug = getSlug(title);
+
+        if (!slug) {
+            return res.status(400).render('ack_error', { errorMessage: 'Title must contain at least one URL-safe character!' });
+        }
+
+        const newBlog = {
+            _id: new mongoose.Types.ObjectId(),
+            title,
+            subject,
+            markdown,
+            body: sanitizedBody,
+            tags: tagsArray,
+            slug,
+            prev: { title: '', slug: '' },
+            next: { title: '', slug: '' }
+        };
+
         const blog = new Blog(newBlog);
         await blog.save();
-        
-        res.status(200).redirect(`/blog/${ newBlog.slug }`);
 
+        res.status(200).redirect(`/blog/${ newBlog.slug }`);
     } catch(err) {
         if (err.code === 11000) {
             return res.status(409).render('ack_error', { errorMessage: 'A blog with this title already exists.' });
@@ -160,8 +173,6 @@ export const setNewBlog = async (req, res,  next) => {
         console.error(err);
         next(err);
     }
-    
-
 };
 
 export const createNewBlog = async (req, res, next) => {
@@ -189,31 +200,26 @@ export const editOrDeleteBlog = async (req, res, next) => {
 };
 
 export const saveEditedBlog = async (req, res, next) => {
-    if (req.body.title === '' || req.body.subject == '' || req.body.tags === '' || req.body.markdown === '') {
-        return res.status(400).render('ack_error', { errorMessage: 'Some necessary fields are empty!'});
-    }
-
     try {
-        
-        const blog = await Blog
-            .findOne({ _id: req.body.blogId });
+        const { blogId, title, subject, tags, markdown } = req.body;
+
+        if (!blogId || !hasRequiredBlogFields({ title, subject, tags, markdown })) {
+            return res.status(400).render('ack_error', { errorMessage: 'Some necessary fields are empty!'});
+        }
+
+        const blog = await Blog.findOne({ _id: blogId });
 
         if (!blog) {
             return res.status(404).render('ack_error', { errorMessage: 'Blog not found.' });
         }
-            
-        const tagsArray = parseTags(req.body.tags);
+
+        const tagsArray = parseTags(tags);
 
         if (tagsArray.length === 0) {
             return res.status(400).render('ack_error', { errorMessage: 'At least one tag is required!' });
         }
-        
-        const markdown = req.body.markdown;
-        const sanitizedBody = renderMarkdown(markdown);
 
-        const title = req.body.title;
-        const subject = req.body.subject;
-        const tags = tagsArray;
+        const sanitizedBody = renderMarkdown(markdown);
         const slug = getSlug(title);
 
         if (!slug) {
@@ -223,7 +229,7 @@ export const saveEditedBlog = async (req, res, next) => {
         await blog.updateOne({
             title,
             subject,
-            tags,
+            tags: tagsArray,
             markdown,
             body: sanitizedBody,
             slug
@@ -238,7 +244,6 @@ export const saveEditedBlog = async (req, res, next) => {
         console.error(err);
         res.status(500).render('ack_error', { errorMessage: 'Unable to update the blog!' });
     }
-    
 };
 
 export const deleteBlog = async (req, res, next) => {

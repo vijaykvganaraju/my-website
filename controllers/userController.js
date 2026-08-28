@@ -23,11 +23,18 @@ export const getUsers = async (req, res, next) => {
     }
 };
 
+const parseRoles = (rawRoles) => {
+    const rolesInput = rawRoles ?? 'viewer';
+
+    return (Array.isArray(rolesInput) ? rolesInput : String(rolesInput).split(','))
+        .map(role => String(role).trim())
+        .filter(Boolean);
+};
+
 export const createUser = async (req, res, next) => {
     const username = req.body.username;
     const password = req.body.password;
-    const rolesString = req.body.roles || 'viewer';
-    const rolesArray = rolesString.split(',').map(role => role.trim()).filter(Boolean);
+    const rolesArray = parseRoles(req.body.roles);
 
     if (!username || username.length < 4 || !password || password.length < 8) {
         return res.status(400).json({
