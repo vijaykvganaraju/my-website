@@ -28,6 +28,11 @@
     border: 1px solid #000000;
 }
 
+.control-button:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
 .control-icon {
     padding: 5px 5px;
 }
@@ -43,6 +48,13 @@ p {
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    overflow-x: auto;
+    max-width: 100%;
 
     margin: 0;
+}
+
+.pdf-canvas {
+    max-width: 100%;
+    height: auto;
 }

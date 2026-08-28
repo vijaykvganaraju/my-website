@@ -1,6 +1,5 @@
 import 'dotenv/config';
 import express from 'express';
-import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
 import methodOverride from 'method-override';
 import { dirname, join } from 'node:path';
@@ -20,14 +19,18 @@ import contactRoutes from './routes/contactRoutes.js';
 import userRoutes from './routes/userRoutes.js';
 
 // accessing files
-app.use(express.static(join(__dirname, 'views')));
+app.set('views', join(__dirname, 'views'));
+app.use('/assets', express.static(join(__dirname, 'views', 'assets')));
+app.get('/manifest.webmanifest', (req, res) => {
+    res.sendFile(join(__dirname, 'views', 'manifest.webmanifest'));
+});
 
 // setting view engine to ejs for templating
 app.set('view engine', 'ejs');
 
 // For parsing the data sent through requests
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
 
 app.use((req, res, next) => {
     if (req.path === '/') {
@@ -50,11 +53,22 @@ app.use((req, res, next) => {
 });
 
 // connecting database
-const mongoUser = encodeURIComponent(process.env.MONGO_ATLAS_USERNAME || '');
-const mongoPassword = encodeURIComponent(process.env.MONGO_ATLAS_PASSWORD || '');
-const mongoUri = `mongodb+srv://${mongoUser}:${mongoPassword}@my-apis-kff0p.mongodb.net/my-website?retryWrites=true&w=majority`;
+const getMongoUri = () => {
+    if (process.env.MONGO_URI) {
+        return process.env.MONGO_URI;
+    }
 
-mongoose.connect(mongoUri);
+    const mongoUser = process.env.MONGO_ATLAS_USERNAME;
+    const mongoPassword = process.env.MONGO_ATLAS_PASSWORD;
+
+    if (!mongoUser || !mongoPassword) {
+        throw new Error('MongoDB credentials are missing. Set MONGO_URI or MONGO_ATLAS_USERNAME and MONGO_ATLAS_PASSWORD.');
+    }
+
+    return `mongodb+srv://${encodeURIComponent(mongoUser)}:${encodeURIComponent(mongoPassword)}@my-apis-kff0p.mongodb.net/my-website?retryWrites=true&w=majority`;
+};
+
+export const connectDatabase = () => mongoose.connect(getMongoUri());
 
 // override with the other methods in the request
 app.use(methodOverride('_method'));
@@ -81,14 +95,20 @@ app.use('/user', userRoutes);
 
 
 app.use((req, res, next) => {
-    const error = new Error('Invalid request')
+    const error = new Error('Invalid request');
     error.status = 404;
     next(error);
 });
 
 app.use((error, req, res, next) => {
-    res.status(error.status || 500);
-    res.render('ack_error', { errorMessage: 'Invalid URL' });
+    const status = error.status || 500;
+    const errorMessage = status === 404 ? 'Invalid URL' : 'Something went wrong. Please try again later.';
+
+    if (status >= 500) {
+        console.error(error);
+    }
+
+    res.status(status).render('ack_error', { errorMessage });
 });
 
 export default app;

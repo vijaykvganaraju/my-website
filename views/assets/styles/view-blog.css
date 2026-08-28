@@ -23,6 +23,7 @@
 
 .blog-body {
     margin-bottom: 10px;
+    overflow-x: auto;
 }
 
 /* end of body content of blog */
@@ -84,6 +85,7 @@
 table {
   border-collapse: collapse;
   margin: 0 auto;
+  max-width: 100%;
     
 }
 

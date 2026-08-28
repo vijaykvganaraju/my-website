@@ -1,11 +1,12 @@
 {
   "name": "my-site",
   "version": "1.0.0",
-  "description": "A website about my information, blogs, portfolio etc",
+  "description": "Personal portfolio, resume, blog, and contact website for Vijay Ganaraju",
   "type": "module",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "test": "node --test",
     "serve": "node server.js",
     "dryrun": "nodemon server.js"
   },
@@ -33,21 +34,18 @@
   },
   "dependencies": {
     "bcrypt": "^6.0.0",
-    "body-parser": "^1.19.0",
-    "dompurify": "^2.2.8",
+    "dompurify": "^3.4.14",
     "dotenv": "^17.3.1",
     "ejs": "^3.0.2",
     "express": "^4.17.1",
-    "jsdom": "^16.2.2",
-    "jsonwebtoken": "^8.5.1",
-    "marked": "^1.0.0",
+    "jsdom": "^29.1.1",
+    "marked": "^18.0.11",
     "method-override": "^3.0.0",
     "mongoose": "^8.23.0",
-    "nodemailer": "^6.6.1",
     "resend": "^6.9.2",
     "slugify": "^1.4.0"
   },
   "devDependencies": {
-    "nodemon": "^2.0.3"
+    "nodemon": "^3.1.14"
   }
 }

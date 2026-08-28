@@ -1,3 +1,7 @@
 function basics() {
-    document.querySelector('.navbar').style.boxShadow = 'none';
+    const navbar = document.querySelector('.navbar');
+
+    if (navbar) {
+        navbar.style.boxShadow = 'none';
+    }
 }

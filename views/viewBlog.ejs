@@ -36,18 +36,18 @@
            </div>
            <div class="tags-div">
                <% blog.tags.forEach(tag => { %>
-               <a href="/blog/tag/<%= tag %>" class="tag"><%= tag %></a>
+               <a href="/blog/tag/<%= encodeURIComponent(tag) %>" class="tag"><%= tag %></a>
                <% }); %>
            </div>
        </section>
         <section class="blog-navigation frc">
-            <% if (blog.next.slug != '') { %>
-            <div class="next-blog stretch"><a href="<%= blog.next.slug %>" class="next-page blog-button"><img
-                    src="/assets/img/icons/blog/trending_flat_left.png"><%= blog.next.title %></a></div>
+            <% if (navigation.newer) { %>
+            <div class="next-blog stretch"><a href="/blog/<%= navigation.newer.slug %>" class="next-page blog-button"><img
+                    src="/assets/img/icons/blog/trending_flat_left.png" alt="left arrow"><%= navigation.newer.title %></a></div>
             <% } %>
-            <% if (blog.prev.slug != '')  { %>
-            <div class="prev-blog stretch"><a href="<%= blog.prev.slug %>" class="prev-page blog-button"><%= blog.prev.title %><img
-                    src="/assets/img/icons/blog/trending_flat.png"></a></div>
+            <% if (navigation.older)  { %>
+            <div class="prev-blog stretch"><a href="/blog/<%= navigation.older.slug %>" class="prev-page blog-button"><%= navigation.older.title %><img
+                    src="/assets/img/icons/blog/trending_flat.png" alt="right arrow"></a></div>
             <% } %>
         </section>
     </main>

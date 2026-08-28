@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#000000" />
     <meta name="keywords" content="Vijay Kumar Varma Ganaraju, Vijay Ganaraju, blogs, thoughts, opinions, updates" />
-    <meta name="description" content="A blog page of Vijay Ganaraju about his thoughts, opions, findings, information, updates etc." />
+    <meta name="description" content="A blog page of Vijay Ganaraju about his thoughts, opinions, findings, information, updates etc." />
 
 
     <title>Blogs</title>
@@ -38,7 +38,7 @@
                         <p class="subject"><%= blog.subject %></p>
                         <div class="tags-div">
                             <% blog.tags.forEach(tag => { %>
-                            <a href="/blog/tag/<%= tag %>" class="tag"><%= tag %></a>
+                            <a href="/blog/tag/<%= encodeURIComponent(tag) %>" class="tag"><%= tag %></a>
                             <% }); %>
                         </div>
                         <div class="read-more-div">
@@ -49,11 +49,11 @@
         </section>
 
         <section class="pages-navigation">
-            <% if(pagesData.next)  { %>
-                <div class="next-div stretch"><a href="/blog/next" class="next-link"><img src="/assets/img/icons/blog/trending_flat_left.png" alt="left arrow">Next</a></div>
+            <% if(pagesData.older)  { %>
+                <div class="next-div stretch"><a href="/blog?page=<%= pagesData.olderPage %>" class="next-link"><img src="/assets/img/icons/blog/trending_flat_left.png" alt="left arrow">Older</a></div>
             <% } %>
-            <% if(pagesData.prev) { %>
-                <div class="prev-div stretch"><a href="/blog/prev" class="prev-link">Prev<img src="/assets/img/icons/blog/trending_flat.png" alt="right arrow"></a></div>
+            <% if(pagesData.newer) { %>
+                <div class="prev-div stretch"><a href="/blog?page=<%= pagesData.newerPage %>" class="prev-link">Newer<img src="/assets/img/icons/blog/trending_flat.png" alt="right arrow"></a></div>
             <% } %>
         </section>
 

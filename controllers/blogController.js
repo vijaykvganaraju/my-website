@@ -1,54 +1,46 @@
 import mongoose from 'mongoose';
 import slugify from 'slugify';
-import marked from 'marked';
+import { marked } from 'marked';
 import createDomPurify from 'dompurify';
 import { JSDOM } from 'jsdom';
-const domPurify = createDomPurify(new JSDOM().window );
+const domPurify = createDomPurify(new JSDOM().window);
 
 import Blog from '../models/blogModel.js';
 
 const LIMIT_RECORDS = 4;
-let skipRecords = 0;
-export const getBlogPage = async (req, res, next) => {
-    
-    let blogAvailability = false;
-    let pagesData = {
-        prev: false,
-        next: false
-    };
 
+const dateOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+
+const parseTags = (tagString) => tagString
+    .split(',')
+    .map(tag => tag.trim())
+    .filter(Boolean);
+
+const renderMarkdown = (markdown) => domPurify.sanitize(marked(markdown));
+
+const getSlug = (title) => slugify(title, { lower: true, strict: true });
+
+export const getBlogPage = async (req, res, next) => {
     try {
         const recordsCount = await Blog.countDocuments();
-        
-        if(req.url == '/prev') {
-            if(recordsCount - skipRecords > LIMIT_RECORDS) {
-                skipRecords = skipRecords + LIMIT_RECORDS;
-            }
-        } else if (req.url == '/next') {
-            if(skipRecords - LIMIT_RECORDS >= 0) {
-                skipRecords = skipRecords - LIMIT_RECORDS;
-            }
-        } else {
-            skipRecords = 0;
-        }
+        const requestedPage = Number.parseInt(req.query.page, 10);
+        const legacyPage = req.path === '/prev' ? 2 : 1;
+        const totalPages = Math.max(1, Math.ceil(recordsCount / LIMIT_RECORDS));
+        const currentPage = Math.min(
+            Number.isInteger(requestedPage) && requestedPage > 0 ? requestedPage : legacyPage,
+            totalPages
+        );
+        const skipRecords = (currentPage - 1) * LIMIT_RECORDS;
+
+        const pagesData = {
+            newer: currentPage > 1,
+            older: currentPage < totalPages,
+            newerPage: currentPage - 1,
+            olderPage: currentPage + 1
+        };
 
         if(recordsCount === 0) {
-            res.render('blog', { blogAvailability: false, pagesData: pagesData });
-            return;
-        } else {
-            blogAvailability = true;
-        }
-
-        if (recordsCount <= 4) {
-            skipRecords = 0;
-        } else {
-            pagesData.isAvailable = true;
-            if(skipRecords >= LIMIT_RECORDS) {
-                pagesData.next = true;
-            }
-            if(recordsCount - skipRecords > LIMIT_RECORDS) {
-                pagesData.prev = true;
-            }
+            return res.render('blog', { blogAvailability: false, blogs: [], pagesData });
         }
 
         const blogData = await Blog
@@ -58,18 +50,17 @@ export const getBlogPage = async (req, res, next) => {
                                 .skip(skipRecords)
                                 .limit(LIMIT_RECORDS);
 
-        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
         res.render('blog', { 
-            blogAvailability: blogAvailability,
+            blogAvailability: true,
             blogs: blogData,
             length: blogData.length,
-            dateOptions: options,
+            dateOptions,
             pagesData: pagesData 
         
         });
     } catch (err) {
         console.error(err);
-        res.status(504).redirect('/error');
+        next(err);
     }
     
     
@@ -78,28 +69,47 @@ export const getBlogPage = async (req, res, next) => {
 export const getSpecificBlog = async (req, res, next) => {
     try {
         const receivedBlog = await Blog.findOne({ slug: req.params.slug });
-        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-        res.render('viewBlog', { blog: receivedBlog, dateOptions: options });
+
+        if (!receivedBlog) {
+            return res.status(404).render('ack_error', { errorMessage: 'Blog not found.' });
+        }
+
+        const [newerBlog, olderBlog] = await Promise.all([
+            Blog.findOne({ datetime: { $gt: receivedBlog.datetime } })
+                .select('title slug')
+                .sort({ datetime: 'asc' }),
+            Blog.findOne({ datetime: { $lt: receivedBlog.datetime } })
+                .select('title slug')
+                .sort({ datetime: 'desc' })
+        ]);
+
+        res.render('viewBlog', {
+            blog: receivedBlog,
+            dateOptions,
+            navigation: {
+                newer: newerBlog,
+                older: olderBlog
+            }
+        });
 
     } catch(err) {
         console.error(err);
-        res.status(504).redirect('/error');
+        next(err);
     }
 };
 
 export const getBlogsWithTag = async (req, res, next) => {
     const tag = req.params.tag;
-    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
     
     try {
         const blogData = await Blog
             .find({ tags: tag })
             .select('_id title datetime subject body tags slug')
             .sort({ datetime: 'desc' });
-        res.render('searchBlog', { blogs: blogData, property: 'tag', property_value: tag, dateOptions: options });
+        res.render('searchBlog', { blogs: blogData, property: 'tag', property_value: tag, dateOptions });
     } catch (err) {
         console.error(err);
-        res.status(504).redirect('/error');
+        next(err);
     }
         
 };
@@ -107,59 +117,48 @@ export const getBlogsWithTag = async (req, res, next) => {
 export const setNewBlog = async (req, res,  next) => {
 
     if(req.body.title === '' || req.body.subject == '' || req.body.tags === '' || req.body.markdown === '') {
-        res.render('ack_error', { errorMessage: 'Some necessary fields are empty!' });
+        return res.status(400).render('ack_error', { errorMessage: 'Some necessary fields are empty!' });
     }
     
-    let tagString = req.body.tags;
-    tagsArray = tagString.split(',');
-    tagsArray = tagsArray.map(tag => tag.toString().trim());
-    
-    let markdown = req.body.markdown;
-    let sanitizedBody = domPurify.sanitize(marked(markdown));
+    const tagsArray = parseTags(req.body.tags);
 
-    let newBlog = {
+    if (tagsArray.length === 0) {
+        return res.status(400).render('ack_error', { errorMessage: 'At least one tag is required!' });
+    }
+    
+    const markdown = req.body.markdown;
+    const sanitizedBody = renderMarkdown(markdown);
+    const slug = getSlug(req.body.title);
+
+    if (!slug) {
+        return res.status(400).render('ack_error', { errorMessage: 'Title must contain at least one URL-safe character!' });
+    }
+
+    const newBlog = {
         _id: new mongoose.Types.ObjectId(),
         title: req.body.title,
         subject: req.body.subject,
         markdown: markdown,
         body: sanitizedBody,
         tags: tagsArray,
-        slug: '',
+        slug,
         prev: { title: '', slug: '' },
         next: { title: '', slug: '' }
-    }
-
-    newBlog.slug = slugify(newBlog.title, { lower: true, strict: true });
+    };
     
     try {
-        const prevBlog = await Blog
-            .findOne()
-            .select('title slug')
-            .sort({ datetime: 'desc' })
-            .limit(1);
-        
-        if (prevBlog) {
-            newBlog.prev.title = prevBlog.title;
-            newBlog.prev.slug = prevBlog.slug;
-        }
-
-        let blog = new Blog(newBlog);
+        const blog = new Blog(newBlog);
         await blog.save();
-
-        const prevBlogNextData = {
-            title: newBlog.title,
-            slug: newBlog.slug
-        };
-
-        if(prevBlog) {
-            await prevBlog.updateOne({ next: prevBlogNextData });
-        }
         
         res.status(200).redirect(`/blog/${ newBlog.slug }`);
 
     } catch(err) {
-        console.error('Navigation settings error: ' + err);
-        res.status(500).render('/error');
+        if (err.code === 11000) {
+            return res.status(409).render('ack_error', { errorMessage: 'A blog with this title already exists.' });
+        }
+
+        console.error(err);
+        next(err);
     }
     
 
@@ -176,61 +175,68 @@ export const editOrDeleteBlog = async (req, res, next) => {
 
     try {
         const blog = await Blog.findOne({ slug: slug }).select('_id title subject tags markdown');
+
+        if (!blog) {
+            return res.status(404).render('ack_error', { errorMessage: 'Blog not found.' });
+        }
+
         res.render('blogTemplate', { blog: blog, pageMode: reqType });
     } catch(err) {
         console.error(err);
-        res.render('ack_error', { errorMessage: 'Unable to edit the blog!' });
+        res.status(500).render('ack_error', { errorMessage: 'Unable to edit the blog!' });
     }
 
 };
 
 export const saveEditedBlog = async (req, res, next) => {
     if (req.body.title === '' || req.body.subject == '' || req.body.tags === '' || req.body.markdown === '') {
-        res.render('ack_error', { errorMessage: 'Some necessary fields are empty!'});
+        return res.status(400).render('ack_error', { errorMessage: 'Some necessary fields are empty!'});
     }
 
     try {
         
-        let blog = await Blog
+        const blog = await Blog
             .findOne({ _id: req.body.blogId });
 
+        if (!blog) {
+            return res.status(404).render('ack_error', { errorMessage: 'Blog not found.' });
+        }
             
-        let tagString = req.body.tags;
-        tagsArray = tagString.split(',');
-        tagsArray = tagsArray.map(tag => tag.toString().trim());
+        const tagsArray = parseTags(req.body.tags);
+
+        if (tagsArray.length === 0) {
+            return res.status(400).render('ack_error', { errorMessage: 'At least one tag is required!' });
+        }
         
-        let markdown = req.body.markdown;
-        let sanitizedBody = domPurify.sanitize(marked(markdown));
+        const markdown = req.body.markdown;
+        const sanitizedBody = renderMarkdown(markdown);
 
         const title = req.body.title;
         const subject = req.body.subject;
         const tags = tagsArray;
-        const slug = slugify(title, { lower: true, strict: true });
+        const slug = getSlug(title);
 
-        let updateFields = {};
-
-        if (title.localeCompare(blog.title) != 0) {
-            updateFields['title'] = title;
-            updateFields['slug'] = slug;
-
-        } 
-        if (subject.localeCompare(blog.subject)) {
-            updateFields['subject'] = subject;
-        }
-        if (JSON.stringify(tags) == JSON.stringify(blog.tags)) {
-            updateFields['tags'] = tags;
-        }
-        if (markdown.localeCompare(blog.markdown)) {
-            updateFields['markdown'] = markdown;
-            updateFields['body'] = sanitizedBody;
+        if (!slug) {
+            return res.status(400).render('ack_error', { errorMessage: 'Title must contain at least one URL-safe character!' });
         }
 
-        await blog.updateOne(updateFields);
+        await blog.updateOne({
+            title,
+            subject,
+            tags,
+            markdown,
+            body: sanitizedBody,
+            slug
+        });
 
         res.status(200).redirect(`/blog/${ slug }`);
     } catch (err) {
+        if (err.code === 11000) {
+            return res.status(409).render('ack_error', { errorMessage: 'A blog with this title already exists.' });
+        }
+
         console.error(err);
-        res.render('ack_error', { errorMessage: 'Unable to update the blog!' });
+        res.status(500).render('ack_error', { errorMessage: 'Unable to update the blog!' });
     }
     
 };
@@ -239,11 +245,16 @@ export const deleteBlog = async (req, res, next) => {
     const blogId = req.body.blogId;
     
     try {
-        await Blog.deleteOne({ _id: blogId });
+        const blog = await Blog.findByIdAndDelete(blogId);
+
+        if (!blog) {
+            return res.status(404).render('ack_error', { errorMessage: 'Blog not found.' });
+        }
+
         res.redirect('/blog');
     } catch(err) {
         console.error(err);
-        res.render('ack_error', { errorMessage: 'Unable to delete the blog!' });
+        res.status(500).render('ack_error', { errorMessage: 'Unable to delete the blog!' });
 
     }
 };

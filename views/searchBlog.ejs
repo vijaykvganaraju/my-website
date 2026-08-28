@@ -35,7 +35,7 @@
                 <p class="subject"><%= blog.subject %></p>
                 <div class="tags-div">
                     <% blog.tags.forEach(tag => { %>
-                    <a href="/blog/tag/<%= tag %>" class="tag"><%= tag %></a>
+                    <a href="/blog/tag/<%= encodeURIComponent(tag) %>" class="tag"><%= tag %></a>
                     <% }); %>
                 </div>
                 <div class="read-more-div">
