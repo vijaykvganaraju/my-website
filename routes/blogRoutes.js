@@ -9,11 +9,11 @@ router.get('/next', BlogController.getBlogPage);
 
 router.get('/prev', BlogController.getBlogPage);
 
-router.get('/new', BlogController.createNewBlog);
+router.get('/new', checkAuth, BlogController.createNewBlog);
 
-router.get('/edit/:slug', BlogController.editOrDeleteBlog);
+router.get('/edit/:slug', checkAuth, BlogController.editOrDeleteBlog);
 
-router.get('/delete/:slug', BlogController.editOrDeleteBlog);
+router.get('/delete/:slug', checkAuth, BlogController.editOrDeleteBlog);
 
 router.get('/tag/:tag', BlogController.getBlogsWithTag);
 

@@ -25,9 +25,9 @@
 
     <main id="container" class="container limit-page">
 
-        <div id="modal" class="modal" onclick="closeModal()">
-            <span class="material-icons close">close</span>
-            <img class="modal-content" id="displayImg">
+        <div id="modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="caption" aria-hidden="true" tabindex="-1" onclick="handleModalClick(event)">
+            <button type="button" class="material-icons close" onclick="closeModal()" aria-label="Close image preview">close</button>
+            <img class="modal-content" id="displayImg" alt="">
             <div id="caption" class="caption"></div>
             <div class="disclaimer">Images are uploaded in compressed formats for faster loading times</div>
         </div>
@@ -45,9 +45,9 @@
             <div class="projects">
                 <a id="ai5" class="project fcc" href="https://github.com/vijaykvganaraju/statue-story-teller-app"
                     target="_blank" rel="noopener noreferrer">
-                    <img src="/assets/img/portfolio/ai/history_statues.jpg" alt="AI Visual History Guide iOS App" class="project-img">
+                    <img src="/assets/img/portfolio/ai/history_statues.jpg" alt="CampusLore" class="project-img">
                     <div class="img-overlay">
-                        <p class="project-name">AI Visual History Guide iOS App</p>
+                        <p class="project-name">CampusLore AR iOS app with local CNN</p>
                     </div>
                 </a>
 
@@ -93,9 +93,9 @@
             <div class="projects">
                 <a id="rl1" class="project fcc" href="https://github.com/vijaykvganaraju/autocar" target="_blank"
                     rel="noopener noreferrer">
-                    <img src="/assets/img/portfolio/rl/autocar.jpg" alt="Obstacle Avoiding Rover" class="project-img">
+                    <img src="/assets/img/portfolio/rl/autocar.jpg" alt="Self-Driving Navigation Robot" class="project-img">
                     <div class="img-overlay">
-                        <p class="project-name">Autonomous Rover with Reinforcement Learning</p>
+                        <p class="project-name">Self-Driving Navigation Robot - RL rover with ultrasonic obstacle avoidance.</p>
                     </div>
                 </a>
             </div>
@@ -171,28 +171,28 @@
             </header>
             <div class="projects">
 
-                <button id="art1" class="project fcc" onclick="enlarge(this.id)">
+                <button id="art1" type="button" class="project fcc" onclick="enlarge(this.id)">
                     <img src="/assets/img/portfolio/artwork/farewell.jpg" alt="Farewell Banner" class="project-img">
                     <div class="img-overlay">
                         <p class="project-name">Farewell Banner</p>
                     </div>
                 </button>
 
-                <button id="art2" class="project fcc" onclick="enlarge(this.id)">
+                <button id="art2" type="button" class="project fcc" onclick="enlarge(this.id)">
                     <img src="/assets/img/portfolio/artwork/ibm_hackathon.jpg" alt="IBM Hackathon Banner" class="project-img">
                     <div class="img-overlay">
                         <p class="project-name">Hackathon Banner</p>
                     </div>
                 </button>
 
-                <button id="art3" class="project fcc" onclick="enlarge(this.id)">
+                <button id="art3" type="button" class="project fcc" onclick="enlarge(this.id)">
                     <img src="/assets/img/portfolio/artwork/elevar_brochure.jpg" alt="Elevar Brochure" class="project-img">
                     <div class="img-overlay">
                         <p class="project-name">Elevar Brochure</p>
                     </div>
                 </button>
 
-                <button id="art4" class="project fcc" onclick="enlarge(this.id)">
+                <button id="art4" type="button" class="project fcc" onclick="enlarge(this.id)">
                     <img src="/assets/img/portfolio/artwork/ieee_banner.jpg" alt="IEEE Banner" class="project-img">
                     <div class="img-overlay">
                         <p class="project-name">IEEE Banner</p>
@@ -208,21 +208,21 @@
                 </h2>
             </header>
             <div class="projects">
-                <button id="model1" class="project fcc" onclick="enlarge(this.id)">
+                <button id="model1" type="button" class="project fcc" onclick="enlarge(this.id)">
                     <img src="/assets/img/portfolio/3d/glass.jpg" alt="Mostly Empty" class="project-img">
                     <div class="img-overlay">
                         <p class="project-name">Mostly Empty</p>
                     </div>
                 </button>
 
-                <button id="model2" class="project fcc" onclick="enlarge(this.id)">
+                <button id="model2" type="button" class="project fcc" onclick="enlarge(this.id)">
                     <img src="/assets/img/portfolio/3d/donut.jpg" alt="Donut Meal" class="project-img">
                     <div class="img-overlay">
                         <p class="project-name">Donut Meal</p>
                     </div>
                 </button>
 
-                <button id="model3" class="project fcc" onclick="enlarge(this.id)">
+                <button id="model3" type="button" class="project fcc" onclick="enlarge(this.id)">
                     <img src="/assets/img/portfolio/3d/top.jpg" alt="Spinning Top" class="project-img">
                     <div class="img-overlay">
                         <p class="project-name">Spinning Top</p>

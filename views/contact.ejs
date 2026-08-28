@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#000000" />
-    <meta name="keywords" content="Vijay Kumar Varma Ganaraju, Vijay Ganaraju, Contact me, Instagram, Twitter, LinkedIn, YouTube, Discord"/>
+    <meta name="keywords" content="Vijay Kumar Varma Ganaraju, Vijay Ganaraju, Contact me, email, GitHub, LinkedIn, X, YouTube, Discord"/>
     <meta name="description" content="A way to contact Vijay Ganaraju either via a form or through different Social Media platforms"/>
 
     <title>Contact Me</title>
@@ -49,7 +49,7 @@
                 <input type="text" name="subject" id="subject" required>
                 <label for="message">Message</label>
                 <textarea name="message" id="message" cols="30" rows="10" maxlength="1000" required></textarea>
-                <div class="g-recaptcha frc" data-sitekey="6Lf16-oUAAAAAF7KtpJtvu52fWCE5GVllQKLcCl5"></div>
+                <div class="g-recaptcha frc" data-sitekey="<%= recaptchaSiteKey %>"></div>
                 <div class="common-button-div">
                     <input type="submit" value="SEND" class="common-button frc">
                 </div>
@@ -62,28 +62,35 @@
 
         <section class="social-screen">
             <div class="social-links">
-                <button class="social-media linkedin" onclick="redirectSocial('li')">
+                <button type="button" class="social-media linkedin" onclick="redirectSocial('li')">
                     LinkedIn
                     <span class="material-icons">
                         open_in_new
                     </span>
                 </button>
 
-                <button class="social-media twitter" onclick="redirectSocial('tw')">
-                    Twitter
+                <button type="button" class="social-media twitter" onclick="redirectSocial('tw')">
+                    X
                     <span class="material-icons">
                         open_in_new
                     </span>
                 </button>
 
-                <button class="social-media instagram" onclick="redirectSocial('in')">
+                <button type="button" class="social-media github" onclick="redirectSocial('git')">
+                    GitHub
+                    <span class="material-icons">
+                        open_in_new
+                    </span>
+                </button>
+
+                <button type="button" class="social-media instagram" onclick="redirectSocial('in')">
                     Instagram
                     <span class="material-icons">
                         open_in_new
                     </span>
                 </button>
 
-                <button class="social-media discord" onclick="redirectSocial('di')">
+                <button type="button" class="social-media discord" onclick="redirectSocial('di')">
                     Discord
                     <span class="material-icons">
                         open_in_new
@@ -99,7 +106,7 @@
 
         <section class="social-screen">
             <div class="social-links">
-                <button class="social-media linkedin" onclick="redirectSocial('yt')">
+                <button type="button" class="social-media linkedin" onclick="redirectSocial('yt')">
                     YouTube
                     <span class="material-icons">
                         open_in_new

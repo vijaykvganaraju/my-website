@@ -1,3 +1,5 @@
+let lastFocusedProject = null;
+
 function enlarge(id) {
     const divId = '#' + id;
     const selectedProject = document.querySelector(divId);
@@ -15,21 +17,50 @@ function enlarge(id) {
 
     const imgAddress = selectedImage.getAttribute('src');
     const text = selectedCaption.innerText;
+    const modal = document.querySelector('#modal');
+    const displayImg = document.querySelector('#displayImg');
+    const caption = document.querySelector('#caption');
     
-    document.querySelector('#displayImg').src = imgAddress;
-    document.querySelector('#caption').innerText = text;
-    document.querySelector('#modal').style.display = 'block';
+    if (!modal || !displayImg || !caption) {
+        return;
+    }
+
+    lastFocusedProject = selectedProject;
+    displayImg.src = imgAddress;
+    displayImg.alt = text;
+    caption.innerText = text;
+    modal.style.display = 'block';
+    modal.setAttribute('aria-hidden', 'false');
+    modal.focus();
 }
 
 function closeModal() {
-    document.querySelector('#modal').style.display = 'none';
+    const modal = document.querySelector('#modal');
 
+    if (!modal) {
+        return;
+    }
+
+    modal.style.display = 'none';
+    modal.setAttribute('aria-hidden', 'true');
+
+    if (lastFocusedProject) {
+        lastFocusedProject.focus();
+    }
+
+}
+
+function handleModalClick(evt) {
+    if (evt.target && evt.target.id === 'modal') {
+        closeModal();
+    }
 }
 
 document.onkeydown = function (evt) {
     evt = evt || window.event;
-    
-    if (evt.key === 'Escape' && document.querySelector('#modal').style.display === 'block') {
+    const modal = document.querySelector('#modal');
+
+    if (evt.key === 'Escape' && modal && modal.style.display === 'block') {
         closeModal();
     }
 };

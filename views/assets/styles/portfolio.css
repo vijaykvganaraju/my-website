@@ -64,7 +64,7 @@
 
 
 
-@media only screen and (min-width: 320px) and (max-width: 899px) {
+@media only screen and (max-width: 899px) {
 
     .projects {
         display: flex;
@@ -137,7 +137,8 @@
     width: 100%;
     height: 100%;
     z-index: 999;
-    background-color: #00000090;   
+    background-color: #00000090;
+    overflow: auto;   
 }
 
 .modal-content {
@@ -159,7 +160,9 @@
     font-size: 1rem;
     transition: 0.3s;
     color: #ffffff;
-    cursor: pointer;       
+    cursor: pointer;
+    background: none;
+    border: none;       
 }
 
 .disclaimer {

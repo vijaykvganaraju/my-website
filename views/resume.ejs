@@ -30,30 +30,31 @@
                 <h1 class="page-title">Resumé</h1>
             </div>
             <div class="controls">
-                <button id="prev-page" class="control-button" onclick="prevPage()"><i
+                <button id="prev-page" type="button" class="control-button" onclick="prevPage()" aria-label="Previous resume page"><i
                         class="material-icons control-icon">keyboard_arrow_left</i></button>
-                <button id="zoom-in" class="control-button" onclick="zoomIn()"><i
+                <button id="zoom-in" type="button" class="control-button" onclick="zoomIn()" aria-label="Zoom in on resume"><i
                         class="material-icons control-icon">zoom_in</i></button>
-                <button id="zoom-out" class="control-button" onclick="zoomOut()"><i
+                <button id="zoom-out" type="button" class="control-button" onclick="zoomOut()" aria-label="Zoom out of resume"><i
                         class="material-icons control-icon">zoom_out</i></button>
-                <button id="next-page" class="control-button" onclick="nextPage()"><i
+                <button id="next-page" type="button" class="control-button" onclick="nextPage()" aria-label="Next resume page"><i
                         class="material-icons control-icon">keyboard_arrow_right</i></button>
             </div>
 
             <div class="info">
-                <p>Page <span id="pageNumber">0</span> of <span id="totalPages">0</span></p>
+                <p id="resumeStatus">Page <span id="pageNumber">0</span> of <span id="totalPages">0</span></p>
             </div>
         </div>
 
         <div class="pdf-canvas-div">
-            <canvas class="pdf-canvas">
+            <canvas class="pdf-canvas" role="img" aria-label="Resume PDF page preview">
+                Your browser cannot display the resume preview. Use the raw document link below.
             </canvas>
         </div>
 
         <div class="common-button-div">
             <a class="common-button frc" href="/assets/files/resume.pdf" target="_blank" rel="noopener noreferrer">VIEW RAW DOCUMENT</a>
 
-            <a class="common-button frc" href="/contact">GET UNREDACTED VERSION</a>
+            <a class="common-button frc" href="/contact">CONTACT ME</a>
         </div>
 
 

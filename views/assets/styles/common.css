@@ -152,7 +152,7 @@
 
 }
 
-@media only screen and (min-width: 320px) and (max-width: 899px) {
+@media only screen and (max-width: 899px) {
     /* navbar */
     .navbar {
         flex-wrap: wrap;
@@ -319,6 +319,14 @@
 
 .nav-top {
     padding-top: 70px;
+}
+
+.nav-button {
+    background: none;
+    border: none;
+    padding: 0;
+    color: #000000;
+    font: inherit;
 }
 
 .menu-option {
