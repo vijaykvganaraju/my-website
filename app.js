@@ -28,10 +28,7 @@ app.get('/manifest.webmanifest', (req, res) => {
 // setting view engine to ejs for templating
 app.set('view engine', 'ejs');
 
-// For parsing the data sent through requests
-app.use(express.urlencoded({ extended: false }));
-app.use(express.json());
-
+// Runs before body parsing so error pages still have activePage for the header.
 app.use((req, res, next) => {
     if (req.path === '/') {
         res.locals.activePage = 'home';
@@ -49,6 +46,18 @@ app.use((req, res, next) => {
         res.locals.activePage = '';
     }
 
+    next();
+});
+
+// For parsing the data sent through requests
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
+
+// Express 5 leaves req.body undefined when there's no body; keep it an object.
+app.use((req, res, next) => {
+    if (req.body === undefined) {
+        req.body = {};
+    }
     next();
 });
 

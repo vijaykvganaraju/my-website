@@ -14,7 +14,7 @@ const userSchema = mongoose.Schema({
     tries: { type: Number, default: 3 }
 });
 
-userSchema.pre('validate', function (next) {
+userSchema.pre('validate', function () {
     if (!this.auth || (!this.auth.passwordHash && !this.auth.encryptedPass)) {
         this.invalidate('auth', 'A password hash is required.');
     }
@@ -26,7 +26,6 @@ userSchema.pre('validate', function (next) {
             return;
         }
     })
-    next();
 });
 
 export default mongoose.model('Users', userSchema);
